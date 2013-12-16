@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_Logger | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.html" title="Summary of PSA"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></li>
+				<li><a href="class-Psa_Group.html">Psa_Group</a></li>
+				<li class="active"><a href="class-Psa_Logger.html">Psa_Logger</a></li>
+				<li><a href="class-Psa_Model.html">Psa_Model</a></li>
+				<li><a href="class-Psa_PDO.html">Psa_PDO</a></li>
+				<li><a href="class-Psa_Registry.html">Psa_Registry</a></li>
+				<li><a href="class-Psa_Result.html">Psa_Result</a></li>
+				<li><a href="class-Psa_Router.html">Psa_Router</a></li>
+				<li><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></li>
+				<li><a href="class-Psa_User.html">Psa_User</a></li>
+				<li><a href="class-Psa_Validator.html">Psa_Validator</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-prs.html">prs</a></li>
+				<li><a href="function-psa_add_include_path.html">psa_add_include_path</a></li>
+				<li><a href="function-psa_autoload.html">psa_autoload</a></li>
+				<li><a href="function-psa_delete_group.html">psa_delete_group</a></li>
+				<li><a href="function-psa_delete_user.html">psa_delete_user</a></li>
+				<li><a href="function-psa_is_user_in_group.html">psa_is_user_in_group</a></li>
+				<li><a href="function-psa_run_hooks.html">psa_run_hooks</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_Logger</h1>
+
+
+	<div class="description">
+	
+<p>This class handles logging.</p>
+
+<p>Logs are by default written to database into <i>psa_log</i> table but can be
+also written to a file depending on settings in config.php file.</p>
+
+<p>This class implements <a href="http://en.wikipedia.org/wiki/Singleton_pattern">singleton pattern</a> to ensure that there is only one instance of the <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object and to allow that this single instance is easily accessible
+from any scope. You should not make instance of <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object with
+the <kbd>new</kbd> operator instead call static method <code><a href="class-Psa_Logger.html#_get_instance">Psa_Logger::get_instance()</a></code>.</p>
+
+<p><br />
+<b>Examples:</b></p>
+
+<p><br />
+<b>1)</b> Log a single message.</p>
+
+<pre>
+Psa_Logger::get_instance()-&gt;<span class="php-keyword2">log</span>(<span
+class="php-quote">&quot;Log message&quot;</span>);
+</pre>
+
+<p><br />
+<b>2)</b> If you want to extend this class you can write your child class like
+this:</p>
+
+<pre>
+<span class="xlang">&lt;?php</span>
+<span
+class="php-keyword1">class</span> My_Logger <span
+class="php-keyword1">extends</span> Psa_Logger
+{
+   <span
+class="php-comment">// returns My_Logger instance</span>
+   <span
+class="php-keyword1">public</span> <span
+class="php-keyword1">static</span> <span
+class="php-keyword1">function</span> get_instance()
+   {
+      <span
+class="php-keyword1">return</span> parent::get_instance(__CLASS__);
+   }
+
+   <span
+class="php-comment">// your method for generate database query</span>
+   <span
+class="php-keyword1">function</span> format_database_log_query(<span
+class="php-var">$log_storage</span>){
+                <span
+class="php-comment">//...</span>
+   }
+
+   <span
+class="php-comment">// your method for parameters for prepared query</span>
+   <span
+class="php-keyword1">function</span> format_database_log_query_params(<span
+class="php-var">$log_data</span>){
+                <span
+class="php-comment">//...</span>
+   }
+}
+
+<span
+class="php-comment">// call log method</span>
+My_Logger::get_instance()-&gt;<span
+class="php-keyword2">log</span>(<span
+class="php-quote">&quot;log message&quot;</span>);
+<span
+class="xlang">?&gt;</span>
+</pre>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+Psa_Singleton
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Psa_Logger</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Psa_Logger.html#32-377" title="Go to source code">lib/Psa_Logger.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="get_instance" id="_get_instance">
+
+			<td class="attributes"><code>
+				 public static
+				object
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_get_instance">#</a>
+			<code><strong><a href="source-class-Psa_Logger.html#98-117" title="Go to source code">get_instance</a></strong>( <span>mixed <var>$class</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns instance of the <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns instance of the <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object.</p>
+
+<p>You should statically call this method with scope resolution operator (::)
+which gives you access to the logging object from anywhere in your application,
+whether it is from a function, a method, or the global scope. Example:</p>
+
+<pre>
+Psa_Logger::get_instance()-&gt;<span class="php-keyword2">log</span>(<span
+class="php-quote">&quot;Log message&quot;</span>);
+</pre>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>object</code><br>Psa_Logger<br />
+					</div>
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code>Psa_Singleton::get_instance</code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="log" id="_log">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_log">#</a>
+			<code><strong><a href="source-class-Psa_Logger.html#120-272" title="Go to source code">log</a></strong>( <span>array|string <var>$log_data</var></span>, <span>integer|string <var>$log_storage</var> = <span class="php-quote">'psa_default'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Writes logs.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Writes logs.</p>
+
+<p>Writes a log record to database or file. This depends on settings
+(<var>$PSA_CFG['logging']</var>) in config.php. First argument can be
+array or string. If is a string it is written to the log. If it is array some
+other values in log record can be set. Here is example array with all available
+elements and example values that can be used as first argument for this
+method.</p>
+
+<pre>
+Array
+(
+    [user_id] =&gt; 5                // id of user
+    [username] =&gt; john            // username
+    [group_id] =&gt; 3               // id of group
+    [groupname] =&gt; test           // group name
+    [message] =&gt; new user created // log message
+    [function] =&gt; Psa_User::save  // method or function name that created log
+    [level] =&gt; 2                  // Log level, default 1. Integer. If greater than &lt;var&gt;$PSA_CFG['logging']['level']&lt;/var&gt; log will not be saved.
+    [type] =&gt; general             // Log message type. For exceptions this is exception class name. Custom string value.
+)
+</pre>
+
+<p>All array elements are optional.</p>
+
+<p><b>Example:</b></p>
+
+<pre>
+<span class="xlang">&lt;?php</span>
+
+<span
+class="php-comment">// set data to log</span>
+<span
+class="php-var">$log_data</span>[<span
+class="php-quote">'user_id'</span>]  = <span class="php-num">123</span>;
+<span
+class="php-var">$log_data</span>[<span
+class="php-quote">'username'</span>] = <span
+class="php-quote">'abc'</span>;
+<span class="php-var">$log_data</span>[<span
+class="php-quote">'message'</span>]  = <span
+class="php-quote">'test message'</span>;
+<span
+class="php-var">$log_data</span>[<span
+class="php-quote">'function'</span>] = <span
+class="php-quote">'some_method'</span>;
+<span
+class="php-var">$log_data</span>[<span
+class="php-quote">'level'</span>]    = <span class="php-num">1</span>;
+<span
+class="php-var">$log_data</span>[<span
+class="php-quote">'type'</span>]     = <span
+class="php-quote">'some_type'</span>;
+
+<span
+class="php-comment">// write log</span>
+Psa_Logger::get_instance()-&gt;<span
+class="php-keyword2">log</span>(<span class="php-var">$log_data</span>);
+
+<span
+class="xlang">?&gt;</span>
+</pre>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$log_data</var></dt>
+												<dd><code>array|string</code><br>array with data to be logged or log message only. If is a string, that string is
+used as message to be logged.</dd>
+						<dt><var>$log_storage</var></dt>
+												<dd><code>integer|string</code><br>storage for the log. This is index of <var>$PSA_CFG['logging']['storage']</var>
+array in config.php. Default is 'psa_default'.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>0 for failure, 1 for success, -1 logging is disabled or the log level for
+message is set too low (bigger number than
+<var>$PSA_CFG['logging']['max_log_level'] </var>).<br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Logger.html#_get_instance">Psa_Logger::get_instance()</a></code></code><br />
+							<code><code><a href="class-Psa_Logger.html#_format_file_log">Psa_Logger::format_file_log()</a></code></code><br />
+							format_database_log()<br />
+							config.php<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="format_database_log_query" id="_format_database_log_query">
+
+			<td class="attributes"><code>
+				 protected 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_format_database_log_query">#</a>
+			<code><strong><a href="source-class-Psa_Logger.html#275-292" title="Go to source code">format_database_log_query</a></strong>( <span>integer <var>$log_storage</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns SQL insert query that inserts row to <i>psa_log</i> database
+table.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns SQL insert query that inserts row to <i>psa_log</i> database
+table.</p>
+
+<p>Override this method if you want to change log format in the database. You
+will have to manually alter log database table if you wish to add some new
+columns into it. This method has to have matching <code><a href="class-Psa_Logger.html#_format_database_log_query_params">Psa_Logger::format_database_log_query_params()</a></code> method.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$log_storage</var></dt>
+												<dd><code>integer</code><br>see <code><a href="class-Psa_Logger.html#_log">Psa_Logger::log()</a></code> method</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Logger.html#_format_database_log_query_params">Psa_Logger::format_database_log_query_params()</a></code></code><br />
+							<code><code><a href="class-Psa_Logger.html#_format_file_log">Psa_Logger::format_file_log()</a></code></code><br />
+							<code><code><a href="class-Psa_Logger.html#_log">Psa_Logger::log()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="format_database_log_query_params" id="_format_database_log_query_params">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_format_database_log_query_params">#</a>
+			<code><strong><a href="source-class-Psa_Logger.html#295-319" title="Go to source code">format_database_log_query_params</a></strong>( <span>array <var>$log_data</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns array of parameters for prepared query from <code><a href="class-Psa_Logger.html#_format_database_log_query">Psa_Logger::format_database_log_query()</a></code> method.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns array of parameters for prepared query from <code><a href="class-Psa_Logger.html#_format_database_log_query">Psa_Logger::format_database_log_query()</a></code> method.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$log_data</var></dt>
+												<dd><code>array</code><br>see <code><a href="class-Psa_Logger.html#_log">Psa_Logger::log()</a></code> method</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Logger.html#_format_database_log_query">Psa_Logger::format_database_log_query()</a></code></code><br />
+							<code><code><a href="class-Psa_Logger.html#_format_file_log">Psa_Logger::format_file_log()</a></code></code><br />
+							<code><code><a href="class-Psa_Logger.html#_log">Psa_Logger::log()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="format_file_log" id="_format_file_log">
+
+			<td class="attributes"><code>
+				 protected 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_format_file_log">#</a>
+			<code><strong><a href="source-class-Psa_Logger.html#322-376" title="Go to source code">format_file_log</a></strong>( <span>array <var>$log_data</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Formats log message that will be written into the log file.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Formats log message that will be written into the log file.</p>
+
+<p>Override this method if you want to change log format.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$log_data</var></dt>
+												<dd><code>array</code><br>see <code><a href="class-Psa_Logger.html#_log">Psa_Logger::log()</a></code> method</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							format_database_log()<br />
+							<code><code><a href="class-Psa_Logger.html#_log">Psa_Logger::log()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from Psa_Singleton</h3>
+		<p class="elementList">
+			<code>__clone()</code>, 
+			<code>__construct()</code>
+		</p>
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

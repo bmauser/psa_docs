@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_Validator | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.html" title="Summary of PSA"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></li>
+				<li><a href="class-Psa_Group.html">Psa_Group</a></li>
+				<li><a href="class-Psa_Logger.html">Psa_Logger</a></li>
+				<li><a href="class-Psa_Model.html">Psa_Model</a></li>
+				<li><a href="class-Psa_PDO.html">Psa_PDO</a></li>
+				<li><a href="class-Psa_Registry.html">Psa_Registry</a></li>
+				<li><a href="class-Psa_Result.html">Psa_Result</a></li>
+				<li><a href="class-Psa_Router.html">Psa_Router</a></li>
+				<li><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></li>
+				<li><a href="class-Psa_User.html">Psa_User</a></li>
+				<li class="active"><a href="class-Psa_Validator.html">Psa_Validator</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-prs.html">prs</a></li>
+				<li><a href="function-psa_add_include_path.html">psa_add_include_path</a></li>
+				<li><a href="function-psa_autoload.html">psa_autoload</a></li>
+				<li><a href="function-psa_delete_group.html">psa_delete_group</a></li>
+				<li><a href="function-psa_delete_user.html">psa_delete_user</a></li>
+				<li><a href="function-psa_is_user_in_group.html">psa_is_user_in_group</a></li>
+				<li><a href="function-psa_run_hooks.html">psa_run_hooks</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_Validator</h1>
+
+
+	<div class="description">
+	
+<p>Class for input data validation.</p>
+
+<p>You should validate all input data from users. Validation should occur in the
+model method, not in controller (in some action method). That makes your models
+more independent and more reusable and testing is easier.</p>
+
+<p><br />
+<b>Usage example</b></p>
+
+<pre>
+<span class="xlang">&lt;?php</span>
+
+<span
+class="php-comment">// model class</span>
+<span
+class="php-keyword1">class</span> search <span
+class="php-keyword1">extends</span> Psa_Model{
+
+    <span
+class="php-comment">// search method</span>
+    <span
+class="php-keyword1">function</span> filter(<span
+class="php-var">$max_results</span>, <span
+class="php-var">$only_pages</span>){
+
+        <span
+class="php-comment">// input validation</span>
+        <span
+class="php-var">$validator</span> = <span
+class="php-keyword1">new</span> Psa_Validator();
+        <span
+class="php-var">$validator</span>-&gt;required(<span
+class="php-var">$max_results</span>, <span
+class="php-quote">'int'</span>);
+        <span
+class="php-var">$validator</span>-&gt;optional(<span
+class="php-var">$only_pages</span>, <span
+class="php-quote">'int_array'</span>);
+
+        <span
+class="php-comment">// Method logic starts here.</span>
+        <span
+class="php-comment">// For example to query the database using $max_results in SQL query</span>
+        <span
+class="php-comment">// ...</span>
+<span
+class="php-comment">//</span>
+    }
+}
+<span class="xlang">?&gt;</span>
+</pre>
+
+<p><br />
+<b>All validation actions</b></p>
+
+<p>Two main methods in this class are <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> and <code><a href="class-Psa_Validator.html#_optional">Psa_Validator::optional()</a></code>.
+They behave the same except that <code><a href="class-Psa_Validator.html#_optional">Psa_Validator::optional()</a></code> will not raise exception if
+value is empty or <kbd>null</kbd>. Like in the example above, first argument is
+the value that should be validated, second is the validation action name. See
+<code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method documentation for all action names. Some validation
+actions expect more parameters. Examples:</p>
+
+<pre>
+
+<span class="php-var">$val</span> = <span
+class="php-keyword1">new</span> Psa_Validator();
+
+<span
+class="php-comment">// Finds whether the given $value is between (or equal) 10 and 20.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'between'</span>, <span
+class="php-num">10</span>, <span class="php-num">20</span>);
+
+<span
+class="php-comment">// Finds whether the length of the given $value is between (or equal) 10 and 20 characters.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span
+class="php-quote">'lenbetween'</span>, <span class="php-num">10</span>, <span
+class="php-num">20</span>);
+
+<span
+class="php-comment">// Finds whether the given $value is in array passed as third argument.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'invalues'</span>, <span
+class="php-keyword1">array</span>(<span class="php-num">1</span>, <span
+class="php-num">2</span>, <span class="php-num">3</span>, <span
+class="php-num">4</span>));
+
+<span
+class="php-comment">// Checks is the given $value an integer.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'int'</span>);
+
+<span
+class="php-comment">// Finds whether the given $value is integer bigger than 0.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'id'</span>);
+
+<span
+class="php-comment">// Checks date if matches given format and validity of the date.</span>
+<span
+class="php-comment">// Third argument is combination of 'mm', 'dd' and 'yyyy'</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'date'</span>, <span
+class="php-quote">'mm.dd.yyyy'</span>);
+
+<span
+class="php-comment">//  Finds whether the given $value has valid email format.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'email'</span>);
+
+<span
+class="php-comment">// Checks is the given $value valid IPv4 address.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'ip4'</span>);
+
+<span
+class="php-comment">// Checks is the given $value valid floating point number.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'float'</span>);
+
+<span
+class="php-comment">// Checks whether the given $value is a valid string.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'string'</span>);
+
+<span
+class="php-comment">// Checks whether the given $value contains letters only.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'alpha'</span>);
+
+<span
+class="php-comment">// Checks whether the given $value contains numbers only.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'num'</span>);
+
+<span
+class="php-comment">// Checks whether the given $value contains alphanumeric characters only.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span
+class="php-quote">'alphanum'</span>);
+
+<span
+class="php-comment">// Checks whether the given $value contains domain name safe characters only.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span
+class="php-quote">'domainsafe'</span>);
+
+<span
+class="php-comment">// The same as 'domainsafe' but dot '.' is also included.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span
+class="php-quote">'hostname'</span>);
+
+<span
+class="php-comment">// Searches $value for a match to the regular expression given as third argument</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'regex'</span>, <span
+class="php-quote">'/[0-9]/'</span>);
+
+<span
+class="php-comment">// Checks if given $value is valid URL.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'url'</span>);
+
+<span
+class="php-comment">// Calls user function or method which has to return true or false.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'callback'</span>, <span
+class="php-quote">'user_function_name'</span>, <span
+class="php-quote">'param1'</span>);
+
+<span
+class="php-comment">// Returns true if parameters are equal (==).</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'equal'</span>, <span
+class="php-quote">'something'</span>);
+
+<span
+class="php-comment">// Returns true if parameters are identical (===).</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'identical'</span>, <span
+class="php-num">1234</span>);
+
+<span
+class="php-comment">// Validates an IPv6 address.</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'ip6'</span>);
+
+</pre>
+
+<p><br />
+<b>Validating array of values</b></p>
+
+<p>If you want to validate array of values, suffix <b><kbd>_array</kbd></b> can
+be added to any of validation actions to validate each element of array. For
+example, this is useful when validating input from HTML drop-down menu with
+multiple selections.</p>
+
+<pre>
+
+<span class="php-var">$val</span> = <span
+class="php-keyword1">new</span> Psa_Validator();
+
+<span
+class="php-comment">// each element of $array should be integger</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$array</span>, <span
+class="php-quote">'int_array'</span>);
+
+<span
+class="php-comment">// each element of $array should be 1, 2, 3 or 4</span>
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$array</span>, <span
+class="php-quote">'invalues_array'</span>, <span
+class="php-keyword1">array</span>(<span class="php-num">1</span>, <span
+class="php-num">2</span>, <span class="php-num">3</span>, <span
+class="php-num">4</span>));
+
+</pre>
+
+<p><br />
+<b>Custom error message per validation</b></p>
+
+<p>If validation fails, by default exception will be raized. Each action has
+it's own default error message, but you can change that message by passing one
+more argument to <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> or <code><a href="class-Psa_Validator.html#_optional">Psa_Validator::optional()</a></code> method. This can be
+usefull for example if you log exeptions and want more descriptive error message
+or message will be shown to the user.</p>
+
+<pre>
+
+<span class="php-var">$val</span> = <span
+class="php-keyword1">new</span> Psa_Validator();
+
+<span
+class="php-var">$val</span>-&gt;required(<span
+class="php-var">$value</span>, <span class="php-quote">'id'</span>, <span
+class="php-quote">'Not valid product ID'</span>);
+
+</pre>
+
+<p><br />
+<b>Adding custom validation</b></p>
+
+<p>You can extend this class and add your validation function (action). In the
+next example '<kbd>5to9</kbd>' action is added. Note that validation method
+named <var>check_5to9()</var> and error message named <var>$msg_check_5to9</var>
+are added in the child class. Validation method should return <kbd>true</kbd> or
+<kbd>false</kbd>. When you add validation action like this you can use it with
+<kbd>_array</kbd> suffilx like any other builtin action. See the source code of
+this class for more examples.</p>
+
+<pre>
+<span class="php-keyword1">class</span> MyValidator <span
+class="php-keyword1">extends</span> Psa_validator{
+
+    <span
+class="php-comment">// Error message for 5to9 validation</span>
+    <span
+class="php-comment">// %v will be replaced with value to validate, and %p1, %p2...</span>
+    <span
+class="php-comment">// will be replaced with other parameters to validation method.</span>
+    <span
+class="php-var">$msg_check_5to9</span> = <span
+class="php-quote">&quot;%v does not contains only digits from 5 to 9&quot;</span>;
+
+
+    <span
+class="php-comment">// Returns true if $value contains only digits from 5 to 9</span>
+    <span
+class="php-keyword1">public</span> <span
+class="php-keyword1">function</span> check_5to9(<span
+class="php-var">$value</span>){
+
+        <span
+class="php-keyword1">if</span>(<span
+class="php-keyword2">preg_match</span>(<span
+class="php-quote">'/^[5-9]*$/'</span>, <span
+class="php-var">$value</span>))
+            <span
+class="php-keyword1">return</span> <span
+class="php-keyword1">true</span>;
+        <span
+class="php-keyword1">return</span> <span
+class="php-keyword1">false</span>;
+    }
+}
+</pre>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Psa_Validator.html#32-1006" title="Go to source code">lib/Psa_Validator.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="required" id="_required">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_required">#</a>
+			<code><strong><a href="source-class-Psa_Validator.html#330-354" title="Go to source code">required</a></strong>( <span>mixed <var>$value</var></span>, <span>string <var>$type</var></span>, <span>mixed <var>$p</var>,…</span> )</code>
+
+			<div class="description short">
+				
+<p>Validates a required value.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Validates a required value.</p>
+
+<p>See examples of ussage above.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$value</var></dt>
+												<dd><code>mixed</code><br>Value to be evaluated.</dd>
+						<dt><var>$type</var></dt>
+												<dd><code>string</code><br>Validation action. Can be:<br />
+<kbd>int</kbd>, <kbd>id</kbd>, <kbd>date</kbd>, <kbd>string</kbd>,
+<kbd>email</kbd>, <kbd>ip4</kbd>, <kbd>ip6</kbd>, <kbd>float</kbd>,
+<kbd>alpha</kbd>, <kbd>num</kbd>, <kbd>alphanum</kbd>, <kbd>regex</kbd>,
+<kbd>domainsafe</kbd>, <kbd>invalues</kbd>, <kbd>url</kbd>, <kbd>between</kbd>,
+<kbd>lenbetween</kbd>, <kbd>equal</kbd>, <kbd>identical</kbd>,
+<kbd>hostname</kbd>, <kbd>callback</kbd><br />
+If <var>$value</var> is an array, suffix <b><kbd>_array</kbd></b> can be added
+to any of these types to validate each element of array <var>$value</var>. For
+example, this is useful when validating input from HTML drop-down menu with
+multiple selections.</dd>
+						<dt><var>$p</var>,…</dt>
+												<dd><code>mixed</code><br>Unlimited optional number of additional parameters that will be passed as
+second, third,... parameter to <i>check_</i> methods.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Validation_Exception.html">Psa_Validation_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Validator.html#_optional">Psa_Validator::optional()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="optional" id="_optional">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_optional">#</a>
+			<code><strong><a href="source-class-Psa_Validator.html#357-376" title="Go to source code">optional</a></strong>( <span>mixed <var>$value</var></span>, <span>string <var>$type</var></span>, <span>mixed <var>$p</var>,…</span> )</code>
+
+			<div class="description short">
+				
+<p>Validates an optional value.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Validates an optional value.</p>
+
+<p>This method does the same as <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method, only difference is
+that evaluated value can be empty string or null. For example this can be useful
+for values from optional HTML form elements. See example in Psa_Validator
+class description and for description of parameters see <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code>
+method.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$value</var></dt>
+												<dd><code>mixed</code><br>See <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method.</dd>
+						<dt><var>$type</var></dt>
+												<dd><code>string</code><br>See <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method.</dd>
+						<dt><var>$p</var>,…</dt>
+												<dd><code>mixed</code><br>See <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Validation_Exception.html">Psa_Validation_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="get_errors" id="_get_errors">
+
+			<td class="attributes"><code>
+				 public 
+				integer|array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_get_errors">#</a>
+			<code><strong><a href="source-class-Psa_Validator.html#379-391" title="Go to source code">get_errors</a></strong>( )</code>
+
+			<div class="description short">
+				
+<p>Returns array with validation errors (messages).</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns array with validation errors (messages).</p>
+
+<p>It will return 0 if there is no validation error messages.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer|array</code><br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="clean_errors" id="_clean_errors">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_clean_errors">#</a>
+			<code><strong><a href="source-class-Psa_Validator.html#394-399" title="Go to source code">clean_errors</a></strong>( )</code>
+
+			<div class="description short">
+				
+<p>Resets all errors (messages).</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Resets all errors (messages).</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fail" id="_fail">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fail">#</a>
+			<code><strong><a href="source-class-Psa_Validator.html#402-421" title="Go to source code">fail</a></strong>( <span>string <var>$message</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">610</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Just throws <code><a href="class-Psa_Validation_Exception.html">Psa_Validation_Exception</a></code>.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Just throws <code><a href="class-Psa_Validation_Exception.html">Psa_Validation_Exception</a></code>.</p>
+
+<p><br />
+<b>Example:</b><br />
+</p>
+
+<div><br />
+</div>
+
+<pre>
+<span class="php-var">$val</span> = <span
+class="php-keyword1">new</span> Psa_Validator();
+
+<span
+class="php-keyword1">if</span>(<span class="php-var">$password</span> != <span
+class="php-quote">'abc123'</span>)
+    <span
+class="php-var">$val</span>-&gt;fail(<span
+class="php-quote">'You entered invalid password.'</span>);
+
+</pre>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$message</var></dt>
+												<dd><code>string</code><br>Exception message.</dd>
+						<dt><var>$code</var></dt>
+												<dd><code>integer</code><br>Exception code.</dd>
+					</dl></div>
+
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Validation_Exception.html">Psa_Validation_Exception</a></code></code><br />
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

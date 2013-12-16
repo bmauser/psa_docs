@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_Dully | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.more.html" title="Summary of PSA\more"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="active main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Psa_Active_Record.html">Psa_Active_Record</a></li>
+				<li class="active"><a href="class-Psa_Dully.html">Psa_Dully</a></li>
+				<li><a href="class-Psa_Files.html">Psa_Files</a></li>
+				<li><a href="class-Psa_Smarty.html">Psa_Smarty</a></li>
+				<li><a href="class-Psa_View.html">Psa_View</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_Dully</h1>
+
+
+	<div class="description">
+	
+<p>Simple template engine class.</p>
+
+<p>I called this class Dully to be opposite to <a href="http://www.smarty.net">Smarty</a>. It has few
+methods that are similar to those in Smarty template engine.</p>
+
+<p>All that Dully does is to put values from associative array into the local
+namespace and includes .php (template) file. There are no special template tags,
+just use PHP code blocks to echo values. Templates are ordinary PHP files and
+you can write them as any other .php script, but keep in mind that the point of
+template engine should be to separate business logic from presentation. So you
+should not put any logic (calculations, getting data from a database ...) into
+templates. With <a href="http://www.smarty.net">Smarty</a> that is easier to achieve and it has many advanced features so I suggest
+that you use Smarty as a template engine. If you need simple and fast template
+engine or don't want to learn Smarty's tags you can use Dully. Dully class
+doesn't include anything from PSA so you can use this class as template engine
+in any PHP application.</p>
+
+<p>This class is inspired from <a href="http://www.massassi.com/php/articles/template_engines/">here</a> and there are some interesting thoughts about template engines.</p>
+
+<p><br />
+<b>Usage examples:</b></p>
+
+<p><br />
+<b>1)</b> Simple example with one template file:</p>
+
+<p>Template file <samp>template.tpl</samp>:</p>
+
+<pre>
+This is text from template <span
+class="php-keyword2">file</span> template.php&lt;br/&gt;
+My car is <span
+class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span
+class="php-var">$my_car_color</span> <span
+class="xlang">?&gt;</span>.&lt;br/&gt;
+Something <span
+class="php-keyword1">else</span>: <span class="xlang">&lt;?php</span> <span
+class="php-keyword1">echo</span> <span class="php-var">$some_name</span> <span
+class="xlang">?&gt;</span>
+</pre>
+
+<p>.php file:</p>
+
+<pre>
+<span class="xlang">&lt;?php</span>
+
+<span
+class="php-comment">// make a new Psa_Dully object</span>
+<span
+class="php-var">$Psa_Dully</span> = <span
+class="php-keyword1">new</span> Psa_Dully(<span
+class="php-quote">'path/to/dir/with/templates'</span>);
+
+<span
+class="php-comment">// assign some data for template</span>
+<span
+class="php-var">$Psa_Dully</span>-&gt;assign(<span
+class="php-quote">'my_car_color'</span>, <span
+class="php-quote">'Black'</span>);
+<span
+class="php-var">$Psa_Dully</span>-&gt;assign(<span
+class="php-quote">'some_name'</span>, <span
+class="php-quote">'bla bla bla'</span>);
+
+<span
+class="php-comment">// display fetched template</span>
+<span
+class="php-var">$Psa_Dully</span>-&gt;display(<span
+class="php-quote">'template.tpl'</span>);
+
+<span
+class="xlang">?&gt;</span>
+</pre>
+
+<p>The printout of the above .php script will be:</p>
+
+<pre>
+This is text from template file template.php
+My car is Black.
+Something else: bla bla bla
+</pre>
+
+<p><b>Note:</b> you can write <kbd>&lt;?= $some_name ?&gt;</kbd> instead of
+<kbd>&lt;?php echo $some_name ?&gt;</kbd>. Use of this shortcut requires <a href="http://www.php.net/manual/en/ini.core.php#ini.short-open-tag">short_open_tag</a> PHP ini option to be on.</p>
+
+<p><br />
+<b>2)</b> You can put one rendered template into another:</p>
+
+<p>template file <samp>template1.tpl</samp>:</p>
+
+<pre>
+This is text from template1.php&lt;br/&gt;
+<span
+class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span
+class="php-var">$var1</span> <span class="xlang">?&gt;</span>&lt;br/&gt;
+<span
+class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span
+class="php-var">$var2</span> <span class="xlang">?&gt;</span>
+</pre>
+
+<p>template file <samp>template2.tpl</samp>:</p>
+
+<pre>
+This is text from template2.php
+</pre>
+
+<p>.php file:</p>
+
+<pre>
+<span class="xlang">&lt;?php</span>
+
+<span
+class="php-comment">// make a new Psa_Dully object</span>
+<span
+class="php-var">$Psa_Dully</span> = <span
+class="php-keyword1">new</span> Psa_Dully(<span
+class="php-quote">'path/to/dir/with/templates'</span>);
+
+<span
+class="php-comment">// put the content of fetched template template2.tpl in the variable $var1</span>
+<span
+class="php-var">$var1</span> = <span
+class="php-var">$Psa_Dully</span>-&gt;fetch(<span
+class="php-quote">'template2.tpl'</span>);
+
+<span
+class="php-comment">// assign values for var1 and var2</span>
+<span
+class="php-var">$Psa_Dully</span>-&gt;assign(<span
+class="php-quote">'var1'</span>, <span class="php-var">$var1</span>);
+<span
+class="php-var">$Psa_Dully</span>-&gt;assign(<span
+class="php-quote">'var2'</span>, <span
+class="php-quote">'bla bla bla'</span>);
+
+<span
+class="php-comment">// display template template1.tpl</span>
+<span
+class="php-var">$Psa_Dully</span>-&gt;display(<span
+class="php-quote">'template1.tpl'</span>);
+
+<span
+class="xlang">?&gt;</span>
+</pre>
+
+<p>The above example will output:</p>
+
+<pre>
+This is text from template1.php
+This is text from template2.php
+bla bla bla
+</pre>
+
+<p><br />
+<b>3)</b> In this kind of templates it's nice to use alternative PHP syntax for
+control structures. See details in <a href="http://www.php.net/manual/en/control-structures.alternative-syntax.php">PHP documentation</a>.</p>
+
+<pre>
+<span class="xlang">&lt;?</span> <span
+class="php-keyword1">if</span> (<span class="php-var">$variable</span> == <span
+class="php-quote">'abcd'</span>): <span
+class="xlang">?&gt;</span>
+        &lt;h1&gt;this is something&lt;/h1&gt;
+        &lt;p&gt;
+                bla bla
+        &lt;/p&gt;
+<span
+class="xlang">&lt;?</span> <span class="php-keyword1">endif</span> <span
+class="xlang">?&gt;</span>
+
+<span class="xlang">&lt;?</span> <span
+class="php-keyword1">foreach</span> (<span class="php-var">$array</span> <span
+class="php-keyword1">as</span> <span class="php-var">$value</span>): <span
+class="xlang">?&gt;</span>
+        &lt;div&gt;<span
+class="xlang">&lt;?=</span> <span class="php-var">$value</span>[<span
+class="php-quote">'email'</span>]) <span
+class="xlang">?&gt;</span>&lt;/div&gt;
+        &lt;div&gt;<span
+class="xlang">&lt;?=</span> <span class="php-var">$value</span>[<span
+class="php-quote">'phone_number'</span>]) <span
+class="xlang">?&gt;</span>&lt;/div&gt;
+<span class="xlang">&lt;?</span> <span
+class="php-keyword1">endforeach</span> <span class="xlang">?&gt;</span>
+</pre>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a>\<a href="package-PSA.more.html">more</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+				<b>See:</b>
+				<code><code><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></code></code><br />
+				<b>See:</b>
+				<code><code><a href="class-Psa_Smarty.html">Psa_Smarty</a></code></code><br />
+		<b>Located at</b> <a href="source-class-Psa_Dully.html#32-237" title="Go to source code">lib/Psa_Dully.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><strong><a href="source-class-Psa_Dully.html#175-182" title="Go to source code">__construct</a></strong>( <span>string <var>$template_dir</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Constructor.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Constructor.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$template_dir</var></dt>
+												<dd><code>string</code><br>Path to the the directory with templates.</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="assign" id="_assign">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_assign">#</a>
+			<code><strong><a href="source-class-Psa_Dully.html#185-196" title="Go to source code">assign</a></strong>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Assigns values to the templates. See examples in <code><a href="class-Psa_Dully.html">Psa_Dully</a></code> class
+description.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Assigns values to the templates. See examples in <code><a href="class-Psa_Dully.html">Psa_Dully</a></code> class
+description.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+												<dd><code>string</code><br>The name of the variable being assigned.</dd>
+						<dt><var>$value</var></dt>
+												<dd><code>mixed</code><br>The value being assigned.</dd>
+					</dl></div>
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Dully.html#_display">Psa_Dully::display()</a></code></code><br />
+							<code><code><a href="class-Psa_Dully.html#_fetch">Psa_Dully::fetch()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fetch" id="_fetch">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fetch">#</a>
+			<code><strong><a href="source-class-Psa_Dully.html#199-223" title="Go to source code">fetch</a></strong>( <span>string <var>$template_file</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns the fetched template as string. See examples in <code><a href="class-Psa_Dully.html">Psa_Dully</a></code>
+class description.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns the fetched template as string. See examples in <code><a href="class-Psa_Dully.html">Psa_Dully</a></code>
+class description.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$template_file</var></dt>
+												<dd><code>string</code><br>Template file name or relative path from path passed to constructor.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>Fetched (rendered) template.<br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Dully.html#_display">Psa_Dully::display()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="display" id="_display">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_display">#</a>
+			<code><strong><a href="source-class-Psa_Dully.html#226-236" title="Go to source code">display</a></strong>( <span>string <var>$template_file</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Outputs the fetched template.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Outputs the fetched template.</p>
+
+<p>Just prints output from <code><a href="class-Psa_Dully.html#_fetch">Psa_Dully::fetch()</a></code> method.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$template_file</var></dt>
+												<dd><code>string</code><br>Template file name or relative path from path passed to constructor.</dd>
+					</dl></div>
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Dully.html#_fetch">Psa_Dully::fetch()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

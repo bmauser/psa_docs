@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Function psa_is_user_in_group | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.html" title="Summary of PSA"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Function</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></li>
+				<li><a href="class-Psa_Group.html">Psa_Group</a></li>
+				<li><a href="class-Psa_Logger.html">Psa_Logger</a></li>
+				<li><a href="class-Psa_Model.html">Psa_Model</a></li>
+				<li><a href="class-Psa_PDO.html">Psa_PDO</a></li>
+				<li><a href="class-Psa_Registry.html">Psa_Registry</a></li>
+				<li><a href="class-Psa_Result.html">Psa_Result</a></li>
+				<li><a href="class-Psa_Router.html">Psa_Router</a></li>
+				<li><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></li>
+				<li><a href="class-Psa_User.html">Psa_User</a></li>
+				<li><a href="class-Psa_Validator.html">Psa_Validator</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-prs.html">prs</a></li>
+				<li><a href="function-psa_add_include_path.html">psa_add_include_path</a></li>
+				<li><a href="function-psa_autoload.html">psa_autoload</a></li>
+				<li><a href="function-psa_delete_group.html">psa_delete_group</a></li>
+				<li><a href="function-psa_delete_user.html">psa_delete_user</a></li>
+				<li class="active"><a href="function-psa_is_user_in_group.html">psa_is_user_in_group</a></li>
+				<li><a href="function-psa_run_hooks.html">psa_run_hooks</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="function">
+	<h1>Function psa_is_user_in_group</h1>
+
+
+	<div class="description">
+	
+<p>Checks if user is a member of the group.</p>
+
+<p>It simply tries to find a matching row in <i>psa_user_in_group</i> database
+table.</p>
+
+<p><b>Example:</b></p>
+
+<pre>
+<span class="php-keyword1">if</span>(psa_is_user_in_group(<span
+class="php-num">2</span>, <span class="php-num">55</span>))
+        <span
+class="php-keyword1">echo</span> <span
+class="php-quote">'User with ID 2 is in the group with ID 55'</span>;
+</pre>
+
+	</div>
+
+	<div class="alert alert-info">
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a><br />
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-function-psa_is_user_in_group.html#398-432" title="Go to source code">lib/functions.php</a><br />
+	</div>
+
+
+	<h2>Parameters summary</h2>
+	<table class="summary table table-bordered table-striped" id="parameters">
+	<tr id="$user">
+		<td class="name"><code>integer</code></td>
+		<td class="value"><code><var>$user</var></code></td>
+		<td>
+			 user id
+		</td>
+	</tr>
+	<tr id="$group">
+		<td class="name"><code>integer</code></td>
+		<td class="value"><code><var>$group</var></code></td>
+		<td>
+			 group id
+		</td>
+	</tr>
+	</table>
+
+	<h2>Return value summary</h2>
+	<table class="summary table table-bordered table-striped" id="returns">
+	<tr>
+		<td class="name"><code>
+			integer
+		</code></td>
+		<td>
+			1 if user is a member of the group, otherwise 0
+		</td>
+	</tr>
+	</table>
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

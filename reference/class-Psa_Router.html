@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_Router | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.html" title="Summary of PSA"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></li>
+				<li><a href="class-Psa_Group.html">Psa_Group</a></li>
+				<li><a href="class-Psa_Logger.html">Psa_Logger</a></li>
+				<li><a href="class-Psa_Model.html">Psa_Model</a></li>
+				<li><a href="class-Psa_PDO.html">Psa_PDO</a></li>
+				<li><a href="class-Psa_Registry.html">Psa_Registry</a></li>
+				<li><a href="class-Psa_Result.html">Psa_Result</a></li>
+				<li class="active"><a href="class-Psa_Router.html">Psa_Router</a></li>
+				<li><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></li>
+				<li><a href="class-Psa_User.html">Psa_User</a></li>
+				<li><a href="class-Psa_Validator.html">Psa_Validator</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-prs.html">prs</a></li>
+				<li><a href="function-psa_add_include_path.html">psa_add_include_path</a></li>
+				<li><a href="function-psa_autoload.html">psa_autoload</a></li>
+				<li><a href="function-psa_delete_group.html">psa_delete_group</a></li>
+				<li><a href="function-psa_delete_user.html">psa_delete_user</a></li>
+				<li><a href="function-psa_is_user_in_group.html">psa_is_user_in_group</a></li>
+				<li><a href="function-psa_run_hooks.html">psa_run_hooks</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_Router</h1>
+
+
+	<div class="description">
+	
+<p>Class with methods for parsing the request URL into controller, action, and
+parameters and invoking action methods.</p>
+
+<p>Router should be used to decide which controller to call. This class has
+methods for that task. That decision can be made from given URL path if your web
+server is set to use rewrite rules, which is common practice, but can also be
+made from get or post values.</p>
+
+<p>If you want to use rewrite rules you must set up your web server for this,
+with Apache web server you can do it by enabling <a href="http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html">mod_rewrite</a> by adding line like this into the configuration file:</p>
+
+<p><kbd>LoadModule rewrite_module modules/mod_rewrite.so</kbd></p>
+
+<p>Make sure that you can override (AllowOverride directive) rewrite settings
+with .htaccess file. Edit .htaccess file to match your configuration.</p>
+
+<p>You can write your Router by extending this class. Here is an example:</p>
+
+<pre>
+<span class="xlang">&lt;?php</span>
+<span
+class="php-keyword1">class</span> Main <span
+class="php-keyword1">extends</span> Psa_Router{
+
+    <span
+class="php-comment">// you have to define psa_main() method in your child class</span>
+    <span
+class="php-keyword1">function</span> psa_main(){
+
+        <span
+class="php-comment">// put basedir_web into psa_result object to be available in all templates</span>
+        <span
+class="php-var">$this</span>-&gt;psa_result-&gt;basedir_web = <span
+class="php-var">$this</span>-&gt;psa_registry-&gt;basedir_web;
+
+        <span
+class="php-comment">// start session</span>
+        <span
+class="php-keyword2">session_start</span>();
+
+        <span
+class="php-comment">// call action method</span>
+        <span
+class="php-keyword1">try</span>{
+            <span
+class="php-var">$this</span>-&gt;dispach();
+        }
+        <span
+class="php-comment">// redirect to login screen if Unauthorized_Exception is raised</span>
+        <span
+class="php-keyword1">catch</span>(Unauthorized_Exception <span
+class="php-var">$e</span>){
+            <span
+class="php-var">$main_view</span> = <span
+class="php-keyword1">new</span> Main_View();
+            <span
+class="php-var">$main_view</span>-&gt;redirect(<span
+class="php-quote">'default/login'</span>);
+        }
+    }
+}
+<span
+class="xlang">?&gt;</span>
+</pre>
+
+<p><br />
+<b>Note:</b> PSA will firstly try to call <kbd>psa_main()</kbd> method from the
+<i>Main</i> class. You can make your main class extends Psa_Router class.
+<i>Main</i> class should be defined in Main.php file placed in the first
+autoload directory (see settings in config.php). So you can use Main.php
+file as bootstrap file for your application.</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Psa_Model.html"><span>Psa_Model</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Psa_Router</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Psa_Router.html#32-247" title="Go to source code">lib/Psa_Router.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="explode_url" id="_explode_url">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_explode_url">#</a>
+			<code><strong><a href="source-class-Psa_Router.html#86-128" title="Go to source code">explode_url</a></strong>( <span>string <var>$request_uri</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns array of URL path parts after application base directory exploded by
+'/'.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns array of URL path parts after application base directory exploded by
+'/'.</p>
+
+<p>For example, for URL <kbd><a
+href="http://server/mycontroller/mymethod/abc/123">http://server/mycontroller/mymethod/abc/123</a></kbd>
+returning array is:</p>
+
+<pre>
+Array
+(
+    [0] =&gt; mycontroller
+    [1] =&gt; mymethod
+    [2] =&gt; abc
+    [3] =&gt; 123
+)
+</pre>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$request_uri</var></dt>
+												<dd><code>string</code><br>$_SERVER["REQUEST_URI"] by default</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="get_dispatch_data" id="_get_dispatch_data">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_get_dispatch_data">#</a>
+			<code><strong><a href="source-class-Psa_Router.html#131-169" title="Go to source code">get_dispatch_data</a></strong>( <span>string|array <var>$request_uri</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns array with the names of the controller and action and array of
+arguments for action method.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns array with the names of the controller and action and array of
+arguments for action method.</p>
+
+<p>For example, for URL <kbd><a
+href="http://server/mycontroller/mymethod/abc/123">http://server/mycontroller/mymethod/abc/123</a></kbd>
+returning array is:</p>
+
+<pre>
+Array
+(
+    [controller] =&gt; Mycontroller_Controller
+    [action] =&gt; mymethod_action
+    [arguments] =&gt; Array
+        (
+            [0] =&gt; abc
+            [1] =&gt; 123
+        )
+)
+</pre>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$request_uri</var></dt>
+												<dd><code>string|array</code><br>$_SERVER["REQUEST_URI"] by default</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="dispach" id="_dispach">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_dispach">#</a>
+			<code><strong><a href="source-class-Psa_Router.html#172-246" title="Go to source code">dispach</a></strong>( <span>string <var>$class_name</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$method_name</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$method_arguments</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Invokes method in a class with arguments.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Invokes method in a class with arguments.</p>
+
+<p>This method is intended to be used to call controller method with arguments.
+If you call it without parameters it will try to get controller name, method and
+parameters from URL. In that case it actually calls <code><a href="class-Psa_Router.html#_get_dispatch_data">Psa_Router::get_dispatch_data()</a></code>
+method to get data for dispatch.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$class_name</var></dt>
+												<dd><code>string</code><br>Class name.</dd>
+						<dt><var>$method_name</var></dt>
+												<dd><code>string</code><br>Method to invoke.</dd>
+						<dt><var>$method_arguments</var></dt>
+												<dd><code>array</code><br>Arguments for invoking method.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>mixed</code><br>Returns the calling method result.<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Router_Exception.html">Psa_Router_Exception</a></code></code><br />
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from <a href="class-Psa_Model.html#methods">Psa_Model</a></h3>
+		<p class="elementList">
+			<code><a href="class-Psa_Model.html#___construct">__construct()</a></code>
+		</p>
+
+
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+
+		<h3>Properties inherited from <a href="class-Psa_Model.html#properties">Psa_Model</a></h3>
+		<p class="elementList">
+			<code><a href="class-Psa_Model.html#$psa_database"><var>$psa_database</var></a></code>, 
+			<code><a href="class-Psa_Model.html#$psa_registry"><var>$psa_registry</var></a></code>, 
+			<code><a href="class-Psa_Model.html#$psa_result"><var>$psa_result</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

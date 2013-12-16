@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_Hook_Before_Group_Create | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.hooks.html" title="Summary of PSA\hooks"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="active main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Psa_Hook_After_Group_Create.html">Psa_Hook_After_Group_Create</a></li>
+				<li><a href="class-Psa_Hook_After_Group_Delete.html">Psa_Hook_After_Group_Delete</a></li>
+				<li><a href="class-Psa_Hook_After_User_Authorize.html">Psa_Hook_After_User_Authorize</a></li>
+				<li><a href="class-Psa_Hook_After_User_Create.html">Psa_Hook_After_User_Create</a></li>
+				<li><a href="class-Psa_Hook_After_User_Delete.html">Psa_Hook_After_User_Delete</a></li>
+				<li class="active"><a href="class-Psa_Hook_Before_Group_Create.html">Psa_Hook_Before_Group_Create</a></li>
+				<li><a href="class-Psa_Hook_Before_Group_Delete.html">Psa_Hook_Before_Group_Delete</a></li>
+				<li><a href="class-Psa_Hook_Before_User_Create.html">Psa_Hook_Before_User_Create</a></li>
+				<li><a href="class-Psa_Hook_Before_User_Delete.html">Psa_Hook_Before_User_Delete</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_Hook_Before_Group_Create</h1>
+
+
+	<div class="description">
+	
+<p>Abstract class for <i>Psa_Hook_Before_Group_Create</i> hooks.</p>
+
+<p>You can write <i>Psa_Hook_Before_Group_Create</i> hooks by extending this
+class. You start a new group creation process by passing '<kbd>new</kbd>' to
+<code><a href="class-Psa_Group.html">Psa_Group</a></code> class constructor. See <code><a href="class-Psa_Group.html#___construct">Psa_Group::__construct()</a></code> method
+of <code><a href="class-Psa_Group.html">Psa_Group</a></code> class.</p>
+
+<p>Before a new group is successfully created with <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code>
+method, <kbd>psa_main()</kbd> method of the hook object that extends this class
+will be called.<br />
+<br />
+<b>Example:</b></p>
+
+<pre>
+<span class="xlang">&lt;?php</span>
+<span
+class="php-keyword1">class</span> my_hook <span
+class="php-keyword1">extends</span> Psa_Hook_Before_Group_Create{
+
+    <span
+class="php-comment">// you have to define psa_main() method in your child class</span>
+    <span
+class="php-keyword1">function</span> psa_main(<span
+class="php-var">$group</span>){
+
+        <span
+class="php-comment">// set some property to the new group</span>
+        <span
+class="php-var">$group</span>-&gt;good_students = <span
+class="php-quote">'yes'</span>;
+    }
+}
+<span class="xlang">?&gt;</span>
+</pre>
+
+<p>When this example hook is registered every new created group will have
+property called <kbd>good_students</kbd> with value '<kbd>yes</kbd>'.</p>
+
+<p><b>Note:</b> this hook is called before a new group is created and saved to
+database. Because of that this hook will be called even if the group is not
+created due to some error like group with same name already exists in the
+database. If you set some property to the group like <i>good_students</i> in
+example above and the group is successfully created this property will be saved
+to the database and you don't have to call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method
+later to store it. That is unlike <code><a href="class-Psa_Hook_After_Group_Create.html">Psa_Hook_After_Group_Create</a></code> hook.
+Also, a group ID is unknown when this hook is called and is is set after the
+group is created.</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Psa_Model.html"><span>Psa_Model</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Psa_Hook_Before_Group_Create</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		<b>Abstract</b><br />
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a>\<a href="package-PSA.hooks.html">hooks</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+				<b>See:</b>
+				<code><code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code></code><br />
+				<b>See:</b>
+				<code><code><a href="class-Psa_Hook_Before_User_Create.html">Psa_Hook_Before_User_Create</a></code></code><br />
+		<b>Located at</b> <a href="source-class-Psa_Hook_Before_Group_Create.html#32-80" title="Go to source code">hooks_def/Psa_Hook_Before_Group_Create.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="psa_main" id="_psa_main">
+
+			<td class="attributes"><code>
+				abstract protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_psa_main">#</a>
+			<code><strong><a href="source-class-Psa_Hook_Before_Group_Create.html#72-79" title="Go to source code">psa_main</a></strong>( <span><code><a href="class-Psa_Group.html">Psa_Group</a></code> <var>$group_object</var></span> )</code>
+
+			<div class="description short">
+				
+<p>This method will be called after a new group is successfully created with
+<code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>This method will be called after a new group is successfully created with
+<code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$group_object</var></dt>
+												<dd><code><code><a href="class-Psa_Group.html">Psa_Group</a></code></code><br>Reference to the <code><a href="class-Psa_Group.html">Psa_Group</a></code> object whose <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method
+is invoked.</dd>
+					</dl></div>
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from <a href="class-Psa_Model.html#methods">Psa_Model</a></h3>
+		<p class="elementList">
+			<code><a href="class-Psa_Model.html#___construct">__construct()</a></code>
+		</p>
+
+
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+
+		<h3>Properties inherited from <a href="class-Psa_Model.html#properties">Psa_Model</a></h3>
+		<p class="elementList">
+			<code><a href="class-Psa_Model.html#$psa_database"><var>$psa_database</var></a></code>, 
+			<code><a href="class-Psa_Model.html#$psa_registry"><var>$psa_registry</var></a></code>, 
+			<code><a href="class-Psa_Model.html#$psa_result"><var>$psa_result</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

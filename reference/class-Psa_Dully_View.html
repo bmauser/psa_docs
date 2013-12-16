@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_Dully_View | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.html" title="Summary of PSA"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></li>
+				<li><a href="class-Psa_Group.html">Psa_Group</a></li>
+				<li><a href="class-Psa_Logger.html">Psa_Logger</a></li>
+				<li><a href="class-Psa_Model.html">Psa_Model</a></li>
+				<li><a href="class-Psa_PDO.html">Psa_PDO</a></li>
+				<li><a href="class-Psa_Registry.html">Psa_Registry</a></li>
+				<li><a href="class-Psa_Result.html">Psa_Result</a></li>
+				<li><a href="class-Psa_Router.html">Psa_Router</a></li>
+				<li><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></li>
+				<li><a href="class-Psa_User.html">Psa_User</a></li>
+				<li><a href="class-Psa_Validator.html">Psa_Validator</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-prs.html">prs</a></li>
+				<li><a href="function-psa_add_include_path.html">psa_add_include_path</a></li>
+				<li><a href="function-psa_autoload.html">psa_autoload</a></li>
+				<li><a href="function-psa_delete_group.html">psa_delete_group</a></li>
+				<li><a href="function-psa_delete_user.html">psa_delete_user</a></li>
+				<li><a href="function-psa_is_user_in_group.html">psa_is_user_in_group</a></li>
+				<li><a href="function-psa_run_hooks.html">psa_run_hooks</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_Dully_View</h1>
+
+
+	<div class="description">
+	
+<p>Class for views that use <code><a href="class-Psa_Dully.html">Psa_Dully</a></code> template engine.</p>
+
+<p>Classes that extends <code><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></code> or <code><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></code> class
+are place for for methods that will print results from your application. This
+can be HTML, XML or something else like plain text. View methods, like model
+methods, are called from controller. All application logic should be in model
+and in view you should put only part for displaying results (presentational
+logic) like template rendering code.</p>
+
+<p>You can write <i>Psa_Dully_View</i> views by extending this class. Here is an
+example:</p>
+
+<pre>
+<span class="xlang">&lt;?php</span>
+<span
+class="php-keyword1">class</span> example_view <span
+class="php-keyword1">extends</span> Psa_Dully_View{
+
+        <span
+class="php-comment">// Render even_numbers.tpl template</span>
+        <span
+class="php-keyword1">function</span> even_numbers(){
+                <span
+class="php-var">$rendered_result</span> = <span
+class="php-var">$this</span>-&gt;psa_dully-&gt;fetch(<span
+class="php-quote">&quot;example_app/even_numbers.tpl&quot;</span>);
+                <span
+class="php-var">$this</span>-&gt;psa_dully-&gt;assign(<span
+class="php-quote">&quot;result&quot;</span>, <span
+class="php-var">$rendered_result</span>);
+        }
+
+        <span
+class="php-comment">// Main layout render and display method.</span>
+        <span
+class="php-keyword1">function</span> generate_html(){
+
+                <span
+class="php-var">$rendered_menu</span> = <span
+class="php-var">$this</span>-&gt;psa_dully-&gt;fetch(<span
+class="php-quote">&quot;example_app/menu.tpl&quot;</span>);
+                <span
+class="php-var">$rendered_header</span> = <span
+class="php-var">$this</span>-&gt;psa_dully-&gt;fetch(<span
+class="php-quote">&quot;example_app/header.tpl&quot;</span>);
+
+                <span
+class="php-var">$this</span>-&gt;psa_dully-&gt;assign(<span
+class="php-quote">&quot;header&quot;</span>, <span
+class="php-var">$rendered_header</span>);
+                <span
+class="php-var">$this</span>-&gt;psa_dully-&gt;assign(<span
+class="php-quote">&quot;menu&quot;</span>, <span
+class="php-var">$rendered_menu</span>);
+
+                <span
+class="php-var">$this</span>-&gt;psa_dully-&gt;display(<span
+class="php-quote">&quot;example_app/main.tpl&quot;</span>);
+        }
+}
+<span
+class="xlang">?&gt;</span>
+</pre>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Psa_View.html"><span>Psa_View</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Psa_Dully_View</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+				<b>See:</b>
+				<code><code><a href="class-Psa_Dully.html">Psa_Dully</a></code></code><br />
+				<b>See:</b>
+				<code><code><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></code></code><br />
+		<b>Located at</b> <a href="source-class-Psa_Dully_View.html#32-108" title="Go to source code">lib/Psa_Dully_View.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><strong><a href="source-class-Psa_Dully_View.html#83-107" title="Go to source code">__construct</a></strong>( )</code>
+
+			<div class="description short">
+				
+<p>Constructor.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Constructor.</p>
+
+
+
+
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Psa_View.html#___construct">Psa_View::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="psa_dully" id="$psa_dully">
+			<td class="attributes"><code>
+				public  
+				<code><a href="class-Psa_Dully.html">Psa_Dully</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_Dully_View.html#74-79" title="Go to source code"><var>$psa_dully</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$psa_dully" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Reference to <code><a href="class-Psa_Dully.html">Psa_Dully</a></code> template engine object.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Reference to <code><a href="class-Psa_Dully.html">Psa_Dully</a></code> template engine object.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Properties inherited from <a href="class-Psa_View.html#properties">Psa_View</a></h3>
+		<p class="elementList">
+			<code><a href="class-Psa_View.html#$psa_registry"><var>$psa_registry</var></a></code>, 
+			<code><a href="class-Psa_View.html#$psa_result"><var>$psa_result</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

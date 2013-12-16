@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_Active_Record | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.more.html" title="Summary of PSA\more"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="active main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Psa_Active_Record.html">Psa_Active_Record</a></li>
+				<li><a href="class-Psa_Dully.html">Psa_Dully</a></li>
+				<li><a href="class-Psa_Files.html">Psa_Files</a></li>
+				<li><a href="class-Psa_Smarty.html">Psa_Smarty</a></li>
+				<li><a href="class-Psa_View.html">Psa_View</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_Active_Record</h1>
+
+
+	<div class="description">
+	
+<p>Implements simple <a href="https://en.wikipedia.org/wiki/Active_record_pattern">Active Record</a> pattern.</p>
+
+<p>Active record is an approach to accessing data in a database. An object
+instance is tied to a single row in the database table. After creation of an
+object, a new row is added to the table upon save. Any object restored gets its
+information from the existing row in the database.</p>
+
+<p>By extending this class you can make an object which has member variables
+that correspond to the fields in the database table. When you call <code><a href="class-Psa_Active_Record.html#_save_to_database">Psa_Active_Record::save_to_database()</a></code> method, values assigned to instance variables will be saved
+to database. When you call <code><a href="class-Psa_Active_Record.html#_restore_from_database">Psa_Active_Record::restore_from_database()</a></code> method member
+variables named like the database columns will be populated with values from the
+database.</p>
+
+<p><b>Example:</b></p>
+
+<pre>
+<span class="xlang">&lt;?php</span>
+
+<span
+class="php-keyword1">class</span> MyUserGroup <span
+class="php-keyword1">extends</span> Psa_Active_Record{
+
+    <span
+class="php-keyword1">public</span> <span
+class="php-keyword1">function</span> __construct(<span
+class="php-var">$group_id</span>){
+
+        <span
+class="php-comment">// columns in the 'group_table' database table</span>
+        <span
+class="php-var">$table_columns</span> = <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'group_id'</span>, <span
+class="php-quote">'group_name'</span>, <span
+class="php-quote">'group_status'</span>);
+
+        <span
+class="php-comment">// call constructor form Psa_Active_Record class</span>
+        parent::__construct(<span
+class="php-quote">'group_table'</span>, <span
+class="php-quote">'id'</span>, <span class="php-var">$group_id</span>, <span
+class="php-var">$table_columns</span>);
+    }
+}
+
+<span
+class="php-comment">// change the value of the group_status column for group with ID 123</span>
+<span
+class="php-var">$group</span> = <span
+class="php-keyword1">new</span> MyUserGroup(<span
+class="php-num">123</span>);
+<span
+class="php-var">$group</span>-&gt;group_status = <span
+class="php-quote">'Not active'</span>;
+<span
+class="php-var">$group</span>-&gt;save_to_database();
+
+</pre>
+
+<p><br />
+For example of usage check source code of <code><a href="class-Psa_Group.html">Psa_Group</a></code> and <code><a href="class-Psa_User.html">Psa_User</a></code>
+which extend this class.</p>
+
+	</div>
+
+
+
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-Psa_Group.html">Psa_Group</a></code>, 
+			<code><a href="class-Psa_User.html">Psa_User</a></code>
+		</p>
+	</div>
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a>\<a href="package-PSA.more.html">more</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Psa_Active_Record.html#32-315" title="Go to source code">lib/Psa_Active_Record.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><strong><a href="source-class-Psa_Active_Record.html#138-178" title="Go to source code">__construct</a></strong>( <span>string <var>$table_name</var></span>, <span>string <var>$primary_key_field_name</var></span>, <span>string <var>$primary_key_value</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$column_names</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$primary_key_sequence_name</var> = <span class="php-keyword1">null</span></span>, <span><code><a href="class-Psa_PDO.html">Psa_PDO</a></code> <var>$database_connection</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Constructor.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Constructor.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$table_name</var></dt>
+												<dd><code>string</code><br>Name of the database table.</dd>
+						<dt><var>$primary_key_field_name</var></dt>
+												<dd><code>string</code><br>Name of the primary key field in the database table.</dd>
+						<dt><var>$primary_key_value</var></dt>
+												<dd><code>string</code><br>Value of the primary key field. If not set, new row to the table will be added
+when <code><a href="class-Psa_Active_Record.html#_save_to_database">Psa_Active_Record::save_to_database()</a></code> method is called.</dd>
+						<dt><var>$column_names</var></dt>
+												<dd><code>array</code><br>Array with column names from the database table to work with. Not all columns
+needs to be included. If you skip to set this argument column names will be set
+automatically. That is one query more to the database on the object
+initialization to get table shema, so it's better to provide column names by
+setting this argument.</dd>
+						<dt><var>$primary_key_sequence_name</var></dt>
+												<dd><code>string</code><br>Name of the primary key field sequence.</dd>
+						<dt><var>$database_connection</var></dt>
+												<dd><code><code><a href="class-Psa_PDO.html">Psa_PDO</a></code></code><br>Database connection to use.</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="restore_from_database" id="_restore_from_database">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_restore_from_database">#</a>
+			<code><strong><a href="source-class-Psa_Active_Record.html#181-228" title="Go to source code">restore_from_database</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$custom_query</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$custom_query_params</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Fetches data from the database and populates objects member variables that
+correspond to columns in the database table.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Fetches data from the database and populates objects member variables that
+correspond to columns in the database table.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$only_columns</var></dt>
+												<dd><code>array</code><br>Array with column names to restore from the database. If not set column names
+set by constructor are used.</dd>
+						<dt><var>$custom_query</var></dt>
+												<dd><code>string</code><br>Query to fetch data from the database. '<kbd>&lt;COLUMNS&gt;</kbd>' will be
+replaced with comma delimited column names.</dd>
+						<dt><var>$custom_query_params</var></dt>
+												<dd><code>array</code><br>Array with query parameters for <var>$custom_query</var> argument.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Active_Record_Exception.html">Psa_Active_Record_Exception</a></code></code><br />
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="save_to_database" id="_save_to_database">
+
+			<td class="attributes"><code>
+				 protected 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_save_to_database">#</a>
+			<code><strong><a href="source-class-Psa_Active_Record.html#248-314" title="Go to source code">save_to_database</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span>, <span>array <var>$and_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Saves values from object's member variables to the database.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Saves values from object's member variables to the database.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$only_columns</var></dt>
+												<dd><code>array</code><br>Array with column names to save to the database. If not set column names set by
+constructor are used.</dd>
+						<dt><var>$and_columns</var></dt>
+												<dd><code>array</code><br>Array with column names to be saved also with default columns set by constructor
+or <var>$only_columns</var> argument.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>Returns the value of the primary key column.<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Active_Record_Exception.html">Psa_Active_Record_Exception</a></code></code><br />
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

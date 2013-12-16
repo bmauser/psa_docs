@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_Group | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.html" title="Summary of PSA"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></li>
+				<li class="active"><a href="class-Psa_Group.html">Psa_Group</a></li>
+				<li><a href="class-Psa_Logger.html">Psa_Logger</a></li>
+				<li><a href="class-Psa_Model.html">Psa_Model</a></li>
+				<li><a href="class-Psa_PDO.html">Psa_PDO</a></li>
+				<li><a href="class-Psa_Registry.html">Psa_Registry</a></li>
+				<li><a href="class-Psa_Result.html">Psa_Result</a></li>
+				<li><a href="class-Psa_Router.html">Psa_Router</a></li>
+				<li><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></li>
+				<li><a href="class-Psa_User.html">Psa_User</a></li>
+				<li><a href="class-Psa_Validator.html">Psa_Validator</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-prs.html">prs</a></li>
+				<li><a href="function-psa_add_include_path.html">psa_add_include_path</a></li>
+				<li><a href="function-psa_autoload.html">psa_autoload</a></li>
+				<li><a href="function-psa_delete_group.html">psa_delete_group</a></li>
+				<li><a href="function-psa_delete_user.html">psa_delete_user</a></li>
+				<li><a href="function-psa_is_user_in_group.html">psa_is_user_in_group</a></li>
+				<li><a href="function-psa_run_hooks.html">psa_run_hooks</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_Group</h1>
+
+
+	<div class="description">
+	
+<p>User group class.</p>
+
+<p>Here are some examples of using <kbd>Psa_Group</kbd> object.</p>
+
+<p><br />
+<b>Examples:</b></p>
+
+<p><br />
+<b>1)</b> Create a new user group:</p>
+
+<pre>
+<span
+class="php-comment">// if you want to create a new user group use 'new' as argument to constructor</span>
+<span
+class="php-var">$group</span> = <span
+class="php-keyword1">new</span> Psa_Group(<span
+class="php-quote">'new'</span>);
+
+<span
+class="php-comment">// set name</span>
+<span
+class="php-var">$group</span>-&gt;name = <span
+class="php-quote">'my_new_user_group'</span>;
+
+<span
+class="php-comment">// save the group to the database and get ID of the newly created group</span>
+<span
+class="php-var">$new_group_id</span> = <span
+class="php-var">$group</span>-&gt;save();
+</pre>
+
+<p><br />
+<b>2)</b> Extend <kbd>Psa_Group</kbd> class if you add more columns to
+<i>psa_group</i> database table:</p>
+
+<pre>
+<span class="php-keyword1">class</span> MyGroup <span
+class="php-keyword1">extends</span> Psa_Group{
+
+    <span
+class="php-keyword1">public</span> <span
+class="php-keyword1">function</span> __construct(<span
+class="php-var">$group_id_or_groupname</span>){
+        <span
+class="php-comment">// Call Psa_Group class constructor and pass names of the columns in the</span>
+        <span
+class="php-comment">// psa_group database table to work with.</span>
+        parent::__construct(<span
+class="php-var">$group_id_or_groupname</span>, <span
+class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span
+class="php-quote">'name'</span>, <span
+class="php-quote">'custom_col1'</span>, <span
+class="php-quote">'custom_col2'</span>, <span
+class="php-quote">'custom_col3'</span>));
+    }
+}
+
+<span
+class="php-var">$group</span> = <span
+class="php-keyword1">new</span> MyGroup(<span
+class="php-quote">'GroupName'</span>);
+<span
+class="php-var">$group</span>-&gt;custom_col2 = <span
+class="php-quote">'something'</span>;
+<span
+class="php-var">$group</span>-&gt;custom_col2 = <span
+class="php-num">1234</span>;
+<span
+class="php-var">$group</span>-&gt;save();
+</pre>
+
+<p>Because this class extends <code><a href="class-Psa_Active_Record.html">Psa_Active_Record</a></code> you can save data in the
+database table by setting corresponding object member variables and call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method. After calling <code><a href="class-Psa_Group.html#_restore">Psa_Group::restore()</a></code> method corresponding object
+member variables will have values fetched from the database.</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Psa_Active_Record.html"><span>Psa_Active_Record</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Psa_Group</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+				<b>See:</b>
+				<code><code><a href="class-Psa_Active_Record.html">Psa_Active_Record</a></code></code><br />
+		<b>Located at</b> <a href="source-class-Psa_Group.html#31-372" title="Go to source code">lib/Psa_Group.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><strong><a href="source-class-Psa_Group.html#101-137" title="Go to source code">__construct</a></strong>( <span>integer|string <var>$group_id_or_name</var></span>, <span>array <var>$table_columns</var> = <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'name'</span>)</span> )</code>
+
+			<div class="description short">
+				
+<p>Constructor.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Constructor.</p>
+
+<p>Must be called with the group id or group name as argument. Pass
+<kbd>'new'</kbd> as argument if you want to create a new group. See examples in
+<code><a href="class-Psa_Group.html">Psa_Group</a></code> class description.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$group_id_or_name</var></dt>
+												<dd><code>integer|string</code><br>Group ID or group name or 'new' if new group should be created.</dd>
+						<dt><var>$table_columns</var></dt>
+												<dd><code>array</code><br>Columns in the <i>psa_group</i> database table. If you add more columns to the
+database table pass column names with this argument.</dd>
+					</dl></div>
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code></code><br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Psa_Active_Record.html#___construct">Psa_Active_Record::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="restore" id="_restore">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_restore">#</a>
+			<code><strong><a href="source-class-Psa_Group.html#140-167" title="Go to source code">restore</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Restores member variables from the database previously saved with <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Restores member variables from the database previously saved with <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method.</p>
+
+<p>Reads values from the database and populates corresponding object member
+variables. For example if you have added to <i>psa_group</i> table column named
+<kbd>access_level</kbd> and you passed the name of the column to constructor
+with <kbd>$table_columns</kbd> parameter, then when this method is called,
+member variable with name <kbd>access_level</kbd> will be populated with value
+from the database.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$only_columns</var></dt>
+												<dd><code>array</code><br>Array with column names to restore from the database. If not set all columns
+which names are passed to constructor are restored.</dd>
+					</dl></div>
+
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="save" id="_save">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_save">#</a>
+			<code><strong><a href="source-class-Psa_Group.html#170-204" title="Go to source code">save</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Saves values from member variables to the database.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Saves values from member variables to the database.</p>
+
+<p>It also sets <code><a href="class-Psa_Group.html#$id">Psa_Group::<var>$id</var></a></code> member variable if a new group is created. See
+examples in <code><a href="class-Psa_Group.html">Psa_Group</a></code> class description. This method will throw <code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code> on error.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$only_columns</var></dt>
+												<dd><code>array</code></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>ID of saved group for success.<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code></code><br />
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="add_user" id="_add_user">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_add_user">#</a>
+			<code><strong><a href="source-class-Psa_Group.html#207-231" title="Go to source code">add_user</a></strong>( <span>integer|array <var>$user_id</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Puts user in the group or more users if the <var>$user_id</var> argument is
+array.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Puts user in the group or more users if the <var>$user_id</var> argument is
+array.</p>
+
+<p>Group membership changes are immediately stored in the database and you don't
+have to call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method after. If you creating a new group this
+method must be called after <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method. Throws <code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code> on error.</p>
+
+<p>Example:</p>
+
+<pre>
+<span class="php-comment">// group object</span>
+<span
+class="php-var">$group</span> = <span
+class="php-keyword1">new</span> Psa_Group(<span
+class="php-quote">'my_user_group'</span>);
+<span
+class="php-comment">// put users with IDs 1,3 and 6 into the group</span>
+<span
+class="php-var">$group</span>-&gt;add_user(<span
+class="php-keyword1">array</span>(<span class="php-num">1</span>,<span
+class="php-num">3</span>,<span class="php-num">6</span>));
+</pre>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$user_id</var></dt>
+												<dd><code>integer|array</code><br>ID of the user. Or array with user IDs.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>1 for success, -1 user already was in the group (or more groups) or user does
+not exists<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Group.html#_remove_user">Psa_Group::remove_user()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="remove_user" id="_remove_user">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_remove_user">#</a>
+			<code><strong><a href="source-class-Psa_Group.html#234-258" title="Go to source code">remove_user</a></strong>( <span>integer|array <var>$user_id</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Removes user from the group or more users if the <var>$user_id</var> argument
+is array.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Removes user from the group or more users if the <var>$user_id</var> argument
+is array.</p>
+
+<p>Group membership changes are immediately stored in the database and you don't
+have to call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method after. If you creating a new group this
+method must be called after <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method. Throws <code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code> on error.</p>
+
+<p>Example:</p>
+
+<pre>
+<span class="php-comment">// group object</span>
+<span
+class="php-var">$group</span> = <span
+class="php-keyword1">new</span> Psa_Group(<span
+class="php-quote">'my_user_group'</span>);
+<span
+class="php-comment">// remove user with ID 6 from the group</span>
+<span
+class="php-var">$group</span>-&gt;remove_user(<span
+class="php-num">6</span>);
+</pre>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$user_id</var></dt>
+												<dd><code>integer|array</code><br>ID of the user. Or array with user IDs.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>1 for success, -1 user was not member of the group (or more groups) or user does
+not exists<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Group.html#_remove_user">Psa_Group::remove_user()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from <a href="class-Psa_Active_Record.html#methods">Psa_Active_Record</a></h3>
+		<p class="elementList">
+			<code><a href="class-Psa_Active_Record.html#_restore_from_database">restore_from_database()</a></code>, 
+			<code><a href="class-Psa_Active_Record.html#_save_to_database">save_to_database()</a></code>
+		</p>
+
+
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="id" id="$id">
+			<td class="attributes"><code>
+				public  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_Group.html#80-86" title="Go to source code"><var>$id</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$id" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Group ID. Primary key from <i>psa_group</i> database table.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Group ID. Primary key from <i>psa_group</i> database table.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="name" id="$name">
+			<td class="attributes"><code>
+				public  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_Group.html#89-96" title="Go to source code"><var>$name</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$name" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Name of the group. There cannot be two groups with the same name. You will
+need to set this value when creating a new group or renaming group.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Name of the group. There cannot be two groups with the same name. You will
+need to set this value when creating a new group or renaming group.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

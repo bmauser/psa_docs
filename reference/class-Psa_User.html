@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_User | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.html" title="Summary of PSA"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></li>
+				<li><a href="class-Psa_Group.html">Psa_Group</a></li>
+				<li><a href="class-Psa_Logger.html">Psa_Logger</a></li>
+				<li><a href="class-Psa_Model.html">Psa_Model</a></li>
+				<li><a href="class-Psa_PDO.html">Psa_PDO</a></li>
+				<li><a href="class-Psa_Registry.html">Psa_Registry</a></li>
+				<li><a href="class-Psa_Result.html">Psa_Result</a></li>
+				<li><a href="class-Psa_Router.html">Psa_Router</a></li>
+				<li><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></li>
+				<li class="active"><a href="class-Psa_User.html">Psa_User</a></li>
+				<li><a href="class-Psa_Validator.html">Psa_Validator</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-prs.html">prs</a></li>
+				<li><a href="function-psa_add_include_path.html">psa_add_include_path</a></li>
+				<li><a href="function-psa_autoload.html">psa_autoload</a></li>
+				<li><a href="function-psa_delete_group.html">psa_delete_group</a></li>
+				<li><a href="function-psa_delete_user.html">psa_delete_user</a></li>
+				<li><a href="function-psa_is_user_in_group.html">psa_is_user_in_group</a></li>
+				<li><a href="function-psa_run_hooks.html">psa_run_hooks</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_User</h1>
+
+
+	<div class="description">
+	
+<p>User object class.</p>
+
+<p>Here are some examples of using <kbd>Psa_User</kbd> object.</p>
+
+<p><br />
+<b>Usage examples:</b></p>
+
+<p><br />
+<b>1)</b> Create a new user:</p>
+
+<pre>
+<span class="php-comment">// user object</span>
+<span
+class="php-var">$user</span> = <span
+class="php-keyword1">new</span> Psa_User(<span
+class="php-quote">'new'</span>);
+
+<span
+class="php-comment">// set username and password</span>
+<span
+class="php-var">$user</span>-&gt;username = <span
+class="php-quote">'my_user'</span>;
+<span
+class="php-var">$user</span>-&gt;password = <span
+class="php-quote">'user_password'</span>;
+
+<span
+class="php-comment">// save user to the database</span>
+<span
+class="php-var">$user</span>-&gt;save();
+</pre>
+
+<p><br />
+<b>2)</b> Authorize user by username and password:</p>
+
+<pre>
+<span class="php-var">$user</span> = <span
+class="php-keyword1">new</span> Psa_User(<span
+class="php-quote">'my_user'</span>);
+<span
+class="php-var">$user</span>-&gt;authorize(<span
+class="php-quote">'user_password'</span>);
+</pre>
+
+<p><br />
+<b>3)</b> Extend <kbd>Psa_User</kbd> class. You'll probably want to extend
+<kbd>Psa_User</kbd> class and to add more columns to <i>psa_user</i> database
+table. In this example <kbd>user_level</kbd>, <kbd>photo</kbd> and
+<kbd>email</kbd> columns are added to <i>psa_user</i> table.</p>
+
+<pre>
+<span class="php-keyword1">class</span> MyUser <span
+class="php-keyword1">extends</span> Psa_User{
+
+    <span
+class="php-keyword1">public</span> <span
+class="php-keyword1">function</span> __construct(<span
+class="php-var">$user_id_or_username</span>){
+        parent::__construct(<span
+class="php-var">$user_id_or_username</span>, <span
+class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span
+class="php-quote">'username'</span>, <span
+class="php-quote">'user_level'</span>, <span
+class="php-quote">'photo'</span>, <span
+class="php-quote">'email'</span>));
+    }
+}
+</pre>
+
+<p>Code in some model method:</p>
+
+<pre>
+<span class="php-comment">// create a new user</span>
+<span
+class="php-var">$user</span> = <span
+class="php-keyword1">new</span> MyUser(<span
+class="php-quote">'new'</span>);
+<span
+class="php-var">$user</span>-&gt;username = <span
+class="php-quote">'my_user'</span>;
+<span
+class="php-var">$user</span>-&gt;user_level = <span
+class="php-quote">'admin'</span>;
+<span
+class="php-var">$user</span>-&gt;email = <span
+class="php-quote">'admin@host'</span>;
+<span
+class="php-var">$user</span>-&gt;save();
+</pre>
+
+<p><br />
+<b>4)</b> Change user's group membership:</p>
+
+<pre>
+<span class="php-comment">// user object</span>
+<span
+class="php-var">$user</span> = <span
+class="php-keyword1">new</span> MyUser(<span class="php-num">10</span>); <span
+class="php-comment">// MyUser extends Psa_User</span>
+
+<span
+class="php-comment">// remove the user from all groups and put it in groups with ID 3,5 and 7</span>
+<span
+class="php-var">$user</span>-&gt;remove_group(<span
+class="php-quote">'all'</span>);
+<span
+class="php-var">$user</span>-&gt;add_group(<span
+class="php-keyword1">array</span>(<span class="php-num">3</span>,<span
+class="php-num">5</span>,<span class="php-num">7</span>));
+</pre>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Psa_Active_Record.html"><span>Psa_Active_Record</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Psa_User</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Psa_User.html#32-665" title="Go to source code">lib/Psa_User.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><strong><a href="source-class-Psa_User.html#133-173" title="Go to source code">__construct</a></strong>( <span>integer|string <var>$user_id_or_username</var></span>, <span>array <var>$table_columns</var> = <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'username'</span>)</span> )</code>
+
+			<div class="description short">
+				
+<p>Constructor method.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Constructor method.</p>
+
+<ul>
+	<li>If called with '<kbd>new</kbd>' as the first argument new user will be
+	created when <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method is called.</li>
+
+	<li>If called with user ID as the first argument, <code><a href="class-Psa_User.html#$id">Psa_User::<var>$id</var></a></code> value is set. In
+	this case first argument must be an integer value.</li>
+
+	<li>If first parameter is a string (different from '<kbd>new</kbd>'), the <code><a href="class-Psa_User.html#$username">Psa_User::<var>$username</var></a></code> value is set.</li>
+</ul>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$user_id_or_username</var></dt>
+												<dd><code>integer|string</code><br>'<kbd>new</kbd>' if new user should be created or ID or username of the user.</dd>
+						<dt><var>$table_columns</var></dt>
+												<dd><code>array</code><br>Array with column names in <i>psa_user</i> database table. See example 3 above
+how to extend this class and add more columns to the database table.</dd>
+					</dl></div>
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code></code><br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Psa_Active_Record.html#___construct">Psa_Active_Record::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="authorize" id="_authorize">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_authorize">#</a>
+			<code><strong><a href="source-class-Psa_User.html#176-216" title="Go to source code">authorize</a></strong>( <span>string <var>$password</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$run_hooks</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$write_success_login_logs</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$save_to_session</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Does the same as <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> method, but also writes log message, calls
+hooks and calls <code><a href="class-Psa_User.html#_session_save">Psa_User::session_save()</a></code> method.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Does the same as <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> method, but also writes log message, calls
+hooks and calls <code><a href="class-Psa_User.html#_session_save">Psa_User::session_save()</a></code> method.</p>
+
+<p>See examples in <code><a href="class-Psa_User.html">Psa_User</a></code> class description.</p>
+
+<p>This function calls <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> method with
+<kbd>'username_password'</kbd> as first argument, writes log message that user
+is authorized and runs <code><a href="class-Psa_Hook_After_User_Authorize.html">Psa_Hook_After_User_Authorize</a></code> hooks.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$password</var></dt>
+												<dd><code>string</code><br>User password.</dd>
+						<dt><var>$run_hooks</var></dt>
+												<dd><code>boolean</code><br>If false <code><a href="class-Psa_Hook_After_User_Authorize.html">Psa_Hook_After_User_Authorize</a></code> hooks will not be invoked.</dd>
+						<dt><var>$write_success_login_logs</var></dt>
+												<dd><code>boolean</code><br>If false log message about successful authorization will not be written.</dd>
+						<dt><var>$save_to_session</var></dt>
+												<dd><code>boolean</code><br>If true <code><a href="class-Psa_User.html#_session_save">Psa_User::session_save()</a></code> will be called to write user ID and username to
+the session if session is started before.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>1 for success.<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="restore" id="_restore">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_restore">#</a>
+			<code><strong><a href="source-class-Psa_User.html#219-250" title="Go to source code">restore</a></strong>( <span>mixed <var>$restore_by</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Restores member variables from the database previously saved with <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Restores member variables from the database previously saved with <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method.</p>
+
+<p>Reads values from the database and populates corresponding object member
+variables. For example if you have added to <i>psa_user</i> table column named
+<kbd>access_level</kbd> and you passed the name of the column to constructor
+with <var>$table_columns</var> parameter, then when this method is called member
+variable with name <kbd>access_level</kbd> will be populated with the value from
+the database.</p>
+
+
+
+
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="save" id="_save">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_save">#</a>
+			<code><strong><a href="source-class-Psa_User.html#253-300" title="Go to source code">save</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Saves values from member variables to the database.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Saves values from member variables to the database.</p>
+
+<p>This method saves values from objet's member variables to the database. There
+must be column in the database named like the member variable. It works only for
+variables mentioned in <var>$table_columns</var> argument to constructor or by
+<var>$only_columns</var> argument to this method. All saved values will be
+restored when the <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code> or <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> methods are called.
+See examples in <code><a href="class-Psa_User.html">Psa_User</a></code> class description.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$only_columns</var></dt>
+												<dd><code>array</code><br>Array with column names in <i>psa_user</i> database table to work with. If not
+set column names set by constructor are used.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>1 for success<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="add_group" id="_add_group">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_add_group">#</a>
+			<code><strong><a href="source-class-Psa_User.html#303-328" title="Go to source code">add_group</a></strong>( <span>integer|array <var>$group_id</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Puts user in a group or more groups if the <var>$group_id</var> argument is
+an array.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Puts user in a group or more groups if the <var>$group_id</var> argument is
+an array.</p>
+
+<p>Group membership changes are immediately stored in the database and you don't
+have to call <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method after. If you creating a new user this method
+must be called after <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method. <code><a href="class-Psa_User.html#$id">Psa_User::<var>$id</var></a></code> member variable must be
+set before calling this method. If you pass username to constructor, call <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> or <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code> method before to get the user ID from the
+database. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
+
+<p>Example:</p>
+
+<pre>
+<span class="php-var">$user</span> = <span
+class="php-keyword1">new</span> Psa_User(<span
+class="php-num">123</span>);
+<span
+class="php-var">$user</span>-&gt;add_group(<span
+class="php-num">5</span>);
+</pre>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$group_id</var></dt>
+												<dd><code>integer|array</code><br>ID or array with groups IDs.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>1 for success, -1 user already was in the group (or more groups) or group does
+not exists.<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_User.html#_remove_group">Psa_User::remove_group()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="remove_group" id="_remove_group">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_remove_group">#</a>
+			<code><strong><a href="source-class-Psa_User.html#331-357" title="Go to source code">remove_group</a></strong>( <span>integer|array|string <var>$group_id</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Remove user from a group or more groups if $group_id argument is an
+array.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Remove user from a group or more groups if $group_id argument is an
+array.</p>
+
+<p>Group membership changes are immediately stored in the database and you don't
+have to call <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method after. <code><a href="class-Psa_User.html#$id">Psa_User::<var>$id</var></a></code> member variable must be
+set before calling this method. If you pass username to constructor, call <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> or <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code> method before to get the user ID from the
+database. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
+
+<p>Example:</p>
+
+<pre>
+<span class="php-var">$user</span> = <span
+class="php-keyword1">new</span> Psa_User(<span
+class="php-quote">'some_username'</span>);
+<span
+class="php-var">$user</span>-&gt;restore();
+<span
+class="php-var">$user</span>-&gt;remove_group(<span
+class="php-num">4</span>);
+</pre>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$group_id</var></dt>
+												<dd><code>integer|array|string</code><br>ID or array with group IDs. '<kbd>all</kbd>' for remove user from all groups.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>1 for success, -1 user was not in the group (or more groups). or group does not
+exists.<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_User.html#_add_group">Psa_User::add_group()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="password_change" id="_password_change">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_password_change">#</a>
+			<code><strong><a href="source-class-Psa_User.html#436-481" title="Go to source code">password_change</a></strong>( <span>string <var>$new_password</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Changes user password.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Changes user password.</p>
+
+<p>New password will be hashed with <code><a href="class-Psa_User.html#_password_hash">Psa_User::password_hash()</a></code> method and stored in
+the database. You need to call it only when you want to change password for
+existing user. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$new_password</var></dt>
+												<dd><code>string</code><br>New password.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>1 for success.<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_User.html#_password_hash">Psa_User::password_hash()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="password_verify" id="_password_verify">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_password_verify">#</a>
+			<code><strong><a href="source-class-Psa_User.html#484-523" title="Go to source code">password_verify</a></strong>( <span>string <var>$password</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Verifies user password.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Verifies user password.</p>
+
+<p>Checks if given string is user's password. This method can be used in process
+of changing user password to verify the old password.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$password</var></dt>
+												<dd><code>string</code><br>Password to check.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>1 given password is valid, 0 given password is invalid<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_User.html#_password_hash">Psa_User::password_hash()</a></code></code><br />
+							<code><code><a href="class-Psa_User.html#_password_change">Psa_User::password_change()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="password_hash" id="_password_hash">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_password_hash">#</a>
+			<code><strong><a href="source-class-Psa_User.html#526-541" title="Go to source code">password_hash</a></strong>( <span>string <var>$password</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns hashed password.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns hashed password.</p>
+
+<p>It uses <a href="http://www.php.net/manual/en/function.hash.php">hash()</a> PHP function. The hash type is set by
+<var>$PSA_CFG['password_hash']</var> value in <kbd>config.php</kbd> file. By
+default is sha256.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$password</var></dt>
+												<dd><code>string</code><br>String to be hashed.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>hashed password<br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							config.php<br />
+							<code><code><a href="class-Psa_User.html#_password_change">Psa_User::password_change()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="get_groups" id="_get_groups">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_get_groups">#</a>
+			<code><strong><a href="source-class-Psa_User.html#573-614" title="Go to source code">get_groups</a></strong>( )</code>
+
+			<div class="description short">
+				
+<p>Returns array with all groups user is in.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns array with all groups user is in.</p>
+
+<p>Example of returning array:</p>
+
+<pre>
+Array
+(
+    [11] =&gt; 'admins'  // array index is group id and value is group name
+    [14] =&gt; 'users'
+    [33] =&gt; 'other'
+)
+</pre>
+
+<p><code><a href="class-Psa_User.html#$id">Psa_User::<var>$id</var></a></code> member variable must be set before calling this method. If you
+pass username to constructor, call <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> or <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code>
+method before to get the user ID from the database.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="save_last_login_time" id="_save_last_login_time">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_save_last_login_time">#</a>
+			<code><strong><a href="source-class-Psa_User.html#617-634" title="Go to source code">save_last_login_time</a></strong>( )</code>
+
+			<div class="description short">
+				
+<p>Saves current timestamp to the database into <kbd>last_login</kbd>
+column.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Saves current timestamp to the database into <kbd>last_login</kbd>
+column.</p>
+
+<p>You can call this method when you want to set last login time for the user.
+It will also set value of the <code><a href="class-Psa_User.html#$last_login">Psa_User::<var>$last_login</var></a></code> member variable. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br>1 for success.<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code></code><br />
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="session_save" id="_session_save">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_session_save">#</a>
+			<code><strong><a href="source-class-Psa_User.html#637-664" title="Go to source code">session_save</a></strong>( <span>boolean <var>$throw_exception</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Stores user ID and username into the session.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Stores user ID and username into the session.</p>
+
+<p>It will store array named <kbd>psa_current_user_data</kbd> with user ID and
+username into session. All log messages will contain user ID and username from
+this session variable if not explicitly set otherwise. See <code><a href="class-Psa_Logger.html#_log">Psa_Logger::log()</a></code> method for details.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$throw_exception</var></dt>
+												<dd><code>boolean</code><br>If true Psa_User_Exception will be thrown if PHP session is not started.</dd>
+					</dl></div>
+
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code></code><br />
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from <a href="class-Psa_Active_Record.html#methods">Psa_Active_Record</a></h3>
+		<p class="elementList">
+			<code><a href="class-Psa_Active_Record.html#_restore_from_database">restore_from_database()</a></code>, 
+			<code><a href="class-Psa_Active_Record.html#_save_to_database">save_to_database()</a></code>
+		</p>
+
+
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="id" id="$id">
+			<td class="attributes"><code>
+				public  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_User.html#94-101" title="Go to source code"><var>$id</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$id" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>User ID.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>User ID.</p>
+
+<p>Value of the primary key column from <i>psa_user</i> database table.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="username" id="$username">
+			<td class="attributes"><code>
+				public  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_User.html#104-109" title="Go to source code"><var>$username</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$username" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Username.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Username.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="password" id="$password">
+			<td class="attributes"><code>
+				public  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_User.html#112-119" title="Go to source code"><var>$password</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$password" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Password.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Password.</p>
+
+<p>You will need to set this variable when you creating a new user.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="last_login" id="$last_login">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_User.html#122-128" title="Go to source code"><var>$last_login</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$last_login" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>UNIX timestamp of last login.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>UNIX timestamp of last login.</p>
+
+
+						<h4>See</h4>
+						<div class="list">
+								<code><code><a href="class-Psa_User.html#_save_last_login_time">Psa_User::save_last_login_time()</a></code></code><br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

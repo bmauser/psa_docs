@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Psa_PDO | PSA Reference</title>
+
+	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
+	<script type="text/javascript" src="elementlist.js?2471982430"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">PSA Reference</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="package-PSA.html" title="Summary of PSA"><span>Package</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active main"><a href="package-PSA.html">PSA<span></span></a>
+						<ul>
+				<li class="main"><a href="package-PSA.exceptions.html">exceptions</a>
+						</li>
+				<li class="main"><a href="package-PSA.hooks.html">hooks</a>
+						</li>
+				<li class="main"><a href="package-PSA.more.html">more</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></li>
+				<li><a href="class-Psa_Group.html">Psa_Group</a></li>
+				<li><a href="class-Psa_Logger.html">Psa_Logger</a></li>
+				<li><a href="class-Psa_Model.html">Psa_Model</a></li>
+				<li class="active"><a href="class-Psa_PDO.html">Psa_PDO</a></li>
+				<li><a href="class-Psa_Registry.html">Psa_Registry</a></li>
+				<li><a href="class-Psa_Result.html">Psa_Result</a></li>
+				<li><a href="class-Psa_Router.html">Psa_Router</a></li>
+				<li><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></li>
+				<li><a href="class-Psa_User.html">Psa_User</a></li>
+				<li><a href="class-Psa_Validator.html">Psa_Validator</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-prs.html">prs</a></li>
+				<li><a href="function-psa_add_include_path.html">psa_add_include_path</a></li>
+				<li><a href="function-psa_autoload.html">psa_autoload</a></li>
+				<li><a href="function-psa_delete_group.html">psa_delete_group</a></li>
+				<li><a href="function-psa_delete_user.html">psa_delete_user</a></li>
+				<li><a href="function-psa_is_user_in_group.html">psa_is_user_in_group</a></li>
+				<li><a href="function-psa_run_hooks.html">psa_run_hooks</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Psa_PDO</h1>
+
+
+	<div class="description">
+	
+<p>Simple database connection class and database access wrapper class.</p>
+
+<p>Handles database connection and executes queries against the database. PSA
+uses <a href="http://www.php.net/pdo">PHP Data
+Objects (PDO)</a> extension for database access. Methods in this class are wrappers
+for corresponding PDO methods.</p>
+
+<p>If you don't want to use methods from this class in your models, you can use
+same database connection that can be accessed through
+<var>$this-&gt;psa_database-&gt;pdo</var> which is PDO object.</p>
+
+<p>See in examples below how you can access Psa_PDO object or PDO connection
+object in model methods.</p>
+
+<p><br />
+<b>Examples:</b></p>
+
+<div><br />
+</div>
+
+<pre>
+<span class="php-keyword1">class</span> my_model <span
+class="php-keyword1">extends</span> Psa_Model {
+
+    <span
+class="php-comment">// returns all records from a database table</span>
+    <span
+class="php-keyword1">function</span> get_all_records(){
+
+        <span
+class="php-var">$this</span>-&gt;psa_database-&gt;query(<span
+class="php-quote">&quot;SELECT * FROM table&quot;</span>);
+        <span
+class="php-keyword1">return</span> <span
+class="php-var">$this</span>-&gt;psa_database-&gt;fetch_all();
+    }
+
+
+    <span
+class="php-comment">// or the same as above</span>
+    <span
+class="php-keyword1">function</span> get_all_records1(){
+        <span
+class="php-keyword1">return</span> <span
+class="php-var">$this</span>-&gt;psa_database-&gt;fetch_all(<span
+class="php-quote">&quot;SELECT * FROM table&quot;</span>);
+    }
+
+
+    <span
+class="php-comment">// returns one row from a table</span>
+    <span
+class="php-keyword1">function</span> get_one_row(){
+        <span
+class="php-keyword1">return</span> <span
+class="php-var">$this</span>-&gt;psa_database-&gt;fetch_row(<span
+class="php-quote">&quot;SELECT * FROM table WHERE id = 123&quot;</span>);
+    }
+
+
+    <span
+class="php-comment">// iterates through each row</span>
+    <span
+class="php-keyword1">function</span> sum_all(){
+
+        <span
+class="php-var">$sum</span> = <span class="php-num">0</span>;
+
+        <span
+class="php-var">$this</span>-&gt;psa_database-&gt;query(<span
+class="php-quote">&quot;SELECT * FROM table&quot;</span>);
+        <span
+class="php-keyword1">while</span>(<span class="php-var">$row</span> = <span
+class="php-var">$database</span>-&gt;fetch_row()){
+            <span
+class="php-var">$sum</span> += <span class="php-var">$row</span>[<span
+class="php-quote">'column1'</span>] + <span class="php-var">$row</span>[<span
+class="php-quote">'column2'</span>] + <span class="php-var">$row</span>[<span
+class="php-quote">'column3'</span>];
+        }
+
+        <span
+class="php-keyword1">return</span> <span
+class="php-var">$sum</span>;
+    }
+
+
+    <span
+class="php-comment">// executes prepared statement</span>
+    <span
+class="php-keyword1">function</span> save_values(<span
+class="php-var">$value1</span>, <span class="php-var">$value2</span>, <span
+class="php-var">$value3</span>){
+
+        <span
+class="php-comment">// query</span>
+        <span
+class="php-var">$sql</span> = <span
+class="php-quote">&quot;INSERT INTO table (column1, column2, column3) VALUES (?,?,?)&quot;</span>;
+
+        <span
+class="php-comment">// argument for execute() method</span>
+        <span
+class="php-var">$qparams</span> = <span class="php-keyword1">array</span>(<span
+class="php-var">$value1</span>, <span class="php-var">$value2</span>, <span
+class="php-var">$value3</span>);
+
+        <span
+class="php-comment">// execute query</span>
+        <span
+class="php-var">$this</span>-&gt;psa_database-&gt;execute(<span
+class="php-var">$qparams</span>, <span
+class="php-var">$sql</span>);
+
+        <span
+class="php-keyword1">return</span> <span
+class="php-var">$this</span>-&gt;psa_database-&gt;last_insert_id();
+    }
+
+
+    <span
+class="php-comment">// use transactions</span>
+    <span
+class="php-keyword1">function</span> save_values2(<span
+class="php-var">$value1</span>, <span
+class="php-var">$value2</span>){
+
+        <span
+class="php-comment">// start transaction</span>
+        <span
+class="php-comment">// be sure to have database connection before beginTransaction()</span>
+        <span
+class="php-var">$this</span>-&gt;psa_database-&gt;connect();
+        <span
+class="php-var">$this</span>-&gt;psa_database-&gt;pdo-&gt;beginTransaction();
+
+        <span
+class="php-keyword1">try</span>{
+            <span
+class="php-var">$this</span>-&gt;psa_database-&gt;execute(<span
+class="php-keyword1">array</span>(<span class="php-var">$value1</span>), <span
+class="php-quote">&quot;INSERT INTO table1 (column1) VALUES (?)&quot;</span>);
+
+            <span
+class="php-var">$this</span>-&gt;psa_database-&gt;execute(<span
+class="php-keyword1">array</span>(<span class="php-var">$value2</span>), <span
+class="php-quote">&quot;INSERT INTO table2 (column2) VALUES (?)&quot;</span>);
+        }
+        <span
+class="php-keyword1">catch</span> (Psa_Db_Exception <span
+class="php-var">$e</span>){
+            <span
+class="php-comment">// rollback</span>
+            <span
+class="php-var">$this</span>-&gt;psa_database-&gt;pdo-&gt;rollback();
+        }
+
+        <span
+class="php-comment">// commit</span>
+        <span
+class="php-var">$this</span>-&gt;psa_database-&gt;pdo-&gt;commit();
+    }
+}
+</pre>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> <a href="package-PSA.html">PSA</a><br />
+
+				<b>Author:</b>
+				Bojan Mauser &lt;<a
+href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
+				<b>See:</b>
+				config.php<br />
+		<b>Located at</b> <a href="source-class-Psa_PDO.html#34-445" title="Go to source code">lib/Psa_PDO.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="query" id="_query">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_query">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#178-210" title="Go to source code">query</a></strong>( <span>string <var>$sql</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Performs a query against the database.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Performs a query against the database.</p>
+
+<p>Throws a <code><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></code> if query fails.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+												<dd><code>string</code><br>SQL query.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br>True on success.<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></code></code><br />
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="affected_rows" id="_affected_rows">
+
+			<td class="attributes"><code>
+				 public 
+				integer|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_affected_rows">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#213-224" title="Go to source code">affected_rows</a></strong>( )</code>
+
+			<div class="description short">
+				
+<p>Returns the number of rows affected by a DELETE, INSERT, or UPDATE
+statement.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns the number of rows affected by a DELETE, INSERT, or UPDATE
+statement.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer|boolean</code><br>Number of rows affected, false if there is no result.<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="last_insert_id" id="_last_insert_id">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_last_insert_id">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#227-236" title="Go to source code">last_insert_id</a></strong>( <span>string <var>$sequence</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns the ID of the last inserted row.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns the ID of the last inserted row.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sequence</var></dt>
+												<dd><code>string</code><br>Sequence name.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="connect" id="_connect">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_connect">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#239-310" title="Go to source code">connect</a></strong>( <span>string <var>$dsn</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$username</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$password</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$driver_options</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$throw_PDOException</var> = <span class="php-num">0</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Connects to the database.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Connects to the database.</p>
+
+<p>If called without arguments it first uses connection parameters from object
+properties (<code><a href="class-Psa_PDO.html#$dsn">Psa_PDO::<var>$dsn</var></a></code>, <code><a href="class-Psa_PDO.html#$username">Psa_PDO::<var>$username</var></a></code>, <code><a href="class-Psa_PDO.html#$password">Psa_PDO::<var>$password</var></a></code>, <code><a href="class-Psa_PDO.html#$driver_options">Psa_PDO::<var>$driver_options</var></a></code>) and if <code><a href="class-Psa_PDO.html#$dsn">Psa_PDO::<var>$dsn</var></a></code> value is not set takes connection
+parameters from <var>$PSA_CFG</var> config array from config.php. Throws
+a <code><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></code> if the attempt to connect to the requested database
+fails.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$dsn</var></dt>
+												<dd><code>string</code><br>PDO data source name.</dd>
+						<dt><var>$username</var></dt>
+												<dd><code>string</code><br>Database user.</dd>
+						<dt><var>$password</var></dt>
+												<dd><code>string</code><br>Database user's password.</dd>
+						<dt><var>$driver_options</var></dt>
+												<dd><code>string</code><br>PDO driver-specific connection options.</dd>
+						<dt><var>$throw_PDOException</var></dt>
+												<dd><code>boolean</code><br>If true PDOException will be thrown instead Psa_Db_Exception.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							config.php<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fetch_all" id="_fetch_all">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fetch_all">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#313-325" title="Go to source code">fetch_all</a></strong>( <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns all rows from the result.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns all rows from the result.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+												<dd><code>string</code><br>Database query.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>see <a
+href="http://php.net/manual/en/pdostatement.fetchall.php">http://php.net/manual/en/pdostatement.fetchall.php</a><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fetch_row" id="_fetch_row">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fetch_row">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#328-341" title="Go to source code">fetch_row</a></strong>( <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Fetch next row from result.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Fetch next row from result.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+												<dd><code>string</code><br>Database query.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>see <a
+href="http://www.php.net/manual/en/pdostatement.fetch.php">http://www.php.net/manual/en/pdostatement.fetch.php</a><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fetch_column" id="_fetch_column">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fetch_column">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#344-357" title="Go to source code">fetch_column</a></strong>( <span>integer <var>$column</var> = <span class="php-num">0</span></span>, <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Returns only one column from a result as one dimensional array.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns only one column from a result as one dimensional array.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$column</var></dt>
+												<dd><code>integer</code><br>Column index. 0 for the first column.</dd>
+						<dt><var>$sql</var></dt>
+												<dd><code>string</code><br>Database query.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>see <a
+href="http://www.php.net/manual/en/pdostatement.fetchall.php">http://www.php.net/manual/en/pdostatement.fetchall.php</a><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="escape" id="_escape">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_escape">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#360-374" title="Go to source code">escape</a></strong>( <span>string <var>$value</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Escapes special characters in a string for use in a SQL statement.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Escapes special characters in a string for use in a SQL statement.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$value</var></dt>
+												<dd><code>string</code><br>String to escape.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>Escaped string.<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="prepare" id="_prepare">
+
+			<td class="attributes"><code>
+				 public 
+				object
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_prepare">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#377-394" title="Go to source code">prepare</a></strong>( <span>string <var>$sql</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Prepares a statement for execution.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Prepares a statement for execution.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+												<dd><code>string</code></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>object</code><br>PDOStatement<br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_PDO.html#_execute">Psa_PDO::execute()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="execute" id="_execute">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_execute">#</a>
+			<code><strong><a href="source-class-Psa_PDO.html#397-444" title="Go to source code">execute</a></strong>( <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>string|PDOStatement <var>$statement</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$throw_PDOException</var> = <span class="php-num">0</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Executes a prepared statement.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Executes a prepared statement.</p>
+
+<p>Throws a <code><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></code> if statement fails.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$params</var></dt>
+												<dd><code>array</code><br>An array of values with as many elements as there are bound parameters in the
+SQL statement being executed.</dd>
+						<dt><var>$statement</var></dt>
+												<dd><code>string|PDOStatement</code><br>SQL query or prepared PDO statement.</dd>
+						<dt><var>$throw_PDOException</var></dt>
+												<dd><code>boolean</code><br>If true PDOException will be thrown instead Psa_Db_Exception</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_PDO.html#_prepare">Psa_PDO::prepare()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="pdo" id="$pdo">
+			<td class="attributes"><code>
+				public  
+				PDO
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_PDO.html#131-138" title="Go to source code"><var>$pdo</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$pdo" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>PHP PDO object.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>PHP PDO object.</p>
+
+
+						<h4>See</h4>
+						<div class="list">
+								<code><code><a href="class-Psa_PDO.html#_connect">Psa_PDO::connect()</a></code></code><br />
+								<a
+href="http://www.php.net/manual/en/book.pdo.php">http://www.php.net/manual/en/book.pdo.php</a><br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="result" id="$result">
+			<td class="attributes"><code>
+				public  
+				PDOStatement
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_PDO.html#141-150" title="Go to source code"><var>$result</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$result" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Query result.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Query result.</p>
+
+<p>Result from <code><a href="class-Psa_PDO.html#_query">Psa_PDO::query()</a></code> or <code><a href="class-Psa_PDO.html#_execute">Psa_PDO::execute()</a></code> method.</p>
+
+
+						<h4>See</h4>
+						<div class="list">
+								<code><code><a href="class-Psa_PDO.html#_query">Psa_PDO::query()</a></code></code><br />
+								<code><code><a href="class-Psa_PDO.html#_execute">Psa_PDO::execute()</a></code></code><br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dsn" id="$dsn">
+			<td class="attributes"><code>
+				public  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_PDO.html#155-159" title="Go to source code"><var>$dsn</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dsn" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>PDO data source name.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>PDO data source name.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="username" id="$username">
+			<td class="attributes"><code>
+				public  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_PDO.html#160-164" title="Go to source code"><var>$username</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$username" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Database username.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Database username.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="password" id="$password">
+			<td class="attributes"><code>
+				public  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_PDO.html#165-169" title="Go to source code"><var>$password</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$password" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Database password.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Database password.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="driver_options" id="$driver_options">
+			<td class="attributes"><code>
+				public  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Psa_PDO.html#170-174" title="Go to source code"><var>$driver_options</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$driver_options" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>PDO driver options</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>PDO driver options</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PSA Reference API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

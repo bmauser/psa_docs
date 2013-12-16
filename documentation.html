@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PhpStartApp tutorial</title>
+<style type="text/css">
+.main_content {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 9pt;
+	background-color: #333;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 5px
+}
+.header {
+	font-family: Verdana, Geneva, sans-serif;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto
+}
+.header h1 {
+	font-size: 40pt;
+	color: #000;
+	display: inline
+}
+.content {
+	background-color: #FFF;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 15px;
+	padding-left: 5px
+}
+.insource {
+	font-family: "Courier New", Courier, monospace
+}
+
+/* tables */
+.table1 td {
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #999;
+	padding-right: 5px;
+	padding-left: 5px;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC
+}
+.main_content h1 {
+	font-size: 16pt;
+	font-weight: bold;
+	margin-top: 15px;
+	color: #FFF;
+	margin-bottom: 15px;
+	background-color: #333;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	left: -25px;
+	position: relative;
+	display: inline-block;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px
+}
+h2 {
+	font-size: 14pt;
+	font-weight: bold;
+	margin-top: 20px;
+	padding-left: 15px;
+	color: #FFF
+}
+h3 {
+	font-size: 10pt;
+	font-weight: bold
+}
+.by {
+	font-size: 8pt;
+	position: relative;
+	color: #CCC;
+	text-align: right;
+	margin-bottom: 6px;
+	font-style: italic
+}
+.table1 tr.disabled {
+	color: #999
+}
+.table1 th {
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #CCC;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #666;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	color: #333
+}
+.table1 td {
+	padding: 5px;
+}
+.table1 tr:hover {
+	background-color: #E6ECFF
+}
+.showsource, .showsource_ex {
+	font-family: "Courier New", Courier, monospace;
+	white-space: pre;
+	background-color: #F0F0F0;
+	margin-bottom: 10px;
+	padding: 5px;
+	overflow: scroll
+}
+.fp {
+	font-weight: bold;
+	color: #06F
+}
+.donatecont {
+	background-color: #6CFF8A;
+	padding: 5px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	margin-top: 25px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11pt;
+	font-weight: bold;
+	color: #333;
+	border: 1px solid #666
+}
+
+
+
+.flowcontainer{
+	margin-top: 20px;
+	position: relative;
+	background-color: #CCCCCC;
+	border-radius: 6px;
+	padding: 5px;
+}
+
+.flowcontainer_arrow:after{
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -20px;
+	width: 0;
+	height: 0;
+	border-top-width: 20px;
+	border-right-width: 20px;
+	border-left-width: 20px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #CCCCCC;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+} 
+
+</style>
+
+</head>
+
+<body>
+<div class="header">
+	<h1>PhpStartApp</h1>
+</div>
+<div class="main_content">
+	<div class="by">by Bojan Mauser</div>
+	
+
+<!-- section -->
+	<div class="content">
+		<h3>Contents of this document:</h3>
+		<ul>
+			<li><a href="#whatis">What is PhpStartApp</a></li>
+			<li><a href="#ui">How to start</a></li>
+			<li><a href="#options">How skeleton application works</a></li>
+			<li><a href="#use">Some globals and important values</a></li>
+			<li>Database</li>
+		</ul>
+	</div>
+	
+	<h1>What is PhpStartApp?<a name="whatis" id="whatis"></a></h1>
+	<div class="content">
+		<p>PhpStartApp is a simple PHP  application which is intended to be the base or starting point for  a PHP application. It is  application based on the small  framework called PSA in which I included only functionalyties I noticed I need in almoust all  applications I've been working on in a past few years.</p>
+		<p>The  idea	was	to make simple starting point for an PHP application without lot of conventions,  abstraction layers  or wrappers that you have to learn. I deal with php since when there was not so many  frameworks around and I had some classes, functions that I used in applications I worked on and it seemed logical to group all that and document. Basicaly I needed only relatively simple  base for a new application and I was not quite satisfied with the fameworks I tried back then. It seemed to me that they were  owerkill for my needs and to many documentation and reading. Recently I decided to polish things a little bit and to publish  this project.		</p>
+		<p>This project is not aimed for absolute beginners to php because documentation is short, only this page  and here is reference manual. But if you have some expirience with php and some basic design patterns it should be very easy for you to start using PSA.</p>
+		<p>&nbsp;</p>
+		<p>Main features are:</p>
+		<ul>
+			<li>clases for basic actions  users and groups</li>
+			<li>Model View Controller design pattern </li>
+			<li>logging of main activities </li>
+			<li>templating engine (Smarty, php templates)</li>
+			<li>hooks</li>
+			<li>user input validation</li>
+		</ul>
+		<p><strong>Home page:</strong> <a href="http://code.google.com/p/phpstartapp">http://code.google.com/p/phpstartapp</a></p>
+		<p>&nbsp; </p>
+<div class="donatecont">If you like and use PSA, I'd like a small donation from you
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="donate_form">
+			<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="hosted_button_id" value="LEJYSVD46LQC4">
+	<input type="hidden" name="on0" value="Donation">
+	<select name="os0" style="margin-top:5px;margin-bottom:5px;">
+		<option value="-">- $1.00</option>
+		<option value="--">-- $3.00</option>
+		<option value="---" selected="selected">--- $5.00</option>
+		<option value="----">---- $10.00</option>
+		<option value="-----">----- $15.00</option>
+		<option value="------">------ $20.00</option>
+	</select>
+	<input type="hidden" name="currency_code" value="USD">
+	<br />
+	<input name="submit" type="image" src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_US/i/btn/btn_donate_LG.gif" alt="Donate via PayPal" title="Donate via PayPal" align="middle" border="0">
+</form>
+
+
+</div>
+
+		
+		
+	</div>
+<!-- section -->
+	<h1>How to start? (Set-up skeleton aplication)<a name="ui" id="ui"></a></h1>
+	<div class="content">
+		<p>Start building a new application    with skeleton application. Skeleton application is already functional   small example application, set of files  to begin building your new application. </p>
+<p>To install skeleton aplication download  archive from <a href="http://code.google.com/p/phpstartapp/downloads/list">download page</a>. Extract archive   and folow instructions in <a href="sdsd">INSTALL.txt</a> file. Those are more or less standard steps to install any PHP aplication, except running shell command to register files for autoloader.		</p>
+<p>TODO Note about autoloader</p>
+		<p>When you've done you should be able to login into the installed application. See the skeleton application here (username and password: psa).</p>
+	</div>
+	
+	
+<!-- section -->
+	<h1>How  it works<a name="setup" id="setup"></a></h1>
+	<div class="content">
+		<p>Here is  shema how   skeleton application works. Idea is not to write many words here explaining how it works in details but to show  an example. So look at the code of the installed skeleton application, see comments there and here is workflow what is hapening. Start with index.php file.</p>
+<div class="flowcontainer flowcontainer_arrow">Open some  page of your application in web browser. For example this can be login page on URL: http://localhost/mytestapp/default/login</div>
+		
+		<div class="flowcontainer flowcontainer_arrow">index.php file is loaded and it includes front_controller.php file in the app/psa/ directory</div>
+		<div class="flowcontainer flowcontainer_arrow">front_controller.php includes some necesary  files of the PSA framework and 
+sets some values like base directory and base URL. Then it 
+includes Main.php file and calls Main::psa_main() method</div>
+		<div class="flowcontainer flowcontainer_arrow">Main.php  is the bootstrap file (first loaded php file) if your application. Here comes your application code.<br />
+Main::psa_main() nethod will be called first by front_controller.php file.<br />
+Here is a place for you to include some php files if you need, set some constants.<br />
+Here you also need to decide which actions to make for a given URL because all URLs will be rewritten to index.php file. That is behaviour of web server set by .htaccess file in application root folder. So every request (if the requested file does't exists) will go through Main.php and your application needs to decide what to do (which action to make) for a given URL. That is called routing.<br />
+By default first part of URL is the name of the controller ('default') and second part ('login') is name of the action to call. Controller is a class and action is a method in that class. So your application instances controller  class and calls  method (action) in that object. That is default action of the Psa_Router::dispatch() method.</div>
+		<div class="flowcontainer">Action method from controller object is called and  that method calls model and view methods. Model methods are place for business logic of your application and view methods are places for logic that is  needed only for displaying HTML page, for example assigning some values to the templates.</div>
+		<p>&nbsp;</p>
+	</div>
+	
+	
+<!-- section -->
+	<h1>Important values<a name="options" id="options"></a></h1>
+	<div class="content">
+		<p>Here are some important (global) values that can be usefull:</p>
+		<ul>
+			<li>$this-&gt;psa_database (in models)</li>
+			<li>$this-&gt;psa_registry (in models and views)
+				<ul>
+					<li>$this-&gt;psa_registry-&gt;CFG</li>
+					<li>$this-&gt;psa_registry-&gt;PSA_CFG</li>
+					<li>$this-&gt;psa_registry-&gt;basedir_web</li>
+					<li>$this-&gt;psa_registry-&gt;base_url</li>
+				</ul>
+			</li>
+			<li>$this-&gt;psa_result (in models and views)</li>
+			<li>PSA_BASE_DIR constant</li>
+		</ul>
+	</div>
+	
+<!-- section -->
+	<h1>Database<a name="use" id="use"></a></h1>
+	<div class="content">
+		<p>Skeleton application uses simple database. Database is used for storing user and groups and logs by default.  You can extend the database shema and add tables. There are two .sql files with initial database tables definitions and   initial data inside <em>install</em> directory if you downloaded PSA archive or you can get them from <a href="http://karmela.fsb.hr/%7Ebmauser/phpstartapp/install/">here</a>. <em><a href="http://phpstartapp.googlecode.com/svn/trunk/install/db_mysql.sql">db_mysql.sql</a></em> is for MySQL database and <em><a href="http://phpstartapp.googlecode.com/svn/trunk/install/db_pgsql.sql">db_pgsql.sql</a></em> is for PostgreSQL database.<br />
+		PSA uses <a href="http://www.php.net/pdo">PHP Data Objects (PDO)</a> extension for database access. See <a href="http://karmela.fsb.hr/%7Ebmauser/phpstartapp/documentation/psa/Psa_Pdo.html">Psa_Pdo</a> class for more details.</p>
+		<p>Table description:</p>
+		<ul>
+			<li>psa_user - holds data about users </li>
+			<li>psa_group - holds data about user groups </li>
+			<li>psa_user_in_group - for relationship between users and groups </li>
+			<li>psa_log - log storage if logging to database is enabled </li>
+			<li>psa_profile_log - profile log storage if profiling is enabled</li>
+		</ul>
+	</div>	
+
+
+<!-- section -->
+	<h1>Conventions<a name="demo" id="demo"></a></h1>
+	<div class="content">
+		<ul>
+			<li>By default controller classes should be called like Name_Controller.</li>
+			<li>By default action methods inside controller class should be called like name_action.</li>
+			<li>bootstrap file is called Main.php</li>
+			<li>For autoloader call php files the same as the class is called. For example class Example put in the file named Example.php</li>
+		</ul>
+		<pre class="showsource" type="php">&lt;?php<br />
+$t['main_title'] = 'My Site';<br />$t['main_subtitle'] = 'Some subtitle';<br />$t['show_on_map'] = 'Show on map...';<br />$t['description'] = 'About';<br />$t['days_short']['mon'] = 'Mon';<br />$t['days_short']['tue'] = 'Tue';<br />$t['months_short']['1'] = 'Jan';<br />$t['months_short']['2'] = 'Feb';
+		</pre>
+	</div>	
+
+
+<!-- main div -->
+</div>
+
+
+
+
+
+</body>
+</html>

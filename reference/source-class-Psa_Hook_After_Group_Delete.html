@@ -145,15 +145,15 @@
 </span></span><span id="51" class="l"><a class="l" href="#51">51 </a><span class="php-comment"> * ?&gt;
 </span></span><span id="52" class="l"><a class="l" href="#52">52 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="53" class="l"><a class="l" href="#53">53 </a><span class="php-comment"> *
-</span></span><span id="54" class="l"><a class="l" href="#54">54 </a><span class="php-comment"> * When this example hook is registered, after every group deletion with {@link psa_delete_group()} function
-</span></span><span id="55" class="l"><a class="l" href="#55">55 </a><span class="php-comment"> * folder associated with group will be deleted.
+</span></span><span id="54" class="l"><a class="l" href="#54">54 </a><span class="php-comment"> * When this example hook is registered, after group deletion with {@link psa_delete_group()} function,
+</span></span><span id="55" class="l"><a class="l" href="#55">55 </a><span class="php-comment"> * folder associated with the group will be deleted.
 </span></span><span id="56" class="l"><a class="l" href="#56">56 </a><span class="php-comment"> *
-</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; the record about the group in the database will be deleted before calling &lt;kbd&gt;psa_main()&lt;/kbd&gt; method.
-</span></span><span id="58" class="l"><a class="l" href="#58">58 </a><span class="php-comment"> * So you cannot read other information about the group from the database because database record doesn't
-</span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment"> * exists any more and all information you have is group ID or name passed as argument to &lt;kbd&gt;psa_main()&lt;/kbd&gt; method.
+</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; the row in the database will be deleted before calling hook's &lt;kbd&gt;psa_main()&lt;/kbd&gt; method.
+</span></span><span id="58" class="l"><a class="l" href="#58">58 </a><span class="php-comment"> * So, you cannot read other information about the group from the database because database record doesn't
+</span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment"> * exist any more and all information you have is group ID or name passed as argument to &lt;kbd&gt;psa_main()&lt;/kbd&gt; method.
 </span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment"> *
-</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; the argument passed to the &lt;kbd&gt;psa_main()&lt;/kbd&gt; method can be integer (group ID) or string (group name)
-</span></span><span id="62" class="l"><a class="l" href="#62">62 </a><span class="php-comment"> * this depends on what you pass to {@link psa_delete_group()} function.
+</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; the argument passed to the &lt;kbd&gt;psa_main()&lt;/kbd&gt; method can be integer (group ID) or string (group name).
+</span></span><span id="62" class="l"><a class="l" href="#62">62 </a><span class="php-comment"> * This depends on what you pass to {@link psa_delete_group()} function.
 </span></span><span id="63" class="l"><a class="l" href="#63">63 </a><span class="php-comment"> *
 </span></span><span id="64" class="l"><a class="l" href="#64">64 </a><span class="php-comment"> *
 </span></span><span id="65" class="l"><a class="l" href="#65">65 </a><span class="php-comment"> * @see Psa_Group
@@ -163,9 +163,9 @@
 </span><span id="69" class="l"><a class="l" href="#69">69 </a>
 </span><span id="70" class="l"><a class="l" href="#70">70 </a>
 </span><span id="71" class="l"><a class="l" href="#71">71 </a>    <span class="php-comment">/**
-</span></span><span id="72" class="l"><a class="l" href="#72">72 </a><span class="php-comment">     * This method will be called after the group is successfully deleted from database with {@link psa_delete_group()} function.
+</span></span><span id="72" class="l"><a class="l" href="#72">72 </a><span class="php-comment">     * This method will be called after the group is successfully deleted from the database with {@link psa_delete_group()} function.
 </span></span><span id="73" class="l"><a class="l" href="#73">73 </a><span class="php-comment">     *
-</span></span><span id="74" class="l"><a class="l" href="#74">74 </a><span class="php-comment">     * @param int|string $group ID or name of the deleted group. Same as passed to {@link psa_delete_group()} function.
+</span></span><span id="74" class="l"><a class="l" href="#74">74 </a><span class="php-comment">     * @param int|string $group ID or name of the deleted group as passed to {@link psa_delete_group()} function.
 </span></span><span id="75" class="l"><a class="l" href="#75">75 </a><span class="php-comment">     * @see psa_delete_group()
 </span></span><span id="76" class="l"><a class="l" href="#76">76 </a><span class="php-comment">     */</span>
 </span><span id="77" class="l"><a class="l" href="#77">77 </a>    <span class="php-keyword1">abstract</span> <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_psa_main" href="#_psa_main">psa_main</a>(<span class="php-var">$group</span>);

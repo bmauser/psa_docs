@@ -148,13 +148,13 @@
 </span></span><span id="54" class="l"><a class="l" href="#54">54 </a><span class="php-comment"> * ?&gt;
 </span></span><span id="55" class="l"><a class="l" href="#55">55 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="56" class="l"><a class="l" href="#56">56 </a><span class="php-comment"> *
-</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * When this example hook is registered every new created user will have property called
+</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * When this example hook is registered, every new user will have property called
 </span></span><span id="58" class="l"><a class="l" href="#58">58 </a><span class="php-comment"> * &lt;kbd&gt;favorite_background_color&lt;/kbd&gt; with value '&lt;kbd&gt;white&lt;/kbd&gt;'.
 </span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment"> *
-</span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; this hook is called before the new user is created and saved to database. Because of that
-</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment"> * this hook will be called even if the user is not created due to some error like user with the same userneme
-</span></span><span id="62" class="l"><a class="l" href="#62">62 </a><span class="php-comment"> * already exists in the database. If you set some property to user like &lt;i&gt;favorite_background_color&lt;/i&gt; in
-</span></span><span id="63" class="l"><a class="l" href="#63">63 </a><span class="php-comment"> * example above and user is successfully created this property will be saved to the database and you don't have to call
+</span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; this hook is called before the new user is created and saved to the database. Because of that,
+</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment"> * this hook will be called even if the user is not created due to some error, ex. user with the same userneme
+</span></span><span id="62" class="l"><a class="l" href="#62">62 </a><span class="php-comment"> * already exists in the database. If you set some property to the user like &lt;i&gt;favorite_background_color&lt;/i&gt; in
+</span></span><span id="63" class="l"><a class="l" href="#63">63 </a><span class="php-comment"> * the example above and the user is successfully created, this property will be saved to the database and you don't have to call
 </span></span><span id="64" class="l"><a class="l" href="#64">64 </a><span class="php-comment"> * {@link Psa_User::save()} method later to store it. That is unlike {@link Psa_Hook_After_User_Create} hook.
 </span></span><span id="65" class="l"><a class="l" href="#65">65 </a><span class="php-comment"> * Also, a user ID is unknown when this hook is called and is set after the user is created.
 </span></span><span id="66" class="l"><a class="l" href="#66">66 </a><span class="php-comment"> *

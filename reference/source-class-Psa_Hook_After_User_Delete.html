@@ -126,7 +126,7 @@
 </span><span id="32" class="l"><a class="l" href="#32">32 </a><span class="php-comment">/**
 </span></span><span id="33" class="l"><a class="l" href="#33">33 </a><span class="php-comment"> * Abstract class for &lt;i&gt;Psa_Hook_After_User_Delete&lt;/i&gt; hooks.
 </span></span><span id="34" class="l"><a class="l" href="#34">34 </a><span class="php-comment"> *
-</span></span><span id="35" class="l"><a class="l" href="#35">35 </a><span class="php-comment"> * You write &lt;i&gt;Psa_Hook_After_User_Delete&lt;/i&gt; hooks by extending this class.
+</span></span><span id="35" class="l"><a class="l" href="#35">35 </a><span class="php-comment"> * You can write &lt;i&gt;Psa_Hook_After_User_Delete&lt;/i&gt; hooks by extending this class.
 </span></span><span id="36" class="l"><a class="l" href="#36">36 </a><span class="php-comment"> * After the user is successfully deleted from the database with {@link psa_delete_user()} function,
 </span></span><span id="37" class="l"><a class="l" href="#37">37 </a><span class="php-comment"> * &lt;kbd&gt;psa_main()&lt;/kbd&gt; method of the hook object that extends this class will be called.
 </span></span><span id="38" class="l"><a class="l" href="#38">38 </a><span class="php-comment"> * &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt;
@@ -146,14 +146,14 @@
 </span></span><span id="52" class="l"><a class="l" href="#52">52 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="53" class="l"><a class="l" href="#53">53 </a><span class="php-comment"> *
 </span></span><span id="54" class="l"><a class="l" href="#54">54 </a><span class="php-comment"> * When this example hook is registered, after every user deletion with {@link psa_delete_user()} function
-</span></span><span id="55" class="l"><a class="l" href="#55">55 </a><span class="php-comment"> * folder associated with user will be deleted.
+</span></span><span id="55" class="l"><a class="l" href="#55">55 </a><span class="php-comment"> * folder associated with the user will be deleted.
 </span></span><span id="56" class="l"><a class="l" href="#56">56 </a><span class="php-comment"> *
-</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; the record about the user in the database will be deleted before calling hook's &lt;kbd&gt;psa_main()&lt;/kbd&gt; method.
-</span></span><span id="58" class="l"><a class="l" href="#58">58 </a><span class="php-comment"> * So you cannot read other information about the user from database (authorize user) because database record doesn't
-</span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment"> * exists and all information you have is user ID or username passed as argument to &lt;kbd&gt;psa_main()&lt;/kbd&gt; method.
+</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; the row in the database will be deleted before calling hook's &lt;kbd&gt;psa_main()&lt;/kbd&gt; method.
+</span></span><span id="58" class="l"><a class="l" href="#58">58 </a><span class="php-comment"> * So, you cannot read other information about the user from the database because database record doesn't
+</span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment"> * exist and all information you have is user ID or username passed as argument to &lt;kbd&gt;psa_main()&lt;/kbd&gt; method.
 </span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment"> *
-</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; the argument passed to the &lt;kbd&gt;psa_main()&lt;/kbd&gt; method can be integer (user ID) or string (username) this depends on
-</span></span><span id="62" class="l"><a class="l" href="#62">62 </a><span class="php-comment"> * what you pass to {@link psa_delete_user()} function.
+</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; the argument passed to the &lt;kbd&gt;psa_main()&lt;/kbd&gt; method can be integer (user ID) or string (username)
+</span></span><span id="62" class="l"><a class="l" href="#62">62 </a><span class="php-comment"> * this depends on what you pass to {@link psa_delete_user()} function.
 </span></span><span id="63" class="l"><a class="l" href="#63">63 </a><span class="php-comment"> *
 </span></span><span id="64" class="l"><a class="l" href="#64">64 </a><span class="php-comment"> *
 </span></span><span id="65" class="l"><a class="l" href="#65">65 </a><span class="php-comment"> * @see Psa_User
@@ -163,8 +163,8 @@
 </span><span id="69" class="l"><a class="l" href="#69">69 </a>
 </span><span id="70" class="l"><a class="l" href="#70">70 </a>
 </span><span id="71" class="l"><a class="l" href="#71">71 </a>    <span class="php-comment">/**
-</span></span><span id="72" class="l"><a class="l" href="#72">72 </a><span class="php-comment">     * This method will be called after the user is successfully deleted from database with {@link psa_delete_user()} function.
-</span></span><span id="73" class="l"><a class="l" href="#73">73 </a><span class="php-comment">     * @param int|string $user ID or username name of the deleted user. Same as passed to {@link psa_delete_user()} function.
+</span></span><span id="72" class="l"><a class="l" href="#72">72 </a><span class="php-comment">     * This method will be called after the user is successfully deleted from the database with {@link psa_delete_user()} function.
+</span></span><span id="73" class="l"><a class="l" href="#73">73 </a><span class="php-comment">     * @param int|string $user ID or username name of the deleted user as passed to {@link psa_delete_user()} function.
 </span></span><span id="74" class="l"><a class="l" href="#74">74 </a><span class="php-comment">     * @see psa_delete_user()
 </span></span><span id="75" class="l"><a class="l" href="#75">75 </a><span class="php-comment">     */</span>
 </span><span id="76" class="l"><a class="l" href="#76">76 </a>    <span class="php-keyword1">abstract</span> <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_psa_main" href="#_psa_main">psa_main</a>(<span class="php-var">$user</span>);

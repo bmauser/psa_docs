@@ -95,13 +95,14 @@
 <p>Class that collects (registers) information about file paths in your
 application for autoloading.</p>
 
-<p>If <var>$PSA_CFG['develop_mode']</var> is on, file registration is done on
-every request for convenience that you don't need manually register if you add
-some class to your project.</p>
+<p>If <var>$PSA_CFG['develop_mode']</var> is true and
+<var>$PSA_CFG['develop_mode_register_files']</var> is true, file registration is
+done on every request for convenience that you don't need to manually register
+files if you add some class to your project.</p>
 
-<p>This class implements <a href="http://en.wikipedia.org/wiki/Singleton_pattern">singleton pattern</a> so you can get reference to result object from any scope with
-<code><a href="class-Psa_Files.html#_get_instance">Psa_Files::get_instance()</a></code> method. You cannot make instance of Psa_Files object with
-<var>new</var> operator.</p>
+<p>This class implements <a href="http://en.wikipedia.org/wiki/Singleton_pattern">singleton pattern</a> so you can get reference to Psa_Files object from any scope
+with <code><a href="class-Psa_Files.html#_get_instance">Psa_Files::get_instance()</a></code> method. You cannot make instance of Psa_Files object
+with the <var>new</var> operator.</p>
 
 	</div>
 
@@ -137,7 +138,7 @@ Psa_Singleton
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 				<b>See:</b>
 				register_files.php<br />
-		<b>Located at</b> <a href="source-class-Psa_Files.html#32-352" title="Go to source code">lib/Psa_Files.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Files.html#32-353" title="Go to source code">lib/Psa_Files.php</a><br />
 	</div>
 
 
@@ -155,7 +156,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_instance">#</a>
-			<code><strong><a href="source-class-Psa_Files.html#59-74" title="Go to source code">get_instance</a></strong>( <span>mixed <var>$classname</var> = __CLASS__</span> )</code>
+			<code><strong><a href="source-class-Psa_Files.html#60-75" title="Go to source code">get_instance</a></strong>( <span>mixed <var>$classname</var> = __CLASS__</span> )</code>
 
 			<div class="description short">
 				
@@ -203,7 +204,7 @@ which gives you instance to the object from any scope in your application.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_set_data">#</a>
-			<code><strong><a href="source-class-Psa_Files.html#77-105" title="Go to source code">set_data</a></strong>( )</code>
+			<code><strong><a href="source-class-Psa_Files.html#78-106" title="Go to source code">set_data</a></strong>( )</code>
 
 			<div class="description short">
 				
@@ -218,7 +219,7 @@ file and fills <code><a href="class-Psa_Files.html#$files_data">Psa_Files::<var>
 file and fills <code><a href="class-Psa_Files.html#$files_data">Psa_Files::<var>$files_data</var></a></code> member array.</p>
 
 <p><b>Note:</b> you don't need to call this method if you called <code><a href="class-Psa_Files.html#_save">Psa_Files::save()</a></code>
-or <code><a href="class-Psa_Files.html#_register">Psa_Files::register()</a></code> method before cause <code><a href="class-Psa_Files.html#_register">Psa_Files::register()</a></code> method will also
+or <code><a href="class-Psa_Files.html#_register">Psa_Files::register()</a></code> method before because <code><a href="class-Psa_Files.html#_register">Psa_Files::register()</a></code> method will also
 fill <code><a href="class-Psa_Files.html#$files_data">Psa_Files::<var>$files_data</var></a></code> array. This method only reads previously saved files
 data from the file.</p>
 
@@ -253,7 +254,7 @@ data from the file.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_register">#</a>
-			<code><strong><a href="source-class-Psa_Files.html#108-208" title="Go to source code">register</a></strong>( <span>array <var>$additional_autoload_folders</var> = <span class="php-keyword1">array</span>()</span>, <span>array <var>$additional_hook_autoload_folders</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><strong><a href="source-class-Psa_Files.html#109-209" title="Go to source code">register</a></strong>( <span>array <var>$additional_autoload_folders</var> = <span class="php-keyword1">array</span>()</span>, <span>array <var>$additional_hook_autoload_folders</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -339,7 +340,7 @@ class="php-keyword1">Array</span>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_save">#</a>
-			<code><strong><a href="source-class-Psa_Files.html#320-351" title="Go to source code">save</a></strong>( <span>array <var>$files_data</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><strong><a href="source-class-Psa_Files.html#321-352" title="Go to source code">save</a></strong>( <span>array <var>$files_data</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -355,7 +356,8 @@ the file.</p>
 
 <p>By default the data is stored in <kbd>autoload_data.php</kbd> file. You can
 change that with <var>$PSA_CFG['autoload_data_file']</var> config value. If
-called without arguments it first calls <code><a href="class-Psa_Files.html#_register">Psa_Files::register()</a></code> method. Throws <code><a href="class-Psa_File_Exception.html">Psa_File_Exception</a></code> on error.</p>
+called without arguments, it first calls <code><a href="class-Psa_Files.html#_register">Psa_Files::register()</a></code> method. Throws
+<code><a href="class-Psa_File_Exception.html">Psa_File_Exception</a></code> on error.</p>
 
 
 
@@ -411,7 +413,7 @@ called without arguments it first calls <code><a href="class-Psa_Files.html#_reg
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_Files.html#48-56" title="Go to source code"><var>$files_data</var></a>
+					<a href="source-class-Psa_Files.html#49-57" title="Go to source code"><var>$files_data</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$files_data" class="anchor">#</a>
@@ -459,10 +461,6 @@ as array returned from <code><a href="class-Psa_Files.html#_register">Psa_Files:
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

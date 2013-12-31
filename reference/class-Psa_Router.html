@@ -108,23 +108,14 @@
 
 	<div class="description">
 	
-<p>Class with methods for parsing the request URL into controller, action, and
-parameters and invoking action methods.</p>
+<p>Class with methods for parsing the requested URL into controller, action, and
+parameters and for invoking action methods.</p>
 
-<p>Router should be used to decide which controller to call. This class has
-methods for that task. That decision can be made from given URL path if your web
-server is set to use rewrite rules, which is common practice, but can also be
-made from get or post values.</p>
+<p>Router's task is to decide which controller and action method to call. That
+decision can be made from the given URL if your web server is set to use rewrite
+rules, which is a common practice.</p>
 
-<p>If you want to use rewrite rules you must set up your web server for this,
-with Apache web server you can do it by enabling <a href="http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html">mod_rewrite</a> by adding line like this into the configuration file:</p>
-
-<p><kbd>LoadModule rewrite_module modules/mod_rewrite.so</kbd></p>
-
-<p>Make sure that you can override (AllowOverride directive) rewrite settings
-with .htaccess file. Edit .htaccess file to match your configuration.</p>
-
-<p>You can write your Router by extending this class. Here is an example:</p>
+<p>Example:</p>
 
 <pre>
 <span class="xlang">&lt;?php</span>
@@ -175,9 +166,10 @@ class="xlang">?&gt;</span>
 
 <p><br />
 <b>Note:</b> PSA will firstly try to call <kbd>psa_main()</kbd> method from the
-<i>Main</i> class. You can make your main class extends Psa_Router class.
-<i>Main</i> class should be defined in Main.php file placed in the first
-autoload directory (see settings in config.php). So you can use Main.php
+<i>Main</i> class. You can make your <i>Main</i> class to extend
+<i>Psa_Router</i> class. <i>Main</i> class should be defined in the Main.php
+file, which is placed in the first autoload directory (set by
+<var>$PSA_CFG['folders']['autoload']</var> in config.php). Use Main.php
 file as bootstrap file for your application.</p>
 
 	</div>
@@ -213,7 +205,7 @@ file as bootstrap file for your application.</p>
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_Router.html#32-247" title="Go to source code">lib/Psa_Router.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Router.html#32-238" title="Go to source code">lib/Psa_Router.php</a><br />
 	</div>
 
 
@@ -231,18 +223,18 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_explode_url">#</a>
-			<code><strong><a href="source-class-Psa_Router.html#86-128" title="Go to source code">explode_url</a></strong>( <span>string <var>$request_uri</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><strong><a href="source-class-Psa_Router.html#77-119" title="Go to source code">explode_url</a></strong>( <span>string <var>$request_uri</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
-<p>Returns array of URL path parts after application base directory exploded by
+<p>Returns an array of URL elements after application base directory exploded by
 '/'.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Returns array of URL path parts after application base directory exploded by
+<p>Returns an array of URL elements after application base directory exploded by
 '/'.</p>
 
 <p>For example, for URL <kbd><a
@@ -264,7 +256,7 @@ Array
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$request_uri</var></dt>
-												<dd><code>string</code><br>$_SERVER["REQUEST_URI"] by default</dd>
+												<dd><code>string</code><br><kbd>$_SERVER["REQUEST_URI"]</kbd> by default</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -289,18 +281,18 @@ Array
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_dispatch_data">#</a>
-			<code><strong><a href="source-class-Psa_Router.html#131-169" title="Go to source code">get_dispatch_data</a></strong>( <span>string|array <var>$request_uri</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><strong><a href="source-class-Psa_Router.html#122-160" title="Go to source code">get_dispatch_data</a></strong>( <span>string|array <var>$request_uri</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
-<p>Returns array with the names of the controller and action and array of
+<p>Returns an array with the names of the controller and the action and array of
 arguments for action method.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Returns array with the names of the controller and action and array of
+<p>Returns an array with the names of the controller and the action and array of
 arguments for action method.</p>
 
 <p>For example, for URL <kbd><a
@@ -325,7 +317,7 @@ Array
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$request_uri</var></dt>
-												<dd><code>string|array</code><br>$_SERVER["REQUEST_URI"] by default</dd>
+												<dd><code>string|array</code><br><kbd>$_SERVER["REQUEST_URI"]</kbd> by default</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -350,7 +342,7 @@ Array
 
 			<td class="name"><div>
 			<a class="anchor" href="#_dispach">#</a>
-			<code><strong><a href="source-class-Psa_Router.html#172-246" title="Go to source code">dispach</a></strong>( <span>string <var>$class_name</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$method_name</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$method_arguments</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><strong><a href="source-class-Psa_Router.html#163-237" title="Go to source code">dispach</a></strong>( <span>string <var>$class_name</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$method_name</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$method_arguments</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -362,10 +354,9 @@ Array
 				
 <p>Invokes method in a class with arguments.</p>
 
-<p>This method is intended to be used to call controller method with arguments.
-If you call it without parameters it will try to get controller name, method and
-parameters from URL. In that case it actually calls <code><a href="class-Psa_Router.html#_get_dispatch_data">Psa_Router::get_dispatch_data()</a></code>
-method to get data for dispatch.</p>
+<p>This method is intended to be used to call the controller method with
+arguments. If you call it without parameters, it will try to get controller
+name, method and parameters from the URL. In that case, it actually calls <code><a href="class-Psa_Router.html#_get_dispatch_data">Psa_Router::get_dispatch_data()</a></code> method to get data for dispatch.</p>
 
 
 
@@ -381,7 +372,7 @@ method to get data for dispatch.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>mixed</code><br>Returns the calling method result.<br />
+						<code>mixed</code><br>Returns result from the called method.<br />
 					</div>
 
 					<h4>Throws</h4>
@@ -442,10 +433,6 @@ method to get data for dispatch.</p>
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

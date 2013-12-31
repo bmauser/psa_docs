@@ -94,20 +94,21 @@
 	
 <p>Simple template engine class.</p>
 
-<p>I called this class Dully to be opposite to <a href="http://www.smarty.net">Smarty</a>. It has few
+<p>I named this class Dully as opposite to <a href="http://www.smarty.net">Smarty</a>. It has few
 methods that are similar to those in Smarty template engine.</p>
 
-<p>All that Dully does is to put values from associative array into the local
-namespace and includes .php (template) file. There are no special template tags,
-just use PHP code blocks to echo values. Templates are ordinary PHP files and
-you can write them as any other .php script, but keep in mind that the point of
-template engine should be to separate business logic from presentation. So you
+<p>All that Dully does is putting values from an associative array into the
+local namespace and includes .php (template) file. There are no special template
+tags, just use PHP code blocks to echo values. Templates are ordinary PHP files
+and you can write them as any other .php script, but keep in mind that point of
+the template engine is separating business logic from presentation. So, you
 should not put any logic (calculations, getting data from a database ...) into
-templates. With <a href="http://www.smarty.net">Smarty</a> that is easier to achieve and it has many advanced features so I suggest
-that you use Smarty as a template engine. If you need simple and fast template
-engine or don't want to learn Smarty's tags you can use Dully. Dully class
-doesn't include anything from PSA so you can use this class as template engine
-in any PHP application.</p>
+the templates. With <a href="http://www.smarty.net">Smarty</a> that is easier to
+achieve, and it has many advanced features so I suggest that you use Smarty as a
+template engine. If you need a simple and fast template engine or don't want to
+learn Smarty's tags, you can use Dully. Dully class doesn't include anything
+from PSA so you can use this class as template engine in any PHP
+application.</p>
 
 <p>This class is inspired from <a href="http://www.massassi.com/php/articles/template_engines/">here</a> and there are some interesting thoughts about template engines.</p>
 
@@ -120,7 +121,7 @@ in any PHP application.</p>
 <p>Template file <samp>template.tpl</samp>:</p>
 
 <pre>
-This is text from template <span
+This is a text from template <span
 class="php-keyword2">file</span> template.php&lt;br/&gt;
 My car is <span
 class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span
@@ -168,7 +169,7 @@ class="xlang">?&gt;</span>
 <p>The printout of the above .php script will be:</p>
 
 <pre>
-This is text from template file template.php
+This is a text from template file template.php
 My car is Black.
 Something else: bla bla bla
 </pre>
@@ -182,7 +183,7 @@ Something else: bla bla bla
 <p>template file <samp>template1.tpl</samp>:</p>
 
 <pre>
-This is text from template1.php&lt;br/&gt;
+This is a text from template1.php&lt;br/&gt;
 <span
 class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span
 class="php-var">$var1</span> <span class="xlang">?&gt;</span>&lt;br/&gt;
@@ -194,7 +195,7 @@ class="php-var">$var2</span> <span class="xlang">?&gt;</span>
 <p>template file <samp>template2.tpl</samp>:</p>
 
 <pre>
-This is text from template2.php
+This is a text from template2.php
 </pre>
 
 <p>.php file:</p>
@@ -239,8 +240,8 @@ class="xlang">?&gt;</span>
 <p>The above example will output:</p>
 
 <pre>
-This is text from template1.php
-This is text from template2.php
+This is a text from template1.php
+This is a text from template2.php
 bla bla bla
 </pre>
 
@@ -407,14 +408,14 @@ description.</p>
 
 			<div class="description short">
 				
-<p>Returns the fetched template as string. See examples in <code><a href="class-Psa_Dully.html">Psa_Dully</a></code>
+<p>Returns the fetched template as a string. See examples in <code><a href="class-Psa_Dully.html">Psa_Dully</a></code>
 class description.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Returns the fetched template as string. See examples in <code><a href="class-Psa_Dully.html">Psa_Dully</a></code>
+<p>Returns the fetched template as a string. See examples in <code><a href="class-Psa_Dully.html">Psa_Dully</a></code>
 class description.</p>
 
 
@@ -422,7 +423,7 @@ class description.</p>
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$template_file</var></dt>
-												<dd><code>string</code><br>Template file name or relative path from path passed to constructor.</dd>
+												<dd><code>string</code><br>Template file name or relative path from the path passed to the constructor.</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -470,7 +471,7 @@ class description.</p>
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$template_file</var></dt>
-												<dd><code>string</code><br>Template file name or relative path from path passed to constructor.</dd>
+												<dd><code>string</code><br>Template file name or relative path from path passed to the constructor.</dd>
 					</dl></div>
 
 
@@ -515,10 +516,6 @@ class description.</p>
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

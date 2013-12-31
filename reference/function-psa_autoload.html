@@ -108,22 +108,22 @@
 
 	<div class="description">
 	
-<p>This function is registered with PHP <kbd>spl_autoload_register()</kbd>
-function as <kbd>__autoload()</kbd> implementation used to auto include
+<p>This function is registered with the PHP <kbd>spl_autoload_register()</kbd>
+function as <kbd>__autoload()</kbd> implementation used to auto include .php
 files.</p>
 
-<p>Thus if you want to extend some class you don't have to include its file, it
+<p>Thus, if you want to extend some class you don't have to include its file, it
 will be included automatically.</p>
 
 <p><b>Note:</b> Class autoloading will be working only in folders specified with
 <var>$PSA_CFG['folders']['autoload'][]</var> and
-<var>$PSA_CFG['folders']['hook_autoload'][]</var> configuration options. Also
-file registration must be invoked before to generate
-<kbd>autoload_data.php</kbd> file. There is CLI <kbd>register_files.php</kbd>
-script for that.</p>
+<var>$PSA_CFG['folders']['hook_autoload'][]</var> configuration options. Also,
+file registration must be invoked to generate <kbd>autoload_data.php</kbd> file
+that contains array with all classes and their paths. There is a command line
+helper script <kbd>register_files.php</kbd> for that.</p>
 
-<p>For example, you can just extends Psa_Mode class without including it's
-file:</p>
+<p>For example, you can just extend <i>Psa_Model</i> class without including its
+.php file:</p>
 
 <pre>
 <span class="xlang">&lt;?php</span>
@@ -150,7 +150,7 @@ class="xlang">?&gt;</span>
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 				<b>See:</b>
 				<code><code><a href="class-Psa_Files.html#_register">Psa_Files::register()</a></code></code><br />
-		<b>Located at</b> <a href="source-function-psa_autoload.html#332-371" title="Go to source code">lib/functions.php</a><br />
+		<b>Located at</b> <a href="source-function-psa_autoload.html#329-368" title="Go to source code">lib/functions.php</a><br />
 	</div>
 
 
@@ -186,10 +186,6 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

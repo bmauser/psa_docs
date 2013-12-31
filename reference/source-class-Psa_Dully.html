@@ -122,24 +122,24 @@
 </span><span id="32" class="l"><a class="l" href="#32"> 32 </a><span class="php-comment">/**
 </span></span><span id="33" class="l"><a class="l" href="#33"> 33 </a><span class="php-comment"> * Simple template engine class.
 </span></span><span id="34" class="l"><a class="l" href="#34"> 34 </a><span class="php-comment"> *
-</span></span><span id="35" class="l"><a class="l" href="#35"> 35 </a><span class="php-comment"> * I called this class Dully to be opposite to {@link http://www.smarty.net Smarty}.
+</span></span><span id="35" class="l"><a class="l" href="#35"> 35 </a><span class="php-comment"> * I named this class Dully as opposite to {@link http://www.smarty.net Smarty}.
 </span></span><span id="36" class="l"><a class="l" href="#36"> 36 </a><span class="php-comment"> * It has few methods that are similar to those in Smarty template engine.
 </span></span><span id="37" class="l"><a class="l" href="#37"> 37 </a><span class="php-comment"> *
-</span></span><span id="38" class="l"><a class="l" href="#38"> 38 </a><span class="php-comment"> * All that Dully does is to put values from associative array into the local namespace and
+</span></span><span id="38" class="l"><a class="l" href="#38"> 38 </a><span class="php-comment"> * All that Dully does is putting values from an associative array into the local namespace and
 </span></span><span id="39" class="l"><a class="l" href="#39"> 39 </a><span class="php-comment"> * includes .php (template) file. There are no special template tags, just use PHP code
 </span></span><span id="40" class="l"><a class="l" href="#40"> 40 </a><span class="php-comment"> * blocks to echo values. Templates are ordinary PHP files and you can write them
-</span></span><span id="41" class="l"><a class="l" href="#41"> 41 </a><span class="php-comment"> * as any other .php script, but keep in mind that the point of template engine
-</span></span><span id="42" class="l"><a class="l" href="#42"> 42 </a><span class="php-comment"> * should be to separate business logic from presentation.
-</span></span><span id="43" class="l"><a class="l" href="#43"> 43 </a><span class="php-comment"> * So you should not put any logic (calculations, getting data from a database ...)
-</span></span><span id="44" class="l"><a class="l" href="#44"> 44 </a><span class="php-comment"> * into templates. With {@link http://www.smarty.net Smarty} that is easier to achieve
+</span></span><span id="41" class="l"><a class="l" href="#41"> 41 </a><span class="php-comment"> * as any other .php script, but keep in mind that point of the template engine
+</span></span><span id="42" class="l"><a class="l" href="#42"> 42 </a><span class="php-comment"> * is separating business logic from presentation.
+</span></span><span id="43" class="l"><a class="l" href="#43"> 43 </a><span class="php-comment"> * So, you should not put any logic (calculations, getting data from a database ...)
+</span></span><span id="44" class="l"><a class="l" href="#44"> 44 </a><span class="php-comment"> * into the templates. With {@link http://www.smarty.net Smarty} that is easier to achieve,
 </span></span><span id="45" class="l"><a class="l" href="#45"> 45 </a><span class="php-comment"> * and it has many advanced features so I suggest that you use Smarty as a template engine.
-</span></span><span id="46" class="l"><a class="l" href="#46"> 46 </a><span class="php-comment"> * If you need simple and fast template engine or don't want to learn Smarty's tags you can
+</span></span><span id="46" class="l"><a class="l" href="#46"> 46 </a><span class="php-comment"> * If you need a simple and fast template engine or don't want to learn Smarty's tags, you can
 </span></span><span id="47" class="l"><a class="l" href="#47"> 47 </a><span class="php-comment"> * use Dully.
 </span></span><span id="48" class="l"><a class="l" href="#48"> 48 </a><span class="php-comment"> * Dully class doesn't include anything from PSA so you can use this class as template engine
 </span></span><span id="49" class="l"><a class="l" href="#49"> 49 </a><span class="php-comment"> * in any PHP application.
 </span></span><span id="50" class="l"><a class="l" href="#50"> 50 </a><span class="php-comment"> *
-</span></span><span id="51" class="l"><a class="l" href="#51"> 51 </a><span class="php-comment"> * This class is inspired from {@link http://www.massassi.com/php/articles/template_engines/ here} and there are
-</span></span><span id="52" class="l"><a class="l" href="#52"> 52 </a><span class="php-comment"> * some interesting thoughts about template engines.
+</span></span><span id="51" class="l"><a class="l" href="#51"> 51 </a><span class="php-comment"> * This class is inspired from {@link http://www.massassi.com/php/articles/template_engines/ here}
+</span></span><span id="52" class="l"><a class="l" href="#52"> 52 </a><span class="php-comment"> * and there are some interesting thoughts about template engines.
 </span></span><span id="53" class="l"><a class="l" href="#53"> 53 </a><span class="php-comment"> *
 </span></span><span id="54" class="l"><a class="l" href="#54"> 54 </a><span class="php-comment"> * &lt;br&gt;&lt;b&gt;Usage examples:&lt;/b&gt;
 </span></span><span id="55" class="l"><a class="l" href="#55"> 55 </a><span class="php-comment"> *
@@ -147,7 +147,7 @@
 </span></span><span id="57" class="l"><a class="l" href="#57"> 57 </a><span class="php-comment"> *
 </span></span><span id="58" class="l"><a class="l" href="#58"> 58 </a><span class="php-comment"> * Template file &lt;samp&gt;template.tpl&lt;/samp&gt;:
 </span></span><span id="59" class="l"><a class="l" href="#59"> 59 </a><span class="php-comment"> * &lt;code&gt;
-</span></span><span id="60" class="l"><a class="l" href="#60"> 60 </a><span class="php-comment"> * This is text from template file template.php&lt;br/&gt;
+</span></span><span id="60" class="l"><a class="l" href="#60"> 60 </a><span class="php-comment"> * This is a text from template file template.php&lt;br/&gt;
 </span></span><span id="61" class="l"><a class="l" href="#61"> 61 </a><span class="php-comment"> * My car is &lt;?php echo $my_car_color ?&gt;.&lt;br/&gt;
 </span></span><span id="62" class="l"><a class="l" href="#62"> 62 </a><span class="php-comment"> * Something else: &lt;?php echo $some_name ?&gt;
 </span></span><span id="63" class="l"><a class="l" href="#63"> 63 </a><span class="php-comment"> * &lt;/code&gt;
@@ -171,7 +171,7 @@
 </span></span><span id="81" class="l"><a class="l" href="#81"> 81 </a><span class="php-comment"> *
 </span></span><span id="82" class="l"><a class="l" href="#82"> 82 </a><span class="php-comment"> * The printout of the above .php script will be:
 </span></span><span id="83" class="l"><a class="l" href="#83"> 83 </a><span class="php-comment"> * &lt;pre&gt;
-</span></span><span id="84" class="l"><a class="l" href="#84"> 84 </a><span class="php-comment"> * This is text from template file template.php
+</span></span><span id="84" class="l"><a class="l" href="#84"> 84 </a><span class="php-comment"> * This is a text from template file template.php
 </span></span><span id="85" class="l"><a class="l" href="#85"> 85 </a><span class="php-comment"> * My car is Black.
 </span></span><span id="86" class="l"><a class="l" href="#86"> 86 </a><span class="php-comment"> * Something else: bla bla bla
 </span></span><span id="87" class="l"><a class="l" href="#87"> 87 </a><span class="php-comment"> * &lt;/pre&gt;
@@ -184,14 +184,14 @@
 </span></span><span id="94" class="l"><a class="l" href="#94"> 94 </a><span class="php-comment"> *
 </span></span><span id="95" class="l"><a class="l" href="#95"> 95 </a><span class="php-comment"> * template file &lt;samp&gt;template1.tpl&lt;/samp&gt;:
 </span></span><span id="96" class="l"><a class="l" href="#96"> 96 </a><span class="php-comment"> * &lt;code&gt;
-</span></span><span id="97" class="l"><a class="l" href="#97"> 97 </a><span class="php-comment"> * This is text from template1.php&lt;br/&gt;
+</span></span><span id="97" class="l"><a class="l" href="#97"> 97 </a><span class="php-comment"> * This is a text from template1.php&lt;br/&gt;
 </span></span><span id="98" class="l"><a class="l" href="#98"> 98 </a><span class="php-comment"> * &lt;?php echo $var1 ?&gt;&lt;br/&gt;
 </span></span><span id="99" class="l"><a class="l" href="#99"> 99 </a><span class="php-comment"> * &lt;?php echo $var2 ?&gt;
 </span></span><span id="100" class="l"><a class="l" href="#100">100 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="101" class="l"><a class="l" href="#101">101 </a><span class="php-comment"> *
 </span></span><span id="102" class="l"><a class="l" href="#102">102 </a><span class="php-comment"> * template file &lt;samp&gt;template2.tpl&lt;/samp&gt;:
 </span></span><span id="103" class="l"><a class="l" href="#103">103 </a><span class="php-comment"> * &lt;code&gt;
-</span></span><span id="104" class="l"><a class="l" href="#104">104 </a><span class="php-comment"> * This is text from template2.php
+</span></span><span id="104" class="l"><a class="l" href="#104">104 </a><span class="php-comment"> * This is a text from template2.php
 </span></span><span id="105" class="l"><a class="l" href="#105">105 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="106" class="l"><a class="l" href="#106">106 </a><span class="php-comment"> *
 </span></span><span id="107" class="l"><a class="l" href="#107">107 </a><span class="php-comment"> * .php file:
@@ -216,8 +216,8 @@
 </span></span><span id="126" class="l"><a class="l" href="#126">126 </a><span class="php-comment"> *
 </span></span><span id="127" class="l"><a class="l" href="#127">127 </a><span class="php-comment"> * The above example will output:
 </span></span><span id="128" class="l"><a class="l" href="#128">128 </a><span class="php-comment"> * &lt;pre&gt;
-</span></span><span id="129" class="l"><a class="l" href="#129">129 </a><span class="php-comment"> * This is text from template1.php
-</span></span><span id="130" class="l"><a class="l" href="#130">130 </a><span class="php-comment"> * This is text from template2.php
+</span></span><span id="129" class="l"><a class="l" href="#129">129 </a><span class="php-comment"> * This is a text from template1.php
+</span></span><span id="130" class="l"><a class="l" href="#130">130 </a><span class="php-comment"> * This is a text from template2.php
 </span></span><span id="131" class="l"><a class="l" href="#131">131 </a><span class="php-comment"> * bla bla bla
 </span></span><span id="132" class="l"><a class="l" href="#132">132 </a><span class="php-comment"> * &lt;/pre&gt;
 </span></span><span id="133" class="l"><a class="l" href="#133">133 </a><span class="php-comment"> *
@@ -287,10 +287,10 @@
 </span><span id="197" class="l"><a class="l" href="#197">197 </a>
 </span><span id="198" class="l"><a class="l" href="#198">198 </a>
 </span><span id="199" class="l"><a class="l" href="#199">199 </a>    <span class="php-comment">/**
-</span></span><span id="200" class="l"><a class="l" href="#200">200 </a><span class="php-comment">     * Returns the fetched template as string.
+</span></span><span id="200" class="l"><a class="l" href="#200">200 </a><span class="php-comment">     * Returns the fetched template as a string.
 </span></span><span id="201" class="l"><a class="l" href="#201">201 </a><span class="php-comment">     * See examples in {@link Psa_Dully} class description.
 </span></span><span id="202" class="l"><a class="l" href="#202">202 </a><span class="php-comment">     *
-</span></span><span id="203" class="l"><a class="l" href="#203">203 </a><span class="php-comment">     * @param string $template_file Template file name or relative path from path passed to constructor.
+</span></span><span id="203" class="l"><a class="l" href="#203">203 </a><span class="php-comment">     * @param string $template_file Template file name or relative path from the path passed to the constructor.
 </span></span><span id="204" class="l"><a class="l" href="#204">204 </a><span class="php-comment">     * @return string Fetched (rendered) template.
 </span></span><span id="205" class="l"><a class="l" href="#205">205 </a><span class="php-comment">     * @see display()
 </span></span><span id="206" class="l"><a class="l" href="#206">206 </a><span class="php-comment">     */</span>
@@ -318,7 +318,7 @@
 </span></span><span id="228" class="l"><a class="l" href="#228">228 </a><span class="php-comment">     *
 </span></span><span id="229" class="l"><a class="l" href="#229">229 </a><span class="php-comment">     * Just prints output from {@link fetch()} method.
 </span></span><span id="230" class="l"><a class="l" href="#230">230 </a><span class="php-comment">     *
-</span></span><span id="231" class="l"><a class="l" href="#231">231 </a><span class="php-comment">     * @param string $template_file Template file name or relative path from path passed to constructor.
+</span></span><span id="231" class="l"><a class="l" href="#231">231 </a><span class="php-comment">     * @param string $template_file Template file name or relative path from path passed to the constructor.
 </span></span><span id="232" class="l"><a class="l" href="#232">232 </a><span class="php-comment">     * @see fetch()
 </span></span><span id="233" class="l"><a class="l" href="#233">233 </a><span class="php-comment">     */</span>
 </span><span id="234" class="l"><a class="l" href="#234">234 </a>    <span class="php-keyword1">function</span> <a id="_display" href="#_display">display</a>(<span class="php-var">$template_file</span>){

@@ -111,8 +111,8 @@
 <p>Class for input data validation.</p>
 
 <p>You should validate all input data from users. Validation should occur in the
-model method, not in controller (in some action method). That makes your models
-more independent and more reusable and testing is easier.</p>
+model method, not in the controller (in some action method). That makes your
+models more independent and more reusable and testing is easier.</p>
 
 <p><br />
 <b>Usage example</b></p>
@@ -164,11 +164,11 @@ class="php-comment">//</span>
 <b>All validation actions</b></p>
 
 <p>Two main methods in this class are <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> and <code><a href="class-Psa_Validator.html#_optional">Psa_Validator::optional()</a></code>.
-They behave the same except that <code><a href="class-Psa_Validator.html#_optional">Psa_Validator::optional()</a></code> will not raise exception if
-value is empty or <kbd>null</kbd>. Like in the example above, first argument is
-the value that should be validated, second is the validation action name. See
-<code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method documentation for all action names. Some validation
-actions expect more parameters. Examples:</p>
+They behave the same way except that <code><a href="class-Psa_Validator.html#_optional">Psa_Validator::optional()</a></code> will not raise exception
+if value is empty or <kbd>null</kbd>. Like in the example above, first argument
+is the value that should be validated and second is the name of the validation
+action. See <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method documentation for all action names. Some
+validation actions require more parameters. Examples:</p>
 
 <pre>
 
@@ -200,13 +200,13 @@ class="php-num">2</span>, <span class="php-num">3</span>, <span
 class="php-num">4</span>));
 
 <span
-class="php-comment">// Checks is the given $value an integer.</span>
+class="php-comment">// Checks if the given $value is an integer.</span>
 <span
 class="php-var">$val</span>-&gt;required(<span
 class="php-var">$value</span>, <span class="php-quote">'int'</span>);
 
 <span
-class="php-comment">// Finds whether the given $value is integer bigger than 0.</span>
+class="php-comment">// Finds whether the given $value is an integer bigger than 0.</span>
 <span
 class="php-var">$val</span>-&gt;required(<span
 class="php-var">$value</span>, <span class="php-quote">'id'</span>);
@@ -227,13 +227,13 @@ class="php-var">$val</span>-&gt;required(<span
 class="php-var">$value</span>, <span class="php-quote">'email'</span>);
 
 <span
-class="php-comment">// Checks is the given $value valid IPv4 address.</span>
+class="php-comment">// Checks is the given $value a valid IPv4 address.</span>
 <span
 class="php-var">$val</span>-&gt;required(<span
 class="php-var">$value</span>, <span class="php-quote">'ip4'</span>);
 
 <span
-class="php-comment">// Checks is the given $value valid floating point number.</span>
+class="php-comment">// Checks is the given $value a valid floating point number.</span>
 <span
 class="php-var">$val</span>-&gt;required(<span
 class="php-var">$value</span>, <span class="php-quote">'float'</span>);
@@ -323,8 +323,8 @@ class="php-var">$value</span>, <span class="php-quote">'ip6'</span>);
 <p><br />
 <b>Validating array of values</b></p>
 
-<p>If you want to validate array of values, suffix <b><kbd>_array</kbd></b> can
-be added to any of validation actions to validate each element of array. For
+<p>If you want to validate an array of values, suffix <b><kbd>_array</kbd></b>
+can be added to any of validation actions to validate each element of array. For
 example, this is useful when validating input from HTML drop-down menu with
 multiple selections.</p>
 
@@ -355,11 +355,11 @@ class="php-num">4</span>));
 <p><br />
 <b>Custom error message per validation</b></p>
 
-<p>If validation fails, by default exception will be raized. Each action has
-it's own default error message, but you can change that message by passing one
-more argument to <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> or <code><a href="class-Psa_Validator.html#_optional">Psa_Validator::optional()</a></code> method. This can be
-usefull for example if you log exeptions and want more descriptive error message
-or message will be shown to the user.</p>
+<p>If validation fails, by default exception will be raized. Each action has its
+own default error message, but you can change that message by passing one more
+argument to <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> or <code><a href="class-Psa_Validator.html#_optional">Psa_Validator::optional()</a></code> method. This can be usefull
+if you want more descriptive error message or message will be shown to the
+user.</p>
 
 <pre>
 
@@ -376,13 +376,13 @@ class="php-quote">'Not valid product ID'</span>);
 <p><br />
 <b>Adding custom validation</b></p>
 
-<p>You can extend this class and add your validation function (action). In the
-next example '<kbd>5to9</kbd>' action is added. Note that validation method
-named <var>check_5to9()</var> and error message named <var>$msg_check_5to9</var>
-are added in the child class. Validation method should return <kbd>true</kbd> or
-<kbd>false</kbd>. When you add validation action like this you can use it with
-<kbd>_array</kbd> suffilx like any other builtin action. See the source code of
-this class for more examples.</p>
+<p>You can extend this class and add your custom validation function (action).
+In the next example '<kbd>5to9</kbd>' action is added. Note that validation
+method named <var>check_5to9()</var> and error message named
+<var>$msg_check_5to9</var> are added in the child class. Validation method
+should return <kbd>true</kbd> or <kbd>false</kbd>. When you add validation
+action like this you can use it with <kbd>_array</kbd> suffilx like any other
+built-in action. See the source code of this class for more examples.</p>
 
 <pre>
 <span class="php-keyword1">class</span> MyValidator <span
@@ -487,9 +487,9 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 <kbd>lenbetween</kbd>, <kbd>equal</kbd>, <kbd>identical</kbd>,
 <kbd>hostname</kbd>, <kbd>callback</kbd><br />
 If <var>$value</var> is an array, suffix <b><kbd>_array</kbd></b> can be added
-to any of these types to validate each element of array <var>$value</var>. For
-example, this is useful when validating input from HTML drop-down menu with
-multiple selections.</dd>
+to any of these types to validate each element of the array. For example, this
+is useful when validating input from HTML drop-down menu with multiple
+selections.</dd>
 						<dt><var>$p</var>,…</dt>
 												<dd><code>mixed</code><br>Unlimited optional number of additional parameters that will be passed as
 second, third,... parameter to <i>check_</i> methods.</dd>
@@ -537,11 +537,9 @@ second, third,... parameter to <i>check_</i> methods.</dd>
 				
 <p>Validates an optional value.</p>
 
-<p>This method does the same as <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method, only difference is
-that evaluated value can be empty string or null. For example this can be useful
-for values from optional HTML form elements. See example in Psa_Validator
-class description and for description of parameters see <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code>
-method.</p>
+<p>This method does the same as <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method, the only difference
+is that evaluated value can be empty string or null. For example this can be
+useful for values from optional HTML form elements. See example in Psa_Validator class description and for description of parameters see <code><a href="class-Psa_Validator.html#_required">Psa_Validator::required()</a></code> method.</p>
 
 
 
@@ -589,13 +587,13 @@ method.</p>
 
 			<div class="description short">
 				
-<p>Returns array with validation errors (messages).</p>
+<p>Returns an array with validation errors (messages).</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Returns array with validation errors (messages).</p>
+<p>Returns an array with validation errors (messages).</p>
 
 <p>It will return 0 if there is no validation error messages.</p>
 
@@ -744,10 +742,6 @@ class="php-quote">'You entered invalid password.'</span>);
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

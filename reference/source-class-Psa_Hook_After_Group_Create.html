@@ -126,8 +126,8 @@
 </span><span id="32" class="l"><a class="l" href="#32">32 </a><span class="php-comment">/**
 </span></span><span id="33" class="l"><a class="l" href="#33">33 </a><span class="php-comment"> * Abstract class for &lt;i&gt;Psa_Hook_After_Group_Create&lt;/i&gt; hook.
 </span></span><span id="34" class="l"><a class="l" href="#34">34 </a><span class="php-comment"> *
-</span></span><span id="35" class="l"><a class="l" href="#35">35 </a><span class="php-comment"> * You make &lt;i&gt;Psa_Hook_After_Group_Create&lt;/i&gt; hooks by extending this class.
-</span></span><span id="36" class="l"><a class="l" href="#36">36 </a><span class="php-comment"> * You can crate a new group by passing '&lt;kbd&gt;new&lt;/kbd&gt;' to {@link Psa_Group} class constructor. See
+</span></span><span id="35" class="l"><a class="l" href="#35">35 </a><span class="php-comment"> * You can make &lt;i&gt;Psa_Hook_After_Group_Create&lt;/i&gt; hooks by extending this class.
+</span></span><span id="36" class="l"><a class="l" href="#36">36 </a><span class="php-comment"> * You can create a new group by passing '&lt;kbd&gt;new&lt;/kbd&gt;' to {@link Psa_Group} class constructor. See
 </span></span><span id="37" class="l"><a class="l" href="#37">37 </a><span class="php-comment"> * {@link Psa_Group::__construct()} method.
 </span></span><span id="38" class="l"><a class="l" href="#38">38 </a><span class="php-comment"> *
 </span></span><span id="39" class="l"><a class="l" href="#39">39 </a><span class="php-comment"> * After a new group is successfully created with {@link Psa_Group::save()} method,
@@ -148,10 +148,10 @@
 </span></span><span id="54" class="l"><a class="l" href="#54">54 </a><span class="php-comment"> * ?&gt;
 </span></span><span id="55" class="l"><a class="l" href="#55">55 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="56" class="l"><a class="l" href="#56">56 </a><span class="php-comment"> *
-</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * When this example hook is registered every new created group will have property called
+</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * When this example hook is registered, every new created group will have a property called
 </span></span><span id="58" class="l"><a class="l" href="#58">58 </a><span class="php-comment"> * &lt;kbd&gt;students&lt;/kbd&gt; with value '&lt;kbd&gt;yes&lt;/kbd&gt;'.
 </span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment"> *
-</span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; if you set some property to the group like &lt;i&gt;students&lt;/i&gt; in the example above
+</span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; if you set some property to the group, like &lt;i&gt;students&lt;/i&gt; in the example above,
 </span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment"> * it will not be saved until you call {@link Psa_Group::save()} method again.
 </span></span><span id="62" class="l"><a class="l" href="#62">62 </a><span class="php-comment"> *
 </span></span><span id="63" class="l"><a class="l" href="#63">63 </a><span class="php-comment"> *

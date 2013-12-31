@@ -92,7 +92,7 @@
 
 	<div class="description">
 	
-<p>Implements simple <a href="https://en.wikipedia.org/wiki/Active_record_pattern">Active Record</a> pattern.</p>
+<p>Implements a simple <a href="https://en.wikipedia.org/wiki/Active_record_pattern">Active Record</a> pattern.</p>
 
 <p>Active record is an approach to accessing data in a database. An object
 instance is tied to a single row in the database table. After creation of an
@@ -101,9 +101,9 @@ information from the existing row in the database.</p>
 
 <p>By extending this class you can make an object which has member variables
 that correspond to the fields in the database table. When you call <code><a href="class-Psa_Active_Record.html#_save_to_database">Psa_Active_Record::save_to_database()</a></code> method, values assigned to instance variables will be saved
-to database. When you call <code><a href="class-Psa_Active_Record.html#_restore_from_database">Psa_Active_Record::restore_from_database()</a></code> method member
-variables named like the database columns will be populated with values from the
-database.</p>
+to the database. When you call <code><a href="class-Psa_Active_Record.html#_restore_from_database">Psa_Active_Record::restore_from_database()</a></code> method member
+variables named the same as database columns will be populated with values from
+the database.</p>
 
 <p><b>Example:</b></p>
 
@@ -152,8 +152,7 @@ class="php-var">$group</span>-&gt;save_to_database();
 </pre>
 
 <p><br />
-For example of usage check source code of <code><a href="class-Psa_Group.html">Psa_Group</a></code> and <code><a href="class-Psa_User.html">Psa_User</a></code>
-which extend this class.</p>
+For example of usage, check source code of <code><a href="class-Psa_Group.html">Psa_Group</a></code> and <code><a href="class-Psa_User.html">Psa_User</a></code> classes which extend this class.</p>
 
 	</div>
 
@@ -220,13 +219,13 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 						<dt><var>$primary_key_field_name</var></dt>
 												<dd><code>string</code><br>Name of the primary key field in the database table.</dd>
 						<dt><var>$primary_key_value</var></dt>
-												<dd><code>string</code><br>Value of the primary key field. If not set, new row to the table will be added
+												<dd><code>string</code><br>Value of the primary key field. If not set, a new row to the table will be added
 when <code><a href="class-Psa_Active_Record.html#_save_to_database">Psa_Active_Record::save_to_database()</a></code> method is called.</dd>
 						<dt><var>$column_names</var></dt>
 												<dd><code>array</code><br>Array with column names from the database table to work with. Not all columns
-needs to be included. If you skip to set this argument column names will be set
+need to be included. If you skip to set this argument, column names will be set
 automatically. That is one query more to the database on the object
-initialization to get table shema, so it's better to provide column names by
+initialization to get a table schema, so it's better to provide column names by
 setting this argument.</dd>
 						<dt><var>$primary_key_sequence_name</var></dt>
 												<dd><code>string</code><br>Name of the primary key field sequence.</dd>
@@ -271,8 +270,8 @@ correspond to columns in the database table.</p>
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$only_columns</var></dt>
-												<dd><code>array</code><br>Array with column names to restore from the database. If not set column names
-set by constructor are used.</dd>
+												<dd><code>array</code><br>Array with column names to restore from the database. If not set, column names
+set by the constructor are used.</dd>
 						<dt><var>$custom_query</var></dt>
 												<dd><code>string</code><br>Query to fetch data from the database. '<kbd>&lt;COLUMNS&gt;</kbd>' will be
 replaced with comma delimited column names.</dd>
@@ -310,24 +309,24 @@ replaced with comma delimited column names.</dd>
 
 			<div class="description short">
 				
-<p>Saves values from object's member variables to the database.</p>
+<p>Saves values from the object's member variables to the database.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Saves values from object's member variables to the database.</p>
+<p>Saves values from the object's member variables to the database.</p>
 
 
 
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$only_columns</var></dt>
-												<dd><code>array</code><br>Array with column names to save to the database. If not set column names set by
-constructor are used.</dd>
+												<dd><code>array</code><br>Array with column names to save to the database. If not set, column names set by
+the constructor are used.</dd>
 						<dt><var>$and_columns</var></dt>
-												<dd><code>array</code><br>Array with column names to be saved also with default columns set by constructor
-or <var>$only_columns</var> argument.</dd>
+												<dd><code>array</code><br>Array with column names to be saved together with default columns set by the
+constructor or <var>$only_columns</var> argument.</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -376,10 +375,6 @@ or <var>$only_columns</var> argument.</dd>
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

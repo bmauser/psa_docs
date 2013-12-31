@@ -229,9 +229,9 @@ h3 {
 			<li>hooks</li>
 		</ul>
 		<p><strong>Home page:</strong> <a href="http://code.google.com/p/phpstartapp">http://code.google.com/p/phpstartapp</a> </p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="donate_form">
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="donate_form" style="text-align:center">
 			<input type="hidden" name="cmd" value="_s-xclick" />
-			<input type="hidden" name="hosted_button_id" value="LEJYSVD46LQC4" />
+			<input type="hidden" name="hosted_button_id" value="WXSFX7BSN22SL" />
 			<input type="hidden" name="on0" value="Donation" />
 			<input type="hidden" name="currency_code" value="USD" />
 			<select name="os0" style="margin-top:5px;margin-bottom:5px;">
@@ -243,7 +243,7 @@ h3 {
 				<option value="------">------ $20.00</option>
 			</select>
 			<br />
-<input name="submit" type="image" src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_US/i/btn/btn_donate_LG.gif" alt="Donate via PayPal" title="Donate via PayPal" align="middle" border="0" />
+			<input name="submit" type="image" src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_US/i/btn/btn_donate_LG.gif" alt="Donate via PayPal" title="Donate via PayPal" align="middle" border="0" />
 		</form>
 	</div>
 <!-- section -->
@@ -308,7 +308,7 @@ includes<strong> <em>app/Main.php</em></strong> file and calls <strong>Main::psa
 			<li>By default action methods inside controller class should be called like <strong>name_action</strong></li>
 			<li>Bootstrap file is called <strong>Main.php</strong></li>
 			<li>For autoloading classes put one class per .php file and give the file the same name as the class. For example <strong>class Example put in the file named Example.php</strong></li>
-			<li>Also for  <strong>autoloading</strong>  you need to register all classes that can be autoloaded. There is helper command line script <strong><em>app/psa/register_files.php</em></strong> for that. Just call it in shell with command: <span class="insource"><strong>php register_files.php
+			<li>Also, for  <strong>autoloading</strong>  you need to register all classes that can be autoloaded. There is a helper command line script <strong><em>app/psa/register_files.php</em></strong> for that. Just call it in shell with command: <span class="insource"><strong>php register_files.php
 			</strong></span><br />
 				It will generate one .php file (path is set by <span class="insource">$PSA_CFG['autoload_data_file']</span>) containing array with all classes and their paths. If you add a new file to your project you need to register files again. If develop mode is on (<span class="insource">$PSA_CFG['develop_mode']</span>) and <span class="insource">$PSA_CFG['develop_mode_register_files']</span> is true, file registration will be invoked automatically on every request. Only files in folders set by <span class="insource">$PSA_CFG['folders']['autoload'][]</span> and 
 			<span class="insource">$PSA_CFG['folders']['hook_autoload'][]</span> arrays will be registered.</li>

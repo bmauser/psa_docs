@@ -120,14 +120,14 @@
 
 <pre>
 <span
-class="php-comment">// if you want to create a new user group use 'new' as argument to constructor</span>
+class="php-comment">// if you want to create a new user group use 'new' as argument to the constructor</span>
 <span
 class="php-var">$group</span> = <span
 class="php-keyword1">new</span> Psa_Group(<span
 class="php-quote">'new'</span>);
 
 <span
-class="php-comment">// set name</span>
+class="php-comment">// set name of the new grop</span>
 <span
 class="php-var">$group</span>-&gt;name = <span
 class="php-quote">'my_new_user_group'</span>;
@@ -140,8 +140,8 @@ class="php-var">$group</span>-&gt;save();
 </pre>
 
 <p><br />
-<b>2)</b> Extend <kbd>Psa_Group</kbd> class if you add more columns to
-<i>psa_group</i> database table:</p>
+<b>2)</b> If you want to add more columns to <i>psa_group</i> database table,
+extend <kbd>Psa_Group</kbd> class:</p>
 
 <pre>
 <span class="php-keyword1">class</span> MyGroup <span
@@ -180,7 +180,7 @@ class="php-var">$group</span>-&gt;save();
 </pre>
 
 <p>Because this class extends <code><a href="class-Psa_Active_Record.html">Psa_Active_Record</a></code> you can save data in the
-database table by setting corresponding object member variables and call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method. After calling <code><a href="class-Psa_Group.html#_restore">Psa_Group::restore()</a></code> method corresponding object
+database table by setting corresponding object member variables and call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method. After calling <code><a href="class-Psa_Group.html#_restore">Psa_Group::restore()</a></code> method, corresponding object
 member variables will have values fetched from the database.</p>
 
 	</div>
@@ -218,7 +218,7 @@ member variables will have values fetched from the database.</p>
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 				<b>See:</b>
 				<code><code><a href="class-Psa_Active_Record.html">Psa_Active_Record</a></code></code><br />
-		<b>Located at</b> <a href="source-class-Psa_Group.html#31-372" title="Go to source code">lib/Psa_Group.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Group.html#31-373" title="Go to source code">lib/Psa_Group.php</a><br />
 	</div>
 
 
@@ -236,7 +236,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><strong><a href="source-class-Psa_Group.html#101-137" title="Go to source code">__construct</a></strong>( <span>integer|string <var>$group_id_or_name</var></span>, <span>array <var>$table_columns</var> = <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'name'</span>)</span> )</code>
+			<code><strong><a href="source-class-Psa_Group.html#102-138" title="Go to source code">__construct</a></strong>( <span>integer|string <var>$group_id_or_name</var></span>, <span>array <var>$table_columns</var> = <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'name'</span>)</span> )</code>
 
 			<div class="description short">
 				
@@ -248,7 +248,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 				
 <p>Constructor.</p>
 
-<p>Must be called with the group id or group name as argument. Pass
+<p>Must be called with the group ID or group name as argument. Pass
 <kbd>'new'</kbd> as argument if you want to create a new group. See examples in
 <code><a href="class-Psa_Group.html">Psa_Group</a></code> class description.</p>
 
@@ -257,10 +257,10 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$group_id_or_name</var></dt>
-												<dd><code>integer|string</code><br>Group ID or group name or 'new' if new group should be created.</dd>
+												<dd><code>integer|string</code><br>Group ID or group name or 'new' if a new group should be created.</dd>
 						<dt><var>$table_columns</var></dt>
 												<dd><code>array</code><br>Columns in the <i>psa_group</i> database table. If you add more columns to the
-database table pass column names with this argument.</dd>
+database table, pass column names with this argument.</dd>
 					</dl></div>
 
 
@@ -287,7 +287,7 @@ database table pass column names with this argument.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_restore">#</a>
-			<code><strong><a href="source-class-Psa_Group.html#140-167" title="Go to source code">restore</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><strong><a href="source-class-Psa_Group.html#141-168" title="Go to source code">restore</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -300,19 +300,19 @@ database table pass column names with this argument.</dd>
 <p>Restores member variables from the database previously saved with <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method.</p>
 
 <p>Reads values from the database and populates corresponding object member
-variables. For example if you have added to <i>psa_group</i> table column named
-<kbd>access_level</kbd> and you passed the name of the column to constructor
-with <kbd>$table_columns</kbd> parameter, then when this method is called,
-member variable with name <kbd>access_level</kbd> will be populated with value
-from the database.</p>
+variables. For example, if you have added to <i>psa_group</i> table column named
+<kbd>access_level</kbd>, and you passed the name of the column to the
+constructor with <var>$table_columns</var> parameter. Then, when this method is
+called, member variable named <kbd>access_level</kbd> will be populated with a
+value from the database.</p>
 
 
 
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$only_columns</var></dt>
-												<dd><code>array</code><br>Array with column names to restore from the database. If not set all columns
-which names are passed to constructor are restored.</dd>
+												<dd><code>array</code><br>Array with column names to restore from the database. If not set, all columns
+which names are passed to the constructor are restored.</dd>
 					</dl></div>
 
 
@@ -341,17 +341,17 @@ which names are passed to constructor are restored.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_save">#</a>
-			<code><strong><a href="source-class-Psa_Group.html#170-204" title="Go to source code">save</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><strong><a href="source-class-Psa_Group.html#171-205" title="Go to source code">save</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
-<p>Saves values from member variables to the database.</p>
+<p>Saves values from the member variables to the database.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Saves values from member variables to the database.</p>
+<p>Saves values from the member variables to the database.</p>
 
 <p>It also sets <code><a href="class-Psa_Group.html#$id">Psa_Group::<var>$id</var></a></code> member variable if a new group is created. See
 examples in <code><a href="class-Psa_Group.html">Psa_Group</a></code> class description. This method will throw <code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code> on error.</p>
@@ -366,7 +366,7 @@ examples in <code><a href="class-Psa_Group.html">Psa_Group</a></code> class desc
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>integer</code><br>ID of saved group for success.<br />
+						<code>integer</code><br>ID of the saved group for success.<br />
 					</div>
 
 					<h4>Throws</h4>
@@ -390,23 +390,23 @@ examples in <code><a href="class-Psa_Group.html">Psa_Group</a></code> class desc
 
 			<td class="name"><div>
 			<a class="anchor" href="#_add_user">#</a>
-			<code><strong><a href="source-class-Psa_Group.html#207-231" title="Go to source code">add_user</a></strong>( <span>integer|array <var>$user_id</var></span> )</code>
+			<code><strong><a href="source-class-Psa_Group.html#208-232" title="Go to source code">add_user</a></strong>( <span>integer|array <var>$user_id</var></span> )</code>
 
 			<div class="description short">
 				
-<p>Puts user in the group or more users if the <var>$user_id</var> argument is
-array.</p>
+<p>Puts an user or more users in the group if the <var>$user_id</var> argument
+is an array.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Puts user in the group or more users if the <var>$user_id</var> argument is
-array.</p>
+<p>Puts an user or more users in the group if the <var>$user_id</var> argument
+is an array.</p>
 
-<p>Group membership changes are immediately stored in the database and you don't
-have to call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method after. If you creating a new group this
-method must be called after <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method. Throws <code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code> on error.</p>
+<p>Group membership changes are immediately stored in the database, and you
+don't have to call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method after. If you are creating a new group,
+this method must be called after <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method. Throws <code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code> on error.</p>
 
 <p>Example:</p>
 
@@ -434,8 +434,8 @@ class="php-num">3</span>,<span class="php-num">6</span>));
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>integer</code><br>1 for success, -1 user already was in the group (or more groups) or user does
-not exists<br />
+						<code>integer</code><br>1 for success, -1 user was already in the group (or more groups) or user doesn't
+exist<br />
 					</div>
 
 					<h4>Throws</h4>
@@ -463,22 +463,22 @@ not exists<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_remove_user">#</a>
-			<code><strong><a href="source-class-Psa_Group.html#234-258" title="Go to source code">remove_user</a></strong>( <span>integer|array <var>$user_id</var></span> )</code>
+			<code><strong><a href="source-class-Psa_Group.html#235-259" title="Go to source code">remove_user</a></strong>( <span>integer|array <var>$user_id</var></span> )</code>
 
 			<div class="description short">
 				
-<p>Removes user from the group or more users if the <var>$user_id</var> argument
-is array.</p>
+<p>Removes user from the group or removes more users if the <var>$user_id</var>
+argument is an array.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Removes user from the group or more users if the <var>$user_id</var> argument
-is array.</p>
+<p>Removes user from the group or removes more users if the <var>$user_id</var>
+argument is an array.</p>
 
 <p>Group membership changes are immediately stored in the database and you don't
-have to call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method after. If you creating a new group this
+have to call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method after. If you are creating a new group, this
 method must be called after <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code> method. Throws <code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code> on error.</p>
 
 <p>Example:</p>
@@ -506,8 +506,8 @@ class="php-num">6</span>);
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>integer</code><br>1 for success, -1 user was not member of the group (or more groups) or user does
-not exists<br />
+						<code>integer</code><br>1 for success, -1 user was not a member of the group (or more groups) or user
+doesn't exist<br />
 					</div>
 
 					<h4>Throws</h4>
@@ -550,7 +550,7 @@ not exists<br />
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_Group.html#80-86" title="Go to source code"><var>$id</var></a>
+					<a href="source-class-Psa_Group.html#81-87" title="Go to source code"><var>$id</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$id" class="anchor">#</a>
@@ -576,7 +576,7 @@ not exists<br />
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_Group.html#89-96" title="Go to source code"><var>$name</var></a>
+					<a href="source-class-Psa_Group.html#90-97" title="Go to source code"><var>$name</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$name" class="anchor">#</a>
@@ -584,14 +584,14 @@ not exists<br />
 				<div class="description short">
 					
 <p>Name of the group. There cannot be two groups with the same name. You will
-need to set this value when creating a new group or renaming group.</p>
+need to set this value when creating a new group or renaming a group.</p>
 
 				</div>
 
 				<div class="description detailed hidden">
 					
 <p>Name of the group. There cannot be two groups with the same name. You will
-need to set this value when creating a new group or renaming group.</p>
+need to set this value when creating a new group or renaming a group.</p>
 
 
 				</div>
@@ -623,10 +623,6 @@ need to set this value when creating a new group or renaming group.</p>
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

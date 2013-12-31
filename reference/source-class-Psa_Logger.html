@@ -138,14 +138,14 @@
 </span><span id="32" class="l"><a class="l" href="#32"> 32 </a><span class="php-comment">/**
 </span></span><span id="33" class="l"><a class="l" href="#33"> 33 </a><span class="php-comment"> * This class handles logging.
 </span></span><span id="34" class="l"><a class="l" href="#34"> 34 </a><span class="php-comment"> *
-</span></span><span id="35" class="l"><a class="l" href="#35"> 35 </a><span class="php-comment"> * Logs are by default written to database into &lt;i&gt;psa_log&lt;/i&gt; table but can be also
-</span></span><span id="36" class="l"><a class="l" href="#36"> 36 </a><span class="php-comment"> * written to a file depending on settings in {@link config.php} file.
+</span></span><span id="35" class="l"><a class="l" href="#35"> 35 </a><span class="php-comment"> * Logs are by default written to database into &lt;i&gt;psa_log&lt;/i&gt; table, but can be also
+</span></span><span id="36" class="l"><a class="l" href="#36"> 36 </a><span class="php-comment"> * written to a file depending on the settings in {@link config.php} file.
 </span></span><span id="37" class="l"><a class="l" href="#37"> 37 </a><span class="php-comment"> *
 </span></span><span id="38" class="l"><a class="l" href="#38"> 38 </a><span class="php-comment"> * This class implements {@link http://en.wikipedia.org/wiki/Singleton_pattern singleton pattern}
 </span></span><span id="39" class="l"><a class="l" href="#39"> 39 </a><span class="php-comment"> * to ensure that there is only one instance of the {@link Psa_Logger} object and
 </span></span><span id="40" class="l"><a class="l" href="#40"> 40 </a><span class="php-comment"> * to allow that this single instance is easily accessible from any scope.
-</span></span><span id="41" class="l"><a class="l" href="#41"> 41 </a><span class="php-comment"> * You should not make instance of {@link Psa_Logger} object with the &lt;kbd&gt;new&lt;/kbd&gt; operator
-</span></span><span id="42" class="l"><a class="l" href="#42"> 42 </a><span class="php-comment"> * instead call static method {@link get_instance()}.
+</span></span><span id="41" class="l"><a class="l" href="#41"> 41 </a><span class="php-comment"> * You cannot not make an instance of {@link Psa_Logger} object with the &lt;kbd&gt;new&lt;/kbd&gt; operator,
+</span></span><span id="42" class="l"><a class="l" href="#42"> 42 </a><span class="php-comment"> * call static method {@link get_instance()} instead.
 </span></span><span id="43" class="l"><a class="l" href="#43"> 43 </a><span class="php-comment"> *
 </span></span><span id="44" class="l"><a class="l" href="#44"> 44 </a><span class="php-comment"> * &lt;br&gt;&lt;b&gt;Examples:&lt;/b&gt;
 </span></span><span id="45" class="l"><a class="l" href="#45"> 45 </a><span class="php-comment"> *
@@ -165,7 +165,7 @@
 </span></span><span id="59" class="l"><a class="l" href="#59"> 59 </a><span class="php-comment"> *       return parent::get_instance(__CLASS__);
 </span></span><span id="60" class="l"><a class="l" href="#60"> 60 </a><span class="php-comment"> *    }
 </span></span><span id="61" class="l"><a class="l" href="#61"> 61 </a><span class="php-comment"> *
-</span></span><span id="62" class="l"><a class="l" href="#62"> 62 </a><span class="php-comment"> *    // your method for generate database query
+</span></span><span id="62" class="l"><a class="l" href="#62"> 62 </a><span class="php-comment"> *    // your method for database query
 </span></span><span id="63" class="l"><a class="l" href="#63"> 63 </a><span class="php-comment"> *    function format_database_log_query($log_storage){
 </span></span><span id="64" class="l"><a class="l" href="#64"> 64 </a><span class="php-comment"> *          //...
 </span></span><span id="65" class="l"><a class="l" href="#65"> 65 </a><span class="php-comment"> *    }
@@ -202,10 +202,10 @@
 </span><span id="96" class="l"><a class="l" href="#96"> 96 </a>
 </span><span id="97" class="l"><a class="l" href="#97"> 97 </a>
 </span><span id="98" class="l"><a class="l" href="#98"> 98 </a>    <span class="php-comment">/**
-</span></span><span id="99" class="l"><a class="l" href="#99"> 99 </a><span class="php-comment">     * Returns instance of the {@link Psa_Logger} object.
+</span></span><span id="99" class="l"><a class="l" href="#99"> 99 </a><span class="php-comment">     * Returns the instance of the {@link Psa_Logger} object.
 </span></span><span id="100" class="l"><a class="l" href="#100">100 </a><span class="php-comment">     *
-</span></span><span id="101" class="l"><a class="l" href="#101">101 </a><span class="php-comment">     * You should statically call this method with scope resolution operator (::) which gives you
-</span></span><span id="102" class="l"><a class="l" href="#102">102 </a><span class="php-comment">     * access to the logging object from anywhere in your application, whether it is from a function,
+</span></span><span id="101" class="l"><a class="l" href="#101">101 </a><span class="php-comment">     * You should statically call this method with the scope resolution operator (::) which gives you
+</span></span><span id="102" class="l"><a class="l" href="#102">102 </a><span class="php-comment">     * the access to the logging object from anywhere in your application, whether it is from a function,
 </span></span><span id="103" class="l"><a class="l" href="#103">103 </a><span class="php-comment">     * a method, or the global scope.
 </span></span><span id="104" class="l"><a class="l" href="#104">104 </a><span class="php-comment">     * Example:
 </span></span><span id="105" class="l"><a class="l" href="#105">105 </a><span class="php-comment">     * &lt;code&gt;
@@ -226,21 +226,21 @@
 </span><span id="120" class="l"><a class="l" href="#120">120 </a>    <span class="php-comment">/**
 </span></span><span id="121" class="l"><a class="l" href="#121">121 </a><span class="php-comment">     * Writes logs.
 </span></span><span id="122" class="l"><a class="l" href="#122">122 </a><span class="php-comment">     *
-</span></span><span id="123" class="l"><a class="l" href="#123">123 </a><span class="php-comment">     * Writes a log record to database or file. This depends on settings (&lt;var&gt;$PSA_CFG['logging']&lt;/var&gt;)
-</span></span><span id="124" class="l"><a class="l" href="#124">124 </a><span class="php-comment">     * in {@link config.php}. First argument can be array or string. If is a string it is written to the log.
-</span></span><span id="125" class="l"><a class="l" href="#125">125 </a><span class="php-comment">     * If it is array some other values in log record can be set. Here is example array with all
-</span></span><span id="126" class="l"><a class="l" href="#126">126 </a><span class="php-comment">     * available elements and example values that can be used as first argument for this method.
+</span></span><span id="123" class="l"><a class="l" href="#123">123 </a><span class="php-comment">     * Writes a log record to the database or a file. This depends on the settings (&lt;var&gt;$PSA_CFG['logging']&lt;/var&gt;)
+</span></span><span id="124" class="l"><a class="l" href="#124">124 </a><span class="php-comment">     * in {@link config.php}. First argument can be an array or a string. If it's a string, it is written to the log.
+</span></span><span id="125" class="l"><a class="l" href="#125">125 </a><span class="php-comment">     * If it's an array, some other values in the log record can be set. Here is an example array with all
+</span></span><span id="126" class="l"><a class="l" href="#126">126 </a><span class="php-comment">     * the available elements and values that can be used as the first argument to this method.
 </span></span><span id="127" class="l"><a class="l" href="#127">127 </a><span class="php-comment">     * &lt;pre&gt;
 </span></span><span id="128" class="l"><a class="l" href="#128">128 </a><span class="php-comment">     * Array
 </span></span><span id="129" class="l"><a class="l" href="#129">129 </a><span class="php-comment">     * (
-</span></span><span id="130" class="l"><a class="l" href="#130">130 </a><span class="php-comment">     *     [user_id] =&gt; 5                // id of user
+</span></span><span id="130" class="l"><a class="l" href="#130">130 </a><span class="php-comment">     *     [user_id] =&gt; 5                // user ID
 </span></span><span id="131" class="l"><a class="l" href="#131">131 </a><span class="php-comment">     *     [username] =&gt; john            // username
-</span></span><span id="132" class="l"><a class="l" href="#132">132 </a><span class="php-comment">     *     [group_id] =&gt; 3               // id of group
+</span></span><span id="132" class="l"><a class="l" href="#132">132 </a><span class="php-comment">     *     [group_id] =&gt; 3               // group ID
 </span></span><span id="133" class="l"><a class="l" href="#133">133 </a><span class="php-comment">     *     [groupname] =&gt; test           // group name
 </span></span><span id="134" class="l"><a class="l" href="#134">134 </a><span class="php-comment">     *     [message] =&gt; new user created // log message
-</span></span><span id="135" class="l"><a class="l" href="#135">135 </a><span class="php-comment">     *     [function] =&gt; Psa_User::save  // method or function name that created log
+</span></span><span id="135" class="l"><a class="l" href="#135">135 </a><span class="php-comment">     *     [function] =&gt; Psa_User::save  // method or function name that created the log record
 </span></span><span id="136" class="l"><a class="l" href="#136">136 </a><span class="php-comment">     *     [level] =&gt; 2                  // Log level, default 1. Integer. If greater than &lt;var&gt;$PSA_CFG['logging']['level']&lt;/var&gt; log will not be saved.
-</span></span><span id="137" class="l"><a class="l" href="#137">137 </a><span class="php-comment">     *     [type] =&gt; general             // Log message type. For exceptions this is exception class name. Custom string value.
+</span></span><span id="137" class="l"><a class="l" href="#137">137 </a><span class="php-comment">     *     [type] =&gt; general             // Log message type. Class name for exceptions or custom string value.
 </span></span><span id="138" class="l"><a class="l" href="#138">138 </a><span class="php-comment">     * )
 </span></span><span id="139" class="l"><a class="l" href="#139">139 </a><span class="php-comment">     * &lt;/pre&gt;
 </span></span><span id="140" class="l"><a class="l" href="#140">140 </a><span class="php-comment">     * All array elements are optional.
@@ -264,224 +264,222 @@
 </span></span><span id="158" class="l"><a class="l" href="#158">158 </a><span class="php-comment">     * ?&gt;
 </span></span><span id="159" class="l"><a class="l" href="#159">159 </a><span class="php-comment">     * &lt;/code&gt;
 </span></span><span id="160" class="l"><a class="l" href="#160">160 </a><span class="php-comment">     *
-</span></span><span id="161" class="l"><a class="l" href="#161">161 </a><span class="php-comment">     * @param array|string $log_data array with data to be logged or log message only. If is a string, that string
-</span></span><span id="162" class="l"><a class="l" href="#162">162 </a><span class="php-comment">     * is used as message to be logged.
-</span></span><span id="163" class="l"><a class="l" href="#163">163 </a><span class="php-comment">     * @param int|string $log_storage storage for the log. This is index of &lt;var&gt;$PSA_CFG['logging']['storage']&lt;/var&gt;
-</span></span><span id="164" class="l"><a class="l" href="#164">164 </a><span class="php-comment">     * array in {@link config.php}. Default is 'psa_default'.
-</span></span><span id="165" class="l"><a class="l" href="#165">165 </a><span class="php-comment">     * @return int 0 for failure, 1 for success, -1 logging is disabled or the log level for message is set too low
-</span></span><span id="166" class="l"><a class="l" href="#166">166 </a><span class="php-comment">     * (bigger number than &lt;var&gt;$PSA_CFG['logging']['max_log_level'] &lt;/var&gt;).
-</span></span><span id="167" class="l"><a class="l" href="#167">167 </a><span class="php-comment">     * @see get_instance()
-</span></span><span id="168" class="l"><a class="l" href="#168">168 </a><span class="php-comment">     * @see format_file_log()
-</span></span><span id="169" class="l"><a class="l" href="#169">169 </a><span class="php-comment">     * @see format_database_log()
-</span></span><span id="170" class="l"><a class="l" href="#170">170 </a><span class="php-comment">     * @see config.php
-</span></span><span id="171" class="l"><a class="l" href="#171">171 </a><span class="php-comment">     */</span>
-</span><span id="172" class="l"><a class="l" href="#172">172 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <span class="php-keyword2">log</span>(<span class="php-var">$log_data</span>, <span class="php-var">$log_storage</span> = <span class="php-quote">'psa_default'</span>){
-</span><span id="173" class="l"><a class="l" href="#173">173 </a>
-</span><span id="174" class="l"><a class="l" href="#174">174 </a>        <span class="php-comment">// config array</span>
-</span><span id="175" class="l"><a class="l" href="#175">175 </a>        <span class="php-var">$PSA_CFG</span> = Psa_Registry::get_instance()-&gt;PSA_CFG;
-</span><span id="176" class="l"><a class="l" href="#176">176 </a>
-</span><span id="177" class="l"><a class="l" href="#177">177 </a>        <span class="php-comment">// if $log_data is not array</span>
-</span><span id="178" class="l"><a class="l" href="#178">178 </a>        <span class="php-keyword1">if</span>(!<span class="php-keyword2">is_array</span>(<span class="php-var">$log_data</span>)){
-</span><span id="179" class="l"><a class="l" href="#179">179 </a>            <span class="php-var">$msg</span> = (string)<span class="php-var">$log_data</span>;
-</span><span id="180" class="l"><a class="l" href="#180">180 </a>            <span class="php-var">$log_data</span> = <span class="php-keyword1">array</span>();
-</span><span id="181" class="l"><a class="l" href="#181">181 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'message'</span>] = <span class="php-var">$msg</span>;
-</span><span id="182" class="l"><a class="l" href="#182">182 </a>        }
-</span><span id="183" class="l"><a class="l" href="#183">183 </a>
-</span><span id="184" class="l"><a class="l" href="#184">184 </a>        <span class="php-comment">// default log level</span>
-</span><span id="185" class="l"><a class="l" href="#185">185 </a>        <span class="php-keyword1">if</span>(!<span class="php-keyword1">isset</span>(<span class="php-var">$log_data</span>[<span class="php-quote">'level'</span>]) <span class="php-keyword1">or</span> !<span class="php-var">$log_data</span>[<span class="php-quote">'level'</span>])
-</span><span id="186" class="l"><a class="l" href="#186">186 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'level'</span>] = <span class="php-num">1</span>;
-</span><span id="187" class="l"><a class="l" href="#187">187 </a>
-</span><span id="188" class="l"><a class="l" href="#188">188 </a>        <span class="php-comment">// default log type</span>
-</span><span id="189" class="l"><a class="l" href="#189">189 </a>        <span class="php-keyword1">if</span>(!<span class="php-keyword1">isset</span>(<span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>]) <span class="php-keyword1">or</span> !<span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>])
-</span><span id="190" class="l"><a class="l" href="#190">190 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>] = <span class="php-keyword1">null</span>;
-</span><span id="191" class="l"><a class="l" href="#191">191 </a>
-</span><span id="192" class="l"><a class="l" href="#192">192 </a>        <span class="php-comment">// if not set user data, use data from $_SESSION['psa_current_user_data']</span>
-</span><span id="193" class="l"><a class="l" href="#193">193 </a>        <span class="php-keyword1">if</span>(!@<span class="php-var">$log_data</span>[<span class="php-quote">'user_id'</span>] &amp;&amp; !@<span class="php-var">$log_data</span>[<span class="php-quote">'username'</span>] &amp;&amp; <span class="php-keyword1">isset</span>(<span class="php-var">$_SESSION</span>[<span class="php-quote">'psa_current_user_data'</span>]) &amp;&amp; <span class="php-var">$_SESSION</span>[<span class="php-quote">'psa_current_user_data'</span>] <span class="php-keyword1">instanceof</span> Psa_User){
-</span><span id="194" class="l"><a class="l" href="#194">194 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'user_id'</span>] = <span class="php-var">$_SESSION</span>[<span class="php-quote">'psa_current_user_data'</span>][<span class="php-quote">'id'</span>];
-</span><span id="195" class="l"><a class="l" href="#195">195 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'username'</span>] = <span class="php-var">$_SESSION</span>[<span class="php-quote">'psa_current_user_data'</span>][<span class="php-quote">'username'</span>];
-</span><span id="196" class="l"><a class="l" href="#196">196 </a>        }
+</span></span><span id="161" class="l"><a class="l" href="#161">161 </a><span class="php-comment">     * @param array|string $log_data Array with data to be logged or log message only.
+</span></span><span id="162" class="l"><a class="l" href="#162">162 </a><span class="php-comment">     * @param int|string $log_storage Storage for the log. This is the index of &lt;var&gt;$PSA_CFG['logging']['storage']&lt;/var&gt;
+</span></span><span id="163" class="l"><a class="l" href="#163">163 </a><span class="php-comment">     * array in {@link config.php}. Default is 'psa_default'.
+</span></span><span id="164" class="l"><a class="l" href="#164">164 </a><span class="php-comment">     * @return int 0 for failure, 1 for success, -1 logging is disabled or the log level for the message is set too low
+</span></span><span id="165" class="l"><a class="l" href="#165">165 </a><span class="php-comment">     * (bigger number than &lt;var&gt;$PSA_CFG['logging']['max_log_level'] &lt;/var&gt;).
+</span></span><span id="166" class="l"><a class="l" href="#166">166 </a><span class="php-comment">     * @see get_instance()
+</span></span><span id="167" class="l"><a class="l" href="#167">167 </a><span class="php-comment">     * @see format_file_log()
+</span></span><span id="168" class="l"><a class="l" href="#168">168 </a><span class="php-comment">     * @see format_database_log()
+</span></span><span id="169" class="l"><a class="l" href="#169">169 </a><span class="php-comment">     * @see config.php
+</span></span><span id="170" class="l"><a class="l" href="#170">170 </a><span class="php-comment">     */</span>
+</span><span id="171" class="l"><a class="l" href="#171">171 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <span class="php-keyword2">log</span>(<span class="php-var">$log_data</span>, <span class="php-var">$log_storage</span> = <span class="php-quote">'psa_default'</span>){
+</span><span id="172" class="l"><a class="l" href="#172">172 </a>
+</span><span id="173" class="l"><a class="l" href="#173">173 </a>        <span class="php-comment">// config array</span>
+</span><span id="174" class="l"><a class="l" href="#174">174 </a>        <span class="php-var">$PSA_CFG</span> = Psa_Registry::get_instance()-&gt;PSA_CFG;
+</span><span id="175" class="l"><a class="l" href="#175">175 </a>
+</span><span id="176" class="l"><a class="l" href="#176">176 </a>        <span class="php-comment">// if $log_data is not array</span>
+</span><span id="177" class="l"><a class="l" href="#177">177 </a>        <span class="php-keyword1">if</span>(!<span class="php-keyword2">is_array</span>(<span class="php-var">$log_data</span>)){
+</span><span id="178" class="l"><a class="l" href="#178">178 </a>            <span class="php-var">$msg</span> = (string)<span class="php-var">$log_data</span>;
+</span><span id="179" class="l"><a class="l" href="#179">179 </a>            <span class="php-var">$log_data</span> = <span class="php-keyword1">array</span>();
+</span><span id="180" class="l"><a class="l" href="#180">180 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'message'</span>] = <span class="php-var">$msg</span>;
+</span><span id="181" class="l"><a class="l" href="#181">181 </a>        }
+</span><span id="182" class="l"><a class="l" href="#182">182 </a>
+</span><span id="183" class="l"><a class="l" href="#183">183 </a>        <span class="php-comment">// default log level</span>
+</span><span id="184" class="l"><a class="l" href="#184">184 </a>        <span class="php-keyword1">if</span>(!<span class="php-keyword1">isset</span>(<span class="php-var">$log_data</span>[<span class="php-quote">'level'</span>]) <span class="php-keyword1">or</span> !<span class="php-var">$log_data</span>[<span class="php-quote">'level'</span>])
+</span><span id="185" class="l"><a class="l" href="#185">185 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'level'</span>] = <span class="php-num">1</span>;
+</span><span id="186" class="l"><a class="l" href="#186">186 </a>
+</span><span id="187" class="l"><a class="l" href="#187">187 </a>        <span class="php-comment">// default log type</span>
+</span><span id="188" class="l"><a class="l" href="#188">188 </a>        <span class="php-keyword1">if</span>(!<span class="php-keyword1">isset</span>(<span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>]) <span class="php-keyword1">or</span> !<span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>])
+</span><span id="189" class="l"><a class="l" href="#189">189 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>] = <span class="php-keyword1">null</span>;
+</span><span id="190" class="l"><a class="l" href="#190">190 </a>
+</span><span id="191" class="l"><a class="l" href="#191">191 </a>        <span class="php-comment">// if not set user data, use data from $_SESSION['psa_current_user_data']</span>
+</span><span id="192" class="l"><a class="l" href="#192">192 </a>        <span class="php-keyword1">if</span>(!@<span class="php-var">$log_data</span>[<span class="php-quote">'user_id'</span>] &amp;&amp; !@<span class="php-var">$log_data</span>[<span class="php-quote">'username'</span>] &amp;&amp; <span class="php-keyword1">isset</span>(<span class="php-var">$_SESSION</span>[<span class="php-quote">'psa_current_user_data'</span>]) &amp;&amp; <span class="php-var">$_SESSION</span>[<span class="php-quote">'psa_current_user_data'</span>] <span class="php-keyword1">instanceof</span> Psa_User){
+</span><span id="193" class="l"><a class="l" href="#193">193 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'user_id'</span>] = <span class="php-var">$_SESSION</span>[<span class="php-quote">'psa_current_user_data'</span>][<span class="php-quote">'id'</span>];
+</span><span id="194" class="l"><a class="l" href="#194">194 </a>            <span class="php-var">$log_data</span>[<span class="php-quote">'username'</span>] = <span class="php-var">$_SESSION</span>[<span class="php-quote">'psa_current_user_data'</span>][<span class="php-quote">'username'</span>];
+</span><span id="195" class="l"><a class="l" href="#195">195 </a>        }
+</span><span id="196" class="l"><a class="l" href="#196">196 </a>
 </span><span id="197" class="l"><a class="l" href="#197">197 </a>
-</span><span id="198" class="l"><a class="l" href="#198">198 </a>
-</span><span id="199" class="l"><a class="l" href="#199">199 </a>        <span class="php-comment">// if logging is enabled</span>
-</span><span id="200" class="l"><a class="l" href="#200">200 </a>        <span class="php-keyword1">if</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'max_log_level'</span>] &gt;= <span class="php-var">$log_data</span>[<span class="php-quote">'level'</span>]){
-</span><span id="201" class="l"><a class="l" href="#201">201 </a>
-</span><span id="202" class="l"><a class="l" href="#202">202 </a>            <span class="php-comment">// write log to file</span>
-</span><span id="203" class="l"><a class="l" href="#203">203 </a>            <span class="php-keyword1">if</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-var">$log_storage</span>][<span class="php-quote">'type'</span>] == <span class="php-quote">'file'</span>){
-</span><span id="204" class="l"><a class="l" href="#204">204 </a>
-</span><span id="205" class="l"><a class="l" href="#205">205 </a>                <span class="php-comment">// format log message</span>
-</span><span id="206" class="l"><a class="l" href="#206">206 </a>                <span class="php-var">$message</span> = <span class="php-var">$this</span>-&gt;format_file_log(<span class="php-var">$log_data</span>);
-</span><span id="207" class="l"><a class="l" href="#207">207 </a>
-</span><span id="208" class="l"><a class="l" href="#208">208 </a>                <span class="php-comment">// open log file</span>
-</span><span id="209" class="l"><a class="l" href="#209">209 </a>                <span class="php-keyword1">if</span> (!<span class="php-var">$handle</span> = <span class="php-keyword2">fopen</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-var">$log_storage</span>][<span class="php-quote">'target'</span>], <span class="php-quote">'a'</span>)){
-</span><span id="210" class="l"><a class="l" href="#210">210 </a>                    <span class="php-keyword2">trigger_error</span>(<span class="php-quote">&quot;Cannot open log file: </span><span class="php-var">{$PSA_CFG['logging']['storage'][$log_storage]['target']}</span><span class="php-quote">&quot;</span>);
-</span><span id="211" class="l"><a class="l" href="#211">211 </a>                    <span class="php-keyword1">return</span> <span class="php-num">0</span>;
-</span><span id="212" class="l"><a class="l" href="#212">212 </a>                }
-</span><span id="213" class="l"><a class="l" href="#213">213 </a>
-</span><span id="214" class="l"><a class="l" href="#214">214 </a>                <span class="php-comment">// write to file</span>
-</span><span id="215" class="l"><a class="l" href="#215">215 </a>                <span class="php-keyword1">else</span>{
-</span><span id="216" class="l"><a class="l" href="#216">216 </a>                    <span class="php-comment">// if error writing to file</span>
-</span><span id="217" class="l"><a class="l" href="#217">217 </a>                    <span class="php-keyword1">if</span> (!<span class="php-keyword2">fwrite</span>(<span class="php-var">$handle</span>, <span class="php-var">$message</span>)){
-</span><span id="218" class="l"><a class="l" href="#218">218 </a>                        <span class="php-keyword2">trigger_error</span>(<span class="php-quote">&quot;Cannot write to log file: </span><span class="php-var">{$PSA_CFG['logging']['storage'][$log_storage]['target']}</span><span class="php-quote">&quot;</span>);
-</span><span id="219" class="l"><a class="l" href="#219">219 </a>                        <span class="php-keyword2">fclose</span>(<span class="php-var">$handle</span>);
-</span><span id="220" class="l"><a class="l" href="#220">220 </a>                        <span class="php-keyword1">return</span> <span class="php-num">0</span>;
-</span><span id="221" class="l"><a class="l" href="#221">221 </a>                    }
-</span><span id="222" class="l"><a class="l" href="#222">222 </a>
-</span><span id="223" class="l"><a class="l" href="#223">223 </a>                    <span class="php-comment">// close file</span>
-</span><span id="224" class="l"><a class="l" href="#224">224 </a>                    <span class="php-keyword2">fclose</span>(<span class="php-var">$handle</span>);
-</span><span id="225" class="l"><a class="l" href="#225">225 </a>                    <span class="php-keyword1">return</span> <span class="php-num">1</span>;
-</span><span id="226" class="l"><a class="l" href="#226">226 </a>                }
-</span><span id="227" class="l"><a class="l" href="#227">227 </a>            }
-</span><span id="228" class="l"><a class="l" href="#228">228 </a>            <span class="php-comment">// write log to database</span>
-</span><span id="229" class="l"><a class="l" href="#229">229 </a>            <span class="php-keyword1">else</span> <span class="php-keyword1">if</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-var">$log_storage</span>][<span class="php-quote">'type'</span>] == <span class="php-quote">'database'</span>){
-</span><span id="230" class="l"><a class="l" href="#230">230 </a>
-</span><span id="231" class="l"><a class="l" href="#231">231 </a>                <span class="php-keyword1">if</span>(!(<span class="php-var">$this</span>-&gt;database <span class="php-keyword1">instanceof</span> Psa_PDO)){
-</span><span id="232" class="l"><a class="l" href="#232">232 </a>
-</span><span id="233" class="l"><a class="l" href="#233">233 </a>                    <span class="php-comment">// should new database connection be opened</span>
-</span><span id="234" class="l"><a class="l" href="#234">234 </a>                    <span class="php-keyword1">if</span>(@<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'new_database_connection'</span>]){
-</span><span id="235" class="l"><a class="l" href="#235">235 </a>                        <span class="php-var">$psa_registry</span> = Psa_Registry::get_instance();
-</span><span id="236" class="l"><a class="l" href="#236">236 </a>                        <span class="php-keyword1">if</span>(!(@<span class="php-var">$psa_registry</span>-&gt;psa_log_database_connection <span class="php-keyword1">instanceof</span> Psa_PDO)){
-</span><span id="237" class="l"><a class="l" href="#237">237 </a>                            <span class="php-var">$psa_registry</span>-&gt;psa_log_database_connection = <span class="php-keyword1">new</span> Psa_PDO();
-</span><span id="238" class="l"><a class="l" href="#238">238 </a>                        }
-</span><span id="239" class="l"><a class="l" href="#239">239 </a>                        <span class="php-var">$this</span>-&gt;database = <span class="php-var">$psa_registry</span>-&gt;psa_log_database_connection;
-</span><span id="240" class="l"><a class="l" href="#240">240 </a>                    }
-</span><span id="241" class="l"><a class="l" href="#241">241 </a>                    <span class="php-keyword1">else</span>{
-</span><span id="242" class="l"><a class="l" href="#242">242 </a>                        <span class="php-comment">// existing database connection</span>
-</span><span id="243" class="l"><a class="l" href="#243">243 </a>                        <span class="php-var">$this</span>-&gt;database = Psa_Registry::get_instance()-&gt;psa_database;
-</span><span id="244" class="l"><a class="l" href="#244">244 </a>                    }
-</span><span id="245" class="l"><a class="l" href="#245">245 </a>                }
-</span><span id="246" class="l"><a class="l" href="#246">246 </a>
-</span><span id="247" class="l"><a class="l" href="#247">247 </a>                <span class="php-comment">// prepare database query if not already prepared</span>
-</span><span id="248" class="l"><a class="l" href="#248">248 </a>                <span class="php-keyword1">if</span>(!<span class="php-var">$this</span>-&gt;prepared_query){
-</span><span id="249" class="l"><a class="l" href="#249">249 </a>                    <span class="php-var">$this</span>-&gt;prepared_query = <span class="php-var">$this</span>-&gt;database-&gt;prepare(<span class="php-var">$this</span>-&gt;format_database_log_query(<span class="php-var">$log_storage</span>));
-</span><span id="250" class="l"><a class="l" href="#250">250 </a>                }
-</span><span id="251" class="l"><a class="l" href="#251">251 </a>
-</span><span id="252" class="l"><a class="l" href="#252">252 </a>                <span class="php-comment">// run query against the database</span>
-</span><span id="253" class="l"><a class="l" href="#253">253 </a>                <span class="php-keyword1">try</span>{
-</span><span id="254" class="l"><a class="l" href="#254">254 </a>                    <span class="php-var">$this</span>-&gt;database-&gt;execute(<span class="php-var">$this</span>-&gt;format_database_log_query_params(<span class="php-var">$log_data</span>), <span class="php-var">$this</span>-&gt;prepared_query, <span class="php-num">1</span>);
-</span><span id="255" class="l"><a class="l" href="#255">255 </a>                }
-</span><span id="256" class="l"><a class="l" href="#256">256 </a>                <span class="php-keyword1">catch</span>(PDOException <span class="php-var">$e</span>){
-</span><span id="257" class="l"><a class="l" href="#257">257 </a>
-</span><span id="258" class="l"><a class="l" href="#258">258 </a>                    <span class="php-var">$message</span> = <span class="php-quote">&quot;Unable to write log message to database table '</span><span class="php-var">{$PSA_CFG['logging']['storage'][$log_storage]['target']}</span><span class="php-quote">' &quot;</span> . <span class="php-var">$e</span>-&gt;getMessage();
-</span><span id="259" class="l"><a class="l" href="#259">259 </a>
-</span><span id="260" class="l"><a class="l" href="#260">260 </a>                    <span class="php-comment">// log message cannot be written into the database if there is problem with database connection</span>
-</span><span id="261" class="l"><a class="l" href="#261">261 </a>                    <span class="php-keyword1">if</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-quote">'psa_default'</span>][<span class="php-quote">'type'</span>] == <span class="php-quote">'database'</span>)
-</span><span id="262" class="l"><a class="l" href="#262">262 </a>                        <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> Psa_Fatal_Error_Exception(<span class="php-var">$message</span>, <span class="php-var">$message</span>, <span class="php-var">$e</span>-&gt;getCode(), <span class="php-keyword1">false</span>);
-</span><span id="263" class="l"><a class="l" href="#263">263 </a>                    <span class="php-keyword1">else</span>
-</span><span id="264" class="l"><a class="l" href="#264">264 </a>                        <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> Psa_Fatal_Error_Exception(<span class="php-var">$message</span>, <span class="php-var">$message</span>, <span class="php-var">$e</span>-&gt;getCode());
-</span><span id="265" class="l"><a class="l" href="#265">265 </a>                }
-</span><span id="266" class="l"><a class="l" href="#266">266 </a>
-</span><span id="267" class="l"><a class="l" href="#267">267 </a>                <span class="php-keyword1">return</span> <span class="php-num">1</span>;
-</span><span id="268" class="l"><a class="l" href="#268">268 </a>            }
-</span><span id="269" class="l"><a class="l" href="#269">269 </a>        }
-</span><span id="270" class="l"><a class="l" href="#270">270 </a>        <span class="php-keyword1">else</span>
-</span><span id="271" class="l"><a class="l" href="#271">271 </a>            <span class="php-keyword1">return</span> -<span class="php-num">1</span>;
-</span><span id="272" class="l"><a class="l" href="#272">272 </a>    }
+</span><span id="198" class="l"><a class="l" href="#198">198 </a>        <span class="php-comment">// if logging is enabled</span>
+</span><span id="199" class="l"><a class="l" href="#199">199 </a>        <span class="php-keyword1">if</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'max_log_level'</span>] &gt;= <span class="php-var">$log_data</span>[<span class="php-quote">'level'</span>]){
+</span><span id="200" class="l"><a class="l" href="#200">200 </a>
+</span><span id="201" class="l"><a class="l" href="#201">201 </a>            <span class="php-comment">// write log to file</span>
+</span><span id="202" class="l"><a class="l" href="#202">202 </a>            <span class="php-keyword1">if</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-var">$log_storage</span>][<span class="php-quote">'type'</span>] == <span class="php-quote">'file'</span>){
+</span><span id="203" class="l"><a class="l" href="#203">203 </a>
+</span><span id="204" class="l"><a class="l" href="#204">204 </a>                <span class="php-comment">// format log message</span>
+</span><span id="205" class="l"><a class="l" href="#205">205 </a>                <span class="php-var">$message</span> = <span class="php-var">$this</span>-&gt;format_file_log(<span class="php-var">$log_data</span>);
+</span><span id="206" class="l"><a class="l" href="#206">206 </a>
+</span><span id="207" class="l"><a class="l" href="#207">207 </a>                <span class="php-comment">// open log file</span>
+</span><span id="208" class="l"><a class="l" href="#208">208 </a>                <span class="php-keyword1">if</span> (!<span class="php-var">$handle</span> = <span class="php-keyword2">fopen</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-var">$log_storage</span>][<span class="php-quote">'target'</span>], <span class="php-quote">'a'</span>)){
+</span><span id="209" class="l"><a class="l" href="#209">209 </a>                    <span class="php-keyword2">trigger_error</span>(<span class="php-quote">&quot;Cannot open log file: </span><span class="php-var">{$PSA_CFG['logging']['storage'][$log_storage]['target']}</span><span class="php-quote">&quot;</span>);
+</span><span id="210" class="l"><a class="l" href="#210">210 </a>                    <span class="php-keyword1">return</span> <span class="php-num">0</span>;
+</span><span id="211" class="l"><a class="l" href="#211">211 </a>                }
+</span><span id="212" class="l"><a class="l" href="#212">212 </a>
+</span><span id="213" class="l"><a class="l" href="#213">213 </a>                <span class="php-comment">// write to file</span>
+</span><span id="214" class="l"><a class="l" href="#214">214 </a>                <span class="php-keyword1">else</span>{
+</span><span id="215" class="l"><a class="l" href="#215">215 </a>                    <span class="php-comment">// if error writing to file</span>
+</span><span id="216" class="l"><a class="l" href="#216">216 </a>                    <span class="php-keyword1">if</span> (!<span class="php-keyword2">fwrite</span>(<span class="php-var">$handle</span>, <span class="php-var">$message</span>)){
+</span><span id="217" class="l"><a class="l" href="#217">217 </a>                        <span class="php-keyword2">trigger_error</span>(<span class="php-quote">&quot;Cannot write to log file: </span><span class="php-var">{$PSA_CFG['logging']['storage'][$log_storage]['target']}</span><span class="php-quote">&quot;</span>);
+</span><span id="218" class="l"><a class="l" href="#218">218 </a>                        <span class="php-keyword2">fclose</span>(<span class="php-var">$handle</span>);
+</span><span id="219" class="l"><a class="l" href="#219">219 </a>                        <span class="php-keyword1">return</span> <span class="php-num">0</span>;
+</span><span id="220" class="l"><a class="l" href="#220">220 </a>                    }
+</span><span id="221" class="l"><a class="l" href="#221">221 </a>
+</span><span id="222" class="l"><a class="l" href="#222">222 </a>                    <span class="php-comment">// close file</span>
+</span><span id="223" class="l"><a class="l" href="#223">223 </a>                    <span class="php-keyword2">fclose</span>(<span class="php-var">$handle</span>);
+</span><span id="224" class="l"><a class="l" href="#224">224 </a>                    <span class="php-keyword1">return</span> <span class="php-num">1</span>;
+</span><span id="225" class="l"><a class="l" href="#225">225 </a>                }
+</span><span id="226" class="l"><a class="l" href="#226">226 </a>            }
+</span><span id="227" class="l"><a class="l" href="#227">227 </a>            <span class="php-comment">// write log to database</span>
+</span><span id="228" class="l"><a class="l" href="#228">228 </a>            <span class="php-keyword1">else</span> <span class="php-keyword1">if</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-var">$log_storage</span>][<span class="php-quote">'type'</span>] == <span class="php-quote">'database'</span>){
+</span><span id="229" class="l"><a class="l" href="#229">229 </a>
+</span><span id="230" class="l"><a class="l" href="#230">230 </a>                <span class="php-keyword1">if</span>(!(<span class="php-var">$this</span>-&gt;database <span class="php-keyword1">instanceof</span> Psa_PDO)){
+</span><span id="231" class="l"><a class="l" href="#231">231 </a>
+</span><span id="232" class="l"><a class="l" href="#232">232 </a>                    <span class="php-comment">// should new database connection be opened</span>
+</span><span id="233" class="l"><a class="l" href="#233">233 </a>                    <span class="php-keyword1">if</span>(@<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'new_database_connection'</span>]){
+</span><span id="234" class="l"><a class="l" href="#234">234 </a>                        <span class="php-var">$psa_registry</span> = Psa_Registry::get_instance();
+</span><span id="235" class="l"><a class="l" href="#235">235 </a>                        <span class="php-keyword1">if</span>(!(@<span class="php-var">$psa_registry</span>-&gt;psa_log_database_connection <span class="php-keyword1">instanceof</span> Psa_PDO)){
+</span><span id="236" class="l"><a class="l" href="#236">236 </a>                            <span class="php-var">$psa_registry</span>-&gt;psa_log_database_connection = <span class="php-keyword1">new</span> Psa_PDO();
+</span><span id="237" class="l"><a class="l" href="#237">237 </a>                        }
+</span><span id="238" class="l"><a class="l" href="#238">238 </a>                        <span class="php-var">$this</span>-&gt;database = <span class="php-var">$psa_registry</span>-&gt;psa_log_database_connection;
+</span><span id="239" class="l"><a class="l" href="#239">239 </a>                    }
+</span><span id="240" class="l"><a class="l" href="#240">240 </a>                    <span class="php-keyword1">else</span>{
+</span><span id="241" class="l"><a class="l" href="#241">241 </a>                        <span class="php-comment">// existing database connection</span>
+</span><span id="242" class="l"><a class="l" href="#242">242 </a>                        <span class="php-var">$this</span>-&gt;database = Psa_Registry::get_instance()-&gt;psa_database;
+</span><span id="243" class="l"><a class="l" href="#243">243 </a>                    }
+</span><span id="244" class="l"><a class="l" href="#244">244 </a>                }
+</span><span id="245" class="l"><a class="l" href="#245">245 </a>
+</span><span id="246" class="l"><a class="l" href="#246">246 </a>                <span class="php-comment">// prepare database query if not already prepared</span>
+</span><span id="247" class="l"><a class="l" href="#247">247 </a>                <span class="php-keyword1">if</span>(!<span class="php-var">$this</span>-&gt;prepared_query){
+</span><span id="248" class="l"><a class="l" href="#248">248 </a>                    <span class="php-var">$this</span>-&gt;prepared_query = <span class="php-var">$this</span>-&gt;database-&gt;prepare(<span class="php-var">$this</span>-&gt;format_database_log_query(<span class="php-var">$log_storage</span>));
+</span><span id="249" class="l"><a class="l" href="#249">249 </a>                }
+</span><span id="250" class="l"><a class="l" href="#250">250 </a>
+</span><span id="251" class="l"><a class="l" href="#251">251 </a>                <span class="php-comment">// run query against the database</span>
+</span><span id="252" class="l"><a class="l" href="#252">252 </a>                <span class="php-keyword1">try</span>{
+</span><span id="253" class="l"><a class="l" href="#253">253 </a>                    <span class="php-var">$this</span>-&gt;database-&gt;execute(<span class="php-var">$this</span>-&gt;format_database_log_query_params(<span class="php-var">$log_data</span>), <span class="php-var">$this</span>-&gt;prepared_query, <span class="php-num">1</span>);
+</span><span id="254" class="l"><a class="l" href="#254">254 </a>                }
+</span><span id="255" class="l"><a class="l" href="#255">255 </a>                <span class="php-keyword1">catch</span>(PDOException <span class="php-var">$e</span>){
+</span><span id="256" class="l"><a class="l" href="#256">256 </a>
+</span><span id="257" class="l"><a class="l" href="#257">257 </a>                    <span class="php-var">$message</span> = <span class="php-quote">&quot;Unable to write log message to database table '</span><span class="php-var">{$PSA_CFG['logging']['storage'][$log_storage]['target']}</span><span class="php-quote">' &quot;</span> . <span class="php-var">$e</span>-&gt;getMessage();
+</span><span id="258" class="l"><a class="l" href="#258">258 </a>
+</span><span id="259" class="l"><a class="l" href="#259">259 </a>                    <span class="php-comment">// log message cannot be written into the database if there is problem with database connection</span>
+</span><span id="260" class="l"><a class="l" href="#260">260 </a>                    <span class="php-keyword1">if</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-quote">'psa_default'</span>][<span class="php-quote">'type'</span>] == <span class="php-quote">'database'</span>)
+</span><span id="261" class="l"><a class="l" href="#261">261 </a>                        <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> Psa_Fatal_Error_Exception(<span class="php-var">$message</span>, <span class="php-var">$message</span>, <span class="php-var">$e</span>-&gt;getCode(), <span class="php-keyword1">false</span>);
+</span><span id="262" class="l"><a class="l" href="#262">262 </a>                    <span class="php-keyword1">else</span>
+</span><span id="263" class="l"><a class="l" href="#263">263 </a>                        <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> Psa_Fatal_Error_Exception(<span class="php-var">$message</span>, <span class="php-var">$message</span>, <span class="php-var">$e</span>-&gt;getCode());
+</span><span id="264" class="l"><a class="l" href="#264">264 </a>                }
+</span><span id="265" class="l"><a class="l" href="#265">265 </a>
+</span><span id="266" class="l"><a class="l" href="#266">266 </a>                <span class="php-keyword1">return</span> <span class="php-num">1</span>;
+</span><span id="267" class="l"><a class="l" href="#267">267 </a>            }
+</span><span id="268" class="l"><a class="l" href="#268">268 </a>        }
+</span><span id="269" class="l"><a class="l" href="#269">269 </a>        <span class="php-keyword1">else</span>
+</span><span id="270" class="l"><a class="l" href="#270">270 </a>            <span class="php-keyword1">return</span> -<span class="php-num">1</span>;
+</span><span id="271" class="l"><a class="l" href="#271">271 </a>    }
+</span><span id="272" class="l"><a class="l" href="#272">272 </a>
 </span><span id="273" class="l"><a class="l" href="#273">273 </a>
-</span><span id="274" class="l"><a class="l" href="#274">274 </a>
-</span><span id="275" class="l"><a class="l" href="#275">275 </a>    <span class="php-comment">/**
-</span></span><span id="276" class="l"><a class="l" href="#276">276 </a><span class="php-comment">     * Returns SQL insert query that inserts row to &lt;i&gt;psa_log&lt;/i&gt; database table.
-</span></span><span id="277" class="l"><a class="l" href="#277">277 </a><span class="php-comment">     *
-</span></span><span id="278" class="l"><a class="l" href="#278">278 </a><span class="php-comment">     * Override this method if you want to change log format in the database. You will have
-</span></span><span id="279" class="l"><a class="l" href="#279">279 </a><span class="php-comment">     * to manually alter log database table if you wish to add some new columns into it.
-</span></span><span id="280" class="l"><a class="l" href="#280">280 </a><span class="php-comment">     * This method has to have matching {@link format_database_log_query_params()} method.
-</span></span><span id="281" class="l"><a class="l" href="#281">281 </a><span class="php-comment">     *
-</span></span><span id="282" class="l"><a class="l" href="#282">282 </a><span class="php-comment">     * @param int $log_storage see {@link log()} method
-</span></span><span id="283" class="l"><a class="l" href="#283">283 </a><span class="php-comment">     * @see format_database_log_query_params()
-</span></span><span id="284" class="l"><a class="l" href="#284">284 </a><span class="php-comment">     * @see format_file_log()
-</span></span><span id="285" class="l"><a class="l" href="#285">285 </a><span class="php-comment">     * @see log()
-</span></span><span id="286" class="l"><a class="l" href="#286">286 </a><span class="php-comment">     * @return string
-</span></span><span id="287" class="l"><a class="l" href="#287">287 </a><span class="php-comment">     */</span>
-</span><span id="288" class="l"><a class="l" href="#288">288 </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_format_database_log_query" href="#_format_database_log_query">format_database_log_query</a>(<span class="php-var">$log_storage</span>){
-</span><span id="289" class="l"><a class="l" href="#289">289 </a>
-</span><span id="290" class="l"><a class="l" href="#290">290 </a>        <span class="php-comment">// log query. Should be formated for prepared query.</span>
-</span><span id="291" class="l"><a class="l" href="#291">291 </a>        <span class="php-keyword1">return</span> <span class="php-quote">&quot;INSERT INTO &quot;</span> . Psa_Registry::get_instance()-&gt;PSA_CFG[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-var">$log_storage</span>][<span class="php-quote">'target'</span>] . <span class="php-quote">&quot; (client_ip, log_time, request_uri, user_agent, referer, type, username, user_id, message, function, group_id, groupname) VALUES (?,NOW(),?,?,?,?,?,?,?,?,?,?)&quot;</span>;
-</span><span id="292" class="l"><a class="l" href="#292">292 </a>    }
+</span><span id="274" class="l"><a class="l" href="#274">274 </a>    <span class="php-comment">/**
+</span></span><span id="275" class="l"><a class="l" href="#275">275 </a><span class="php-comment">     * Returns SQL insert query that inserts row to the &lt;i&gt;psa_log&lt;/i&gt; database table.
+</span></span><span id="276" class="l"><a class="l" href="#276">276 </a><span class="php-comment">     *
+</span></span><span id="277" class="l"><a class="l" href="#277">277 </a><span class="php-comment">     * Override this method if you want to change the log format in the database. You will have
+</span></span><span id="278" class="l"><a class="l" href="#278">278 </a><span class="php-comment">     * to manually alter the log database table if you wish to add some new columns into it.
+</span></span><span id="279" class="l"><a class="l" href="#279">279 </a><span class="php-comment">     * This method has to have the matching {@link format_database_log_query_params()} method.
+</span></span><span id="280" class="l"><a class="l" href="#280">280 </a><span class="php-comment">     *
+</span></span><span id="281" class="l"><a class="l" href="#281">281 </a><span class="php-comment">     * @param int $log_storage see {@link log()} method
+</span></span><span id="282" class="l"><a class="l" href="#282">282 </a><span class="php-comment">     * @see format_database_log_query_params()
+</span></span><span id="283" class="l"><a class="l" href="#283">283 </a><span class="php-comment">     * @see format_file_log()
+</span></span><span id="284" class="l"><a class="l" href="#284">284 </a><span class="php-comment">     * @see log()
+</span></span><span id="285" class="l"><a class="l" href="#285">285 </a><span class="php-comment">     * @return string
+</span></span><span id="286" class="l"><a class="l" href="#286">286 </a><span class="php-comment">     */</span>
+</span><span id="287" class="l"><a class="l" href="#287">287 </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_format_database_log_query" href="#_format_database_log_query">format_database_log_query</a>(<span class="php-var">$log_storage</span>){
+</span><span id="288" class="l"><a class="l" href="#288">288 </a>
+</span><span id="289" class="l"><a class="l" href="#289">289 </a>        <span class="php-comment">// log query. Should be formated for prepared query.</span>
+</span><span id="290" class="l"><a class="l" href="#290">290 </a>        <span class="php-keyword1">return</span> <span class="php-quote">&quot;INSERT INTO &quot;</span> . Psa_Registry::get_instance()-&gt;PSA_CFG[<span class="php-quote">'logging'</span>][<span class="php-quote">'storage'</span>][<span class="php-var">$log_storage</span>][<span class="php-quote">'target'</span>] . <span class="php-quote">&quot; (client_ip, log_time, request_uri, user_agent, referer, type, username, user_id, message, function, group_id, groupname) VALUES (?,NOW(),?,?,?,?,?,?,?,?,?,?)&quot;</span>;
+</span><span id="291" class="l"><a class="l" href="#291">291 </a>    }
+</span><span id="292" class="l"><a class="l" href="#292">292 </a>
 </span><span id="293" class="l"><a class="l" href="#293">293 </a>
-</span><span id="294" class="l"><a class="l" href="#294">294 </a>
-</span><span id="295" class="l"><a class="l" href="#295">295 </a>    <span class="php-comment">/**
-</span></span><span id="296" class="l"><a class="l" href="#296">296 </a><span class="php-comment">     * Returns array of parameters for prepared query from {@link format_database_log_query()} method.
-</span></span><span id="297" class="l"><a class="l" href="#297">297 </a><span class="php-comment">     *
-</span></span><span id="298" class="l"><a class="l" href="#298">298 </a><span class="php-comment">     * @param array $log_data see {@link log()} method
-</span></span><span id="299" class="l"><a class="l" href="#299">299 </a><span class="php-comment">     * @param int $log_storage see {@link log()} method
-</span></span><span id="300" class="l"><a class="l" href="#300">300 </a><span class="php-comment">     * @see format_database_log_query()
-</span></span><span id="301" class="l"><a class="l" href="#301">301 </a><span class="php-comment">     * @see format_file_log()
-</span></span><span id="302" class="l"><a class="l" href="#302">302 </a><span class="php-comment">     * @see log()
-</span></span><span id="303" class="l"><a class="l" href="#303">303 </a><span class="php-comment">     * @return array
-</span></span><span id="304" class="l"><a class="l" href="#304">304 </a><span class="php-comment">     */</span>
-</span><span id="305" class="l"><a class="l" href="#305">305 </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_format_database_log_query_params" href="#_format_database_log_query_params">format_database_log_query_params</a>(<span class="php-var">$log_data</span>){
-</span><span id="306" class="l"><a class="l" href="#306">306 </a>
-</span><span id="307" class="l"><a class="l" href="#307">307 </a>        <span class="php-comment">// parameters for prepared log query</span>
-</span><span id="308" class="l"><a class="l" href="#308">308 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">&quot;REMOTE_ADDR&quot;</span>],
-</span><span id="309" class="l"><a class="l" href="#309">309 </a>            @<span class="php-var">$_SERVER</span>[<span class="php-quote">&quot;REQUEST_URI&quot;</span>],
-</span><span id="310" class="l"><a class="l" href="#310">310 </a>            @<span class="php-var">$_SERVER</span>[<span class="php-quote">&quot;HTTP_USER_AGENT&quot;</span>],
-</span><span id="311" class="l"><a class="l" href="#311">311 </a>            @<span class="php-var">$_SERVER</span>[<span class="php-quote">'HTTP_REFERER'</span>],
-</span><span id="312" class="l"><a class="l" href="#312">312 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>],
-</span><span id="313" class="l"><a class="l" href="#313">313 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'username'</span>],
-</span><span id="314" class="l"><a class="l" href="#314">314 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'user_id'</span>],
-</span><span id="315" class="l"><a class="l" href="#315">315 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'message'</span>],
-</span><span id="316" class="l"><a class="l" href="#316">316 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'function'</span>],
-</span><span id="317" class="l"><a class="l" href="#317">317 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'group_id'</span>],
-</span><span id="318" class="l"><a class="l" href="#318">318 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'groupname'</span>]);
-</span><span id="319" class="l"><a class="l" href="#319">319 </a>    }
+</span><span id="294" class="l"><a class="l" href="#294">294 </a>    <span class="php-comment">/**
+</span></span><span id="295" class="l"><a class="l" href="#295">295 </a><span class="php-comment">     * Returns array of parameters for prepared query from {@link format_database_log_query()} method.
+</span></span><span id="296" class="l"><a class="l" href="#296">296 </a><span class="php-comment">     *
+</span></span><span id="297" class="l"><a class="l" href="#297">297 </a><span class="php-comment">     * @param array $log_data see {@link log()} method
+</span></span><span id="298" class="l"><a class="l" href="#298">298 </a><span class="php-comment">     * @param int $log_storage see {@link log()} method
+</span></span><span id="299" class="l"><a class="l" href="#299">299 </a><span class="php-comment">     * @see format_database_log_query()
+</span></span><span id="300" class="l"><a class="l" href="#300">300 </a><span class="php-comment">     * @see format_file_log()
+</span></span><span id="301" class="l"><a class="l" href="#301">301 </a><span class="php-comment">     * @see log()
+</span></span><span id="302" class="l"><a class="l" href="#302">302 </a><span class="php-comment">     * @return array
+</span></span><span id="303" class="l"><a class="l" href="#303">303 </a><span class="php-comment">     */</span>
+</span><span id="304" class="l"><a class="l" href="#304">304 </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_format_database_log_query_params" href="#_format_database_log_query_params">format_database_log_query_params</a>(<span class="php-var">$log_data</span>){
+</span><span id="305" class="l"><a class="l" href="#305">305 </a>
+</span><span id="306" class="l"><a class="l" href="#306">306 </a>        <span class="php-comment">// parameters for prepared log query</span>
+</span><span id="307" class="l"><a class="l" href="#307">307 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">&quot;REMOTE_ADDR&quot;</span>],
+</span><span id="308" class="l"><a class="l" href="#308">308 </a>            @<span class="php-var">$_SERVER</span>[<span class="php-quote">&quot;REQUEST_URI&quot;</span>],
+</span><span id="309" class="l"><a class="l" href="#309">309 </a>            @<span class="php-var">$_SERVER</span>[<span class="php-quote">&quot;HTTP_USER_AGENT&quot;</span>],
+</span><span id="310" class="l"><a class="l" href="#310">310 </a>            @<span class="php-var">$_SERVER</span>[<span class="php-quote">'HTTP_REFERER'</span>],
+</span><span id="311" class="l"><a class="l" href="#311">311 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>],
+</span><span id="312" class="l"><a class="l" href="#312">312 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'username'</span>],
+</span><span id="313" class="l"><a class="l" href="#313">313 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'user_id'</span>],
+</span><span id="314" class="l"><a class="l" href="#314">314 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'message'</span>],
+</span><span id="315" class="l"><a class="l" href="#315">315 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'function'</span>],
+</span><span id="316" class="l"><a class="l" href="#316">316 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'group_id'</span>],
+</span><span id="317" class="l"><a class="l" href="#317">317 </a>            @<span class="php-var">$log_data</span>[<span class="php-quote">'groupname'</span>]);
+</span><span id="318" class="l"><a class="l" href="#318">318 </a>    }
+</span><span id="319" class="l"><a class="l" href="#319">319 </a>
 </span><span id="320" class="l"><a class="l" href="#320">320 </a>
-</span><span id="321" class="l"><a class="l" href="#321">321 </a>
-</span><span id="322" class="l"><a class="l" href="#322">322 </a>    <span class="php-comment">/**
-</span></span><span id="323" class="l"><a class="l" href="#323">323 </a><span class="php-comment">     * Formats log message that will be written into the log file.
-</span></span><span id="324" class="l"><a class="l" href="#324">324 </a><span class="php-comment">     *
-</span></span><span id="325" class="l"><a class="l" href="#325">325 </a><span class="php-comment">     * Override this method if you want to change log format.
-</span></span><span id="326" class="l"><a class="l" href="#326">326 </a><span class="php-comment">     *
-</span></span><span id="327" class="l"><a class="l" href="#327">327 </a><span class="php-comment">     * @param array $log_data see {@link log()} method
-</span></span><span id="328" class="l"><a class="l" href="#328">328 </a><span class="php-comment">     * @param int $log_storage see {@link log()} method
-</span></span><span id="329" class="l"><a class="l" href="#329">329 </a><span class="php-comment">     * @see format_database_log()
-</span></span><span id="330" class="l"><a class="l" href="#330">330 </a><span class="php-comment">     * @see log()
-</span></span><span id="331" class="l"><a class="l" href="#331">331 </a><span class="php-comment">     * @return string
-</span></span><span id="332" class="l"><a class="l" href="#332">332 </a><span class="php-comment">     */</span>
-</span><span id="333" class="l"><a class="l" href="#333">333 </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_format_file_log" href="#_format_file_log">format_file_log</a>(<span class="php-var">$log_data</span>){
-</span><span id="334" class="l"><a class="l" href="#334">334 </a>
-</span><span id="335" class="l"><a class="l" href="#335">335 </a>        <span class="php-comment">// config array</span>
-</span><span id="336" class="l"><a class="l" href="#336">336 </a>        <span class="php-var">$PSA_CFG</span> = Psa_Registry::get_instance()-&gt;PSA_CFG;
-</span><span id="337" class="l"><a class="l" href="#337">337 </a>
-</span><span id="338" class="l"><a class="l" href="#338">338 </a>        <span class="php-comment">// format log message</span>
-</span><span id="339" class="l"><a class="l" href="#339">339 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'more_lines'</span>]){
-</span><span id="340" class="l"><a class="l" href="#340">340 </a>            <span class="php-var">$new_line</span> = <span class="php-quote">&quot;\r\n&quot;</span>;
-</span><span id="341" class="l"><a class="l" href="#341">341 </a>            <span class="php-var">$message</span> = <span class="php-quote">&quot;\r\n&quot;</span> . <span class="php-quote">'['</span> . <span class="php-keyword2">date</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'time_format'</span>]) . <span class="php-quote">&quot;] &quot;</span> . <span class="php-var">$new_line</span> . <span class="php-quote">'====================='</span> . <span class="php-var">$new_line</span>;
-</span><span id="342" class="l"><a class="l" href="#342">342 </a>        }
-</span><span id="343" class="l"><a class="l" href="#343">343 </a>        <span class="php-keyword1">else</span>{
-</span><span id="344" class="l"><a class="l" href="#344">344 </a>            <span class="php-var">$new_line</span> = <span class="php-quote">''</span>;
-</span><span id="345" class="l"><a class="l" href="#345">345 </a>            <span class="php-var">$message</span> = <span class="php-quote">'['</span> . <span class="php-keyword2">date</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'time_format'</span>]) . <span class="php-quote">&quot;] &quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="346" class="l"><a class="l" href="#346">346 </a>        }
-</span><span id="347" class="l"><a class="l" href="#347">347 </a>
-</span><span id="348" class="l"><a class="l" href="#348">348 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'message'</span>])
-</span><span id="349" class="l"><a class="l" href="#349">349 </a>            <span class="php-var">$message</span> .= <span class="php-var">$log_data</span>[<span class="php-quote">'message'</span>] . <span class="php-var">$new_line</span>;
-</span><span id="350" class="l"><a class="l" href="#350">350 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">'REMOTE_ADDR'</span>])
-</span><span id="351" class="l"><a class="l" href="#351">351 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; IP=</span><span class="php-var">{$_SERVER['REMOTE_ADDR']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="352" class="l"><a class="l" href="#352">352 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'username'</span>])
-</span><span id="353" class="l"><a class="l" href="#353">353 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; USER=</span><span class="php-var">{$log_data['username']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="354" class="l"><a class="l" href="#354">354 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'user_id'</span>])
-</span><span id="355" class="l"><a class="l" href="#355">355 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; UID=</span><span class="php-var">{$log_data['user_id']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="356" class="l"><a class="l" href="#356">356 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'grouname'</span>])
-</span><span id="357" class="l"><a class="l" href="#357">357 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; GROUP=</span><span class="php-var">{$log_data['grouname']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="358" class="l"><a class="l" href="#358">358 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'group_id'</span>])
-</span><span id="359" class="l"><a class="l" href="#359">359 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; GID=</span><span class="php-var">{$log_data['group_id']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="360" class="l"><a class="l" href="#360">360 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'function'</span>]){
-</span><span id="361" class="l"><a class="l" href="#361">361 </a>            <span class="php-keyword1">if</span>(!<span class="php-var">$new_line</span>)
-</span><span id="362" class="l"><a class="l" href="#362">362 </a>                <span class="php-var">$message</span> .= <span class="php-quote">' '</span> . <span class="php-keyword2">trim</span>(<span class="php-quote">'FUNCTION='</span> . <span class="php-keyword2">str_replace</span>(<span class="php-keyword1">array</span>(<span class="php-quote">&quot;\r\n&quot;</span>,<span class="php-quote">&quot;\n&quot;</span>), <span class="php-quote">' '</span>, <span class="php-var">$log_data</span>[<span class="php-quote">'function'</span>])) . <span class="php-var">$new_line</span>;
-</span><span id="363" class="l"><a class="l" href="#363">363 </a>            <span class="php-keyword1">else</span>
-</span><span id="364" class="l"><a class="l" href="#364">364 </a>                <span class="php-var">$message</span> .= <span class="php-quote">' '</span> . <span class="php-keyword2">trim</span>(<span class="php-quote">'FUNCTION='</span> .  <span class="php-var">$log_data</span>[<span class="php-quote">'function'</span>]) . <span class="php-var">$new_line</span>;
-</span><span id="365" class="l"><a class="l" href="#365">365 </a>        }
-</span><span id="366" class="l"><a class="l" href="#366">366 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>])
-</span><span id="367" class="l"><a class="l" href="#367">367 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; TYPE=</span><span class="php-var">{$log_data['type']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="368" class="l"><a class="l" href="#368">368 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">'REQUEST_URI'</span>])
-</span><span id="369" class="l"><a class="l" href="#369">369 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; REQUEST_URI=</span><span class="php-var">{$_SERVER['REQUEST_URI']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="370" class="l"><a class="l" href="#370">370 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">'HTTP_USER_AGENT'</span>])
-</span><span id="371" class="l"><a class="l" href="#371">371 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; USER_AGENT=</span><span class="php-var">{$_SERVER['HTTP_USER_AGENT']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="372" class="l"><a class="l" href="#372">372 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">'HTTP_REFERER'</span>])
-</span><span id="373" class="l"><a class="l" href="#373">373 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; REFERER=</span><span class="php-var">{$_SERVER['HTTP_REFERER']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
-</span><span id="374" class="l"><a class="l" href="#374">374 </a>
-</span><span id="375" class="l"><a class="l" href="#375">375 </a>        <span class="php-keyword1">return</span> <span class="php-var">$message</span> . <span class="php-quote">&quot;\n&quot;</span>;
-</span><span id="376" class="l"><a class="l" href="#376">376 </a>    }
-</span><span id="377" class="l"><a class="l" href="#377">377 </a>}
-</span><span id="378" class="l"><a class="l" href="#378">378 </a></span></code></pre>
+</span><span id="321" class="l"><a class="l" href="#321">321 </a>    <span class="php-comment">/**
+</span></span><span id="322" class="l"><a class="l" href="#322">322 </a><span class="php-comment">     * Formats a log message that will be written into the log file.
+</span></span><span id="323" class="l"><a class="l" href="#323">323 </a><span class="php-comment">     *
+</span></span><span id="324" class="l"><a class="l" href="#324">324 </a><span class="php-comment">     * Override this method if you want to change the log format.
+</span></span><span id="325" class="l"><a class="l" href="#325">325 </a><span class="php-comment">     *
+</span></span><span id="326" class="l"><a class="l" href="#326">326 </a><span class="php-comment">     * @param array $log_data see {@link log()} method
+</span></span><span id="327" class="l"><a class="l" href="#327">327 </a><span class="php-comment">     * @see format_database_log()
+</span></span><span id="328" class="l"><a class="l" href="#328">328 </a><span class="php-comment">     * @see log()
+</span></span><span id="329" class="l"><a class="l" href="#329">329 </a><span class="php-comment">     * @return string
+</span></span><span id="330" class="l"><a class="l" href="#330">330 </a><span class="php-comment">     */</span>
+</span><span id="331" class="l"><a class="l" href="#331">331 </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_format_file_log" href="#_format_file_log">format_file_log</a>(<span class="php-var">$log_data</span>){
+</span><span id="332" class="l"><a class="l" href="#332">332 </a>
+</span><span id="333" class="l"><a class="l" href="#333">333 </a>        <span class="php-comment">// config array</span>
+</span><span id="334" class="l"><a class="l" href="#334">334 </a>        <span class="php-var">$PSA_CFG</span> = Psa_Registry::get_instance()-&gt;PSA_CFG;
+</span><span id="335" class="l"><a class="l" href="#335">335 </a>
+</span><span id="336" class="l"><a class="l" href="#336">336 </a>        <span class="php-comment">// format log message</span>
+</span><span id="337" class="l"><a class="l" href="#337">337 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'more_lines'</span>]){
+</span><span id="338" class="l"><a class="l" href="#338">338 </a>            <span class="php-var">$new_line</span> = <span class="php-quote">&quot;\r\n&quot;</span>;
+</span><span id="339" class="l"><a class="l" href="#339">339 </a>            <span class="php-var">$message</span> = <span class="php-quote">&quot;\r\n&quot;</span> . <span class="php-quote">'['</span> . <span class="php-keyword2">date</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'time_format'</span>]) . <span class="php-quote">&quot;] &quot;</span> . <span class="php-var">$new_line</span> . <span class="php-quote">'====================='</span> . <span class="php-var">$new_line</span>;
+</span><span id="340" class="l"><a class="l" href="#340">340 </a>        }
+</span><span id="341" class="l"><a class="l" href="#341">341 </a>        <span class="php-keyword1">else</span>{
+</span><span id="342" class="l"><a class="l" href="#342">342 </a>            <span class="php-var">$new_line</span> = <span class="php-quote">''</span>;
+</span><span id="343" class="l"><a class="l" href="#343">343 </a>            <span class="php-var">$message</span> = <span class="php-quote">'['</span> . <span class="php-keyword2">date</span>(<span class="php-var">$PSA_CFG</span>[<span class="php-quote">'logging'</span>][<span class="php-quote">'time_format'</span>]) . <span class="php-quote">&quot;] &quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="344" class="l"><a class="l" href="#344">344 </a>        }
+</span><span id="345" class="l"><a class="l" href="#345">345 </a>
+</span><span id="346" class="l"><a class="l" href="#346">346 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'message'</span>])
+</span><span id="347" class="l"><a class="l" href="#347">347 </a>            <span class="php-var">$message</span> .= <span class="php-var">$log_data</span>[<span class="php-quote">'message'</span>] . <span class="php-var">$new_line</span>;
+</span><span id="348" class="l"><a class="l" href="#348">348 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">'REMOTE_ADDR'</span>])
+</span><span id="349" class="l"><a class="l" href="#349">349 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; IP=</span><span class="php-var">{$_SERVER['REMOTE_ADDR']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="350" class="l"><a class="l" href="#350">350 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'username'</span>])
+</span><span id="351" class="l"><a class="l" href="#351">351 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; USER=</span><span class="php-var">{$log_data['username']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="352" class="l"><a class="l" href="#352">352 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'user_id'</span>])
+</span><span id="353" class="l"><a class="l" href="#353">353 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; UID=</span><span class="php-var">{$log_data['user_id']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="354" class="l"><a class="l" href="#354">354 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'grouname'</span>])
+</span><span id="355" class="l"><a class="l" href="#355">355 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; GROUP=</span><span class="php-var">{$log_data['grouname']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="356" class="l"><a class="l" href="#356">356 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'group_id'</span>])
+</span><span id="357" class="l"><a class="l" href="#357">357 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; GID=</span><span class="php-var">{$log_data['group_id']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="358" class="l"><a class="l" href="#358">358 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'function'</span>]){
+</span><span id="359" class="l"><a class="l" href="#359">359 </a>            <span class="php-keyword1">if</span>(!<span class="php-var">$new_line</span>)
+</span><span id="360" class="l"><a class="l" href="#360">360 </a>                <span class="php-var">$message</span> .= <span class="php-quote">' '</span> . <span class="php-keyword2">trim</span>(<span class="php-quote">'FUNCTION='</span> . <span class="php-keyword2">str_replace</span>(<span class="php-keyword1">array</span>(<span class="php-quote">&quot;\r\n&quot;</span>,<span class="php-quote">&quot;\n&quot;</span>), <span class="php-quote">' '</span>, <span class="php-var">$log_data</span>[<span class="php-quote">'function'</span>])) . <span class="php-var">$new_line</span>;
+</span><span id="361" class="l"><a class="l" href="#361">361 </a>            <span class="php-keyword1">else</span>
+</span><span id="362" class="l"><a class="l" href="#362">362 </a>                <span class="php-var">$message</span> .= <span class="php-quote">' '</span> . <span class="php-keyword2">trim</span>(<span class="php-quote">'FUNCTION='</span> .  <span class="php-var">$log_data</span>[<span class="php-quote">'function'</span>]) . <span class="php-var">$new_line</span>;
+</span><span id="363" class="l"><a class="l" href="#363">363 </a>        }
+</span><span id="364" class="l"><a class="l" href="#364">364 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$log_data</span>[<span class="php-quote">'type'</span>])
+</span><span id="365" class="l"><a class="l" href="#365">365 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; TYPE=</span><span class="php-var">{$log_data['type']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="366" class="l"><a class="l" href="#366">366 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">'REQUEST_URI'</span>])
+</span><span id="367" class="l"><a class="l" href="#367">367 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; REQUEST_URI=</span><span class="php-var">{$_SERVER['REQUEST_URI']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="368" class="l"><a class="l" href="#368">368 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">'HTTP_USER_AGENT'</span>])
+</span><span id="369" class="l"><a class="l" href="#369">369 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; USER_AGENT=</span><span class="php-var">{$_SERVER['HTTP_USER_AGENT']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="370" class="l"><a class="l" href="#370">370 </a>        <span class="php-keyword1">if</span>(@<span class="php-var">$_SERVER</span>[<span class="php-quote">'HTTP_REFERER'</span>])
+</span><span id="371" class="l"><a class="l" href="#371">371 </a>            <span class="php-var">$message</span> .= <span class="php-quote">&quot; REFERER=</span><span class="php-var">{$_SERVER['HTTP_REFERER']}</span><span class="php-quote">&quot;</span> . <span class="php-var">$new_line</span>;
+</span><span id="372" class="l"><a class="l" href="#372">372 </a>
+</span><span id="373" class="l"><a class="l" href="#373">373 </a>        <span class="php-keyword1">return</span> <span class="php-var">$message</span> . <span class="php-quote">&quot;\n&quot;</span>;
+</span><span id="374" class="l"><a class="l" href="#374">374 </a>    }
+</span><span id="375" class="l"><a class="l" href="#375">375 </a>}
+</span><span id="376" class="l"><a class="l" href="#376">376 </a></span></code></pre>
 	</div>
 
 	<div id="footer">

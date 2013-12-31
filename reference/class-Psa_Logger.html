@@ -110,12 +110,13 @@
 	
 <p>This class handles logging.</p>
 
-<p>Logs are by default written to database into <i>psa_log</i> table but can be
-also written to a file depending on settings in config.php file.</p>
+<p>Logs are by default written to database into <i>psa_log</i> table, but can be
+also written to a file depending on the settings in config.php file.</p>
 
 <p>This class implements <a href="http://en.wikipedia.org/wiki/Singleton_pattern">singleton pattern</a> to ensure that there is only one instance of the <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object and to allow that this single instance is easily accessible
-from any scope. You should not make instance of <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object with
-the <kbd>new</kbd> operator instead call static method <code><a href="class-Psa_Logger.html#_get_instance">Psa_Logger::get_instance()</a></code>.</p>
+from any scope. You cannot not make an instance of <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object
+with the <kbd>new</kbd> operator, call static method <code><a href="class-Psa_Logger.html#_get_instance">Psa_Logger::get_instance()</a></code>
+instead.</p>
 
 <p><br />
 <b>Examples:</b></p>
@@ -150,7 +151,7 @@ class="php-keyword1">return</span> parent::get_instance(__CLASS__);
    }
 
    <span
-class="php-comment">// your method for generate database query</span>
+class="php-comment">// your method for database query</span>
    <span
 class="php-keyword1">function</span> format_database_log_query(<span
 class="php-var">$log_storage</span>){
@@ -209,7 +210,7 @@ Psa_Singleton
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_Logger.html#32-377" title="Go to source code">lib/Psa_Logger.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Logger.html#32-375" title="Go to source code">lib/Psa_Logger.php</a><br />
 	</div>
 
 
@@ -231,17 +232,18 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<div class="description short">
 				
-<p>Returns instance of the <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object.</p>
+<p>Returns the instance of the <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Returns instance of the <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object.</p>
+<p>Returns the instance of the <code><a href="class-Psa_Logger.html">Psa_Logger</a></code> object.</p>
 
-<p>You should statically call this method with scope resolution operator (::)
-which gives you access to the logging object from anywhere in your application,
-whether it is from a function, a method, or the global scope. Example:</p>
+<p>You should statically call this method with the scope resolution operator
+(::) which gives you the access to the logging object from anywhere in your
+application, whether it is from a function, a method, or the global scope.
+Example:</p>
 
 <pre>
 Psa_Logger::get_instance()-&gt;<span class="php-keyword2">log</span>(<span
@@ -275,7 +277,7 @@ class="php-quote">&quot;Log message&quot;</span>);
 
 			<td class="name"><div>
 			<a class="anchor" href="#_log">#</a>
-			<code><strong><a href="source-class-Psa_Logger.html#120-272" title="Go to source code">log</a></strong>( <span>array|string <var>$log_data</var></span>, <span>integer|string <var>$log_storage</var> = <span class="php-quote">'psa_default'</span></span> )</code>
+			<code><strong><a href="source-class-Psa_Logger.html#120-271" title="Go to source code">log</a></strong>( <span>array|string <var>$log_data</var></span>, <span>integer|string <var>$log_storage</var> = <span class="php-quote">'psa_default'</span></span> )</code>
 
 			<div class="description short">
 				
@@ -287,24 +289,24 @@ class="php-quote">&quot;Log message&quot;</span>);
 				
 <p>Writes logs.</p>
 
-<p>Writes a log record to database or file. This depends on settings
-(<var>$PSA_CFG['logging']</var>) in config.php. First argument can be
-array or string. If is a string it is written to the log. If it is array some
-other values in log record can be set. Here is example array with all available
-elements and example values that can be used as first argument for this
-method.</p>
+<p>Writes a log record to the database or a file. This depends on the settings
+(<var>$PSA_CFG['logging']</var>) in config.php. First argument can be an
+array or a string. If it's a string, it is written to the log. If it's an array,
+some other values in the log record can be set. Here is an example array with
+all the available elements and values that can be used as the first argument to
+this method.</p>
 
 <pre>
 Array
 (
-    [user_id] =&gt; 5                // id of user
+    [user_id] =&gt; 5                // user ID
     [username] =&gt; john            // username
-    [group_id] =&gt; 3               // id of group
+    [group_id] =&gt; 3               // group ID
     [groupname] =&gt; test           // group name
     [message] =&gt; new user created // log message
-    [function] =&gt; Psa_User::save  // method or function name that created log
+    [function] =&gt; Psa_User::save  // method or function name that created the log record
     [level] =&gt; 2                  // Log level, default 1. Integer. If greater than &lt;var&gt;$PSA_CFG['logging']['level']&lt;/var&gt; log will not be saved.
-    [type] =&gt; general             // Log message type. For exceptions this is exception class name. Custom string value.
+    [type] =&gt; general             // Log message type. Class name for exceptions or custom string value.
 )
 </pre>
 
@@ -353,16 +355,16 @@ class="xlang">?&gt;</span>
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$log_data</var></dt>
-												<dd><code>array|string</code><br>array with data to be logged or log message only. If is a string, that string is
-used as message to be logged.</dd>
+												<dd><code>array|string</code><br>Array with data to be logged or log message only.</dd>
 						<dt><var>$log_storage</var></dt>
-												<dd><code>integer|string</code><br>storage for the log. This is index of <var>$PSA_CFG['logging']['storage']</var>
-array in config.php. Default is 'psa_default'.</dd>
+												<dd><code>integer|string</code><br>Storage for the log. This is the index of
+<var>$PSA_CFG['logging']['storage']</var> array in config.php. Default
+is 'psa_default'.</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>integer</code><br>0 for failure, 1 for success, -1 logging is disabled or the log level for
+						<code>integer</code><br>0 for failure, 1 for success, -1 logging is disabled or the log level for the
 message is set too low (bigger number than
 <var>$PSA_CFG['logging']['max_log_level'] </var>).<br />
 					</div>
@@ -391,23 +393,23 @@ message is set too low (bigger number than
 
 			<td class="name"><div>
 			<a class="anchor" href="#_format_database_log_query">#</a>
-			<code><strong><a href="source-class-Psa_Logger.html#275-292" title="Go to source code">format_database_log_query</a></strong>( <span>integer <var>$log_storage</var></span> )</code>
+			<code><strong><a href="source-class-Psa_Logger.html#274-291" title="Go to source code">format_database_log_query</a></strong>( <span>integer <var>$log_storage</var></span> )</code>
 
 			<div class="description short">
 				
-<p>Returns SQL insert query that inserts row to <i>psa_log</i> database
+<p>Returns SQL insert query that inserts row to the <i>psa_log</i> database
 table.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Returns SQL insert query that inserts row to <i>psa_log</i> database
+<p>Returns SQL insert query that inserts row to the <i>psa_log</i> database
 table.</p>
 
-<p>Override this method if you want to change log format in the database. You
-will have to manually alter log database table if you wish to add some new
-columns into it. This method has to have matching <code><a href="class-Psa_Logger.html#_format_database_log_query_params">Psa_Logger::format_database_log_query_params()</a></code> method.</p>
+<p>Override this method if you want to change the log format in the database.
+You will have to manually alter the log database table if you wish to add some
+new columns into it. This method has to have the matching <code><a href="class-Psa_Logger.html#_format_database_log_query_params">Psa_Logger::format_database_log_query_params()</a></code> method.</p>
 
 
 
@@ -445,7 +447,7 @@ columns into it. This method has to have matching <code><a href="class-Psa_Logge
 
 			<td class="name"><div>
 			<a class="anchor" href="#_format_database_log_query_params">#</a>
-			<code><strong><a href="source-class-Psa_Logger.html#295-319" title="Go to source code">format_database_log_query_params</a></strong>( <span>array <var>$log_data</var></span> )</code>
+			<code><strong><a href="source-class-Psa_Logger.html#294-318" title="Go to source code">format_database_log_query_params</a></strong>( <span>array <var>$log_data</var></span> )</code>
 
 			<div class="description short">
 				
@@ -493,19 +495,19 @@ columns into it. This method has to have matching <code><a href="class-Psa_Logge
 
 			<td class="name"><div>
 			<a class="anchor" href="#_format_file_log">#</a>
-			<code><strong><a href="source-class-Psa_Logger.html#322-376" title="Go to source code">format_file_log</a></strong>( <span>array <var>$log_data</var></span> )</code>
+			<code><strong><a href="source-class-Psa_Logger.html#321-374" title="Go to source code">format_file_log</a></strong>( <span>array <var>$log_data</var></span> )</code>
 
 			<div class="description short">
 				
-<p>Formats log message that will be written into the log file.</p>
+<p>Formats a log message that will be written into the log file.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Formats log message that will be written into the log file.</p>
+<p>Formats a log message that will be written into the log file.</p>
 
-<p>Override this method if you want to change log format.</p>
+<p>Override this method if you want to change the log format.</p>
 
 
 
@@ -567,10 +569,6 @@ columns into it. This method has to have matching <code><a href="class-Psa_Logge
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

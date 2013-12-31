@@ -120,7 +120,7 @@
 </span><span id="30" class="l"><a class="l" href="#30"> 30 </a>
 </span><span id="31" class="l"><a class="l" href="#31"> 31 </a>
 </span><span id="32" class="l"><a class="l" href="#32"> 32 </a><span class="php-comment">/**
-</span></span><span id="33" class="l"><a class="l" href="#33"> 33 </a><span class="php-comment"> * Implements simple {@link https://en.wikipedia.org/wiki/Active_record_pattern Active Record} pattern.
+</span></span><span id="33" class="l"><a class="l" href="#33"> 33 </a><span class="php-comment"> * Implements a simple {@link https://en.wikipedia.org/wiki/Active_record_pattern Active Record} pattern.
 </span></span><span id="34" class="l"><a class="l" href="#34"> 34 </a><span class="php-comment"> *
 </span></span><span id="35" class="l"><a class="l" href="#35"> 35 </a><span class="php-comment"> * Active record is an approach to accessing data in a database. An object instance
 </span></span><span id="36" class="l"><a class="l" href="#36"> 36 </a><span class="php-comment"> * is tied to a single row in the database table. After creation of an object, a new
@@ -129,8 +129,8 @@
 </span></span><span id="39" class="l"><a class="l" href="#39"> 39 </a><span class="php-comment"> *
 </span></span><span id="40" class="l"><a class="l" href="#40"> 40 </a><span class="php-comment"> * By extending this class you can make an object which has member variables that correspond
 </span></span><span id="41" class="l"><a class="l" href="#41"> 41 </a><span class="php-comment"> * to the fields in the database table. When you call {@link save_to_database()} method, values assigned
-</span></span><span id="42" class="l"><a class="l" href="#42"> 42 </a><span class="php-comment"> * to instance variables will be saved to database. When you call {@link restore_from_database()} method
-</span></span><span id="43" class="l"><a class="l" href="#43"> 43 </a><span class="php-comment"> * member variables named like the database columns will be populated with values from the
+</span></span><span id="42" class="l"><a class="l" href="#42"> 42 </a><span class="php-comment"> * to instance variables will be saved to the database. When you call {@link restore_from_database()} method
+</span></span><span id="43" class="l"><a class="l" href="#43"> 43 </a><span class="php-comment"> * member variables named the same as database columns will be populated with values from the
 </span></span><span id="44" class="l"><a class="l" href="#44"> 44 </a><span class="php-comment"> * database.
 </span></span><span id="45" class="l"><a class="l" href="#45"> 45 </a><span class="php-comment"> *
 </span></span><span id="46" class="l"><a class="l" href="#46"> 46 </a><span class="php-comment"> * &lt;b&gt;Example:&lt;/b&gt;
@@ -157,7 +157,7 @@
 </span></span><span id="67" class="l"><a class="l" href="#67"> 67 </a><span class="php-comment"> *
 </span></span><span id="68" class="l"><a class="l" href="#68"> 68 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="69" class="l"><a class="l" href="#69"> 69 </a><span class="php-comment"> *
-</span></span><span id="70" class="l"><a class="l" href="#70"> 70 </a><span class="php-comment"> * &lt;br&gt;For example of usage check source code of {@link Psa_Group} and {@link Psa_User} which extend this class.
+</span></span><span id="70" class="l"><a class="l" href="#70"> 70 </a><span class="php-comment"> * &lt;br&gt;For example of usage, check source code of {@link Psa_Group} and {@link Psa_User} classes which extend this class.
 </span></span><span id="71" class="l"><a class="l" href="#71"> 71 </a><span class="php-comment"> */</span>
 </span><span id="72" class="l"><a class="l" href="#72"> 72 </a><span class="php-keyword1">class</span> <a id="Psa_Active_Record" href="#Psa_Active_Record">Psa_Active_Record</a>{
 </span><span id="73" class="l"><a class="l" href="#73"> 73 </a>
@@ -230,12 +230,12 @@
 </span></span><span id="140" class="l"><a class="l" href="#140">140 </a><span class="php-comment">     *
 </span></span><span id="141" class="l"><a class="l" href="#141">141 </a><span class="php-comment">     * @param string $table_name Name of the database table.
 </span></span><span id="142" class="l"><a class="l" href="#142">142 </a><span class="php-comment">     * @param string $primary_key_field_name Name of the primary key field in the database table.
-</span></span><span id="143" class="l"><a class="l" href="#143">143 </a><span class="php-comment">     * @param string $primary_key_value Value of the primary key field. If not set, new row
+</span></span><span id="143" class="l"><a class="l" href="#143">143 </a><span class="php-comment">     * @param string $primary_key_value Value of the primary key field. If not set, a new row
 </span></span><span id="144" class="l"><a class="l" href="#144">144 </a><span class="php-comment">     * to the table will be added when {@link save_to_database()} method is called.
 </span></span><span id="145" class="l"><a class="l" href="#145">145 </a><span class="php-comment">     * @param array $column_names Array with column names from the database table to work with.
-</span></span><span id="146" class="l"><a class="l" href="#146">146 </a><span class="php-comment">     * Not all columns needs to be included. If you skip to set this argument column names will be
+</span></span><span id="146" class="l"><a class="l" href="#146">146 </a><span class="php-comment">     * Not all columns need to be included. If you skip to set this argument, column names will be
 </span></span><span id="147" class="l"><a class="l" href="#147">147 </a><span class="php-comment">     * set automatically. That is one query more to the database on the object initialization to get
-</span></span><span id="148" class="l"><a class="l" href="#148">148 </a><span class="php-comment">     * table shema, so it's better to provide column names by setting this argument.
+</span></span><span id="148" class="l"><a class="l" href="#148">148 </a><span class="php-comment">     * a table schema, so it's better to provide column names by setting this argument.
 </span></span><span id="149" class="l"><a class="l" href="#149">149 </a><span class="php-comment">     * @param string $primary_key_sequence_name Name of the primary key field sequence.
 </span></span><span id="150" class="l"><a class="l" href="#150">150 </a><span class="php-comment">     * @param Psa_PDO $database_connection Database connection to use.
 </span></span><span id="151" class="l"><a class="l" href="#151">151 </a><span class="php-comment">     */</span>
@@ -272,8 +272,8 @@
 </span></span><span id="182" class="l"><a class="l" href="#182">182 </a><span class="php-comment">     * Fetches data from the database and populates objects member variables that correspond to columns
 </span></span><span id="183" class="l"><a class="l" href="#183">183 </a><span class="php-comment">     * in the database table.
 </span></span><span id="184" class="l"><a class="l" href="#184">184 </a><span class="php-comment">     *
-</span></span><span id="185" class="l"><a class="l" href="#185">185 </a><span class="php-comment">     * @param array $only_columns Array with column names to restore from the database. If not set
-</span></span><span id="186" class="l"><a class="l" href="#186">186 </a><span class="php-comment">     * column names set by constructor are used.
+</span></span><span id="185" class="l"><a class="l" href="#185">185 </a><span class="php-comment">     * @param array $only_columns Array with column names to restore from the database. If not set,
+</span></span><span id="186" class="l"><a class="l" href="#186">186 </a><span class="php-comment">     * column names set by the constructor are used.
 </span></span><span id="187" class="l"><a class="l" href="#187">187 </a><span class="php-comment">     * @param string $custom_query Query to fetch data from the database. '&lt;kbd&gt;&lt;COLUMNS&gt;&lt;/kbd&gt;' will
 </span></span><span id="188" class="l"><a class="l" href="#188">188 </a><span class="php-comment">     * be replaced with comma delimited column names.
 </span></span><span id="189" class="l"><a class="l" href="#189">189 </a><span class="php-comment">     * @param array $custom_query_params Array with query parameters for &lt;var&gt;$custom_query&lt;/var&gt; argument.
@@ -336,12 +336,12 @@
 </span><span id="246" class="l"><a class="l" href="#246">246 </a>
 </span><span id="247" class="l"><a class="l" href="#247">247 </a>
 </span><span id="248" class="l"><a class="l" href="#248">248 </a>    <span class="php-comment">/**
-</span></span><span id="249" class="l"><a class="l" href="#249">249 </a><span class="php-comment">     * Saves values from object's member variables to the database.
+</span></span><span id="249" class="l"><a class="l" href="#249">249 </a><span class="php-comment">     * Saves values from the object's member variables to the database.
 </span></span><span id="250" class="l"><a class="l" href="#250">250 </a><span class="php-comment">     *
-</span></span><span id="251" class="l"><a class="l" href="#251">251 </a><span class="php-comment">     * @param array $only_columns Array with column names to save to the database. If not set
-</span></span><span id="252" class="l"><a class="l" href="#252">252 </a><span class="php-comment">     * column names set by constructor are used.
-</span></span><span id="253" class="l"><a class="l" href="#253">253 </a><span class="php-comment">     * @param array $and_columns Array with column names to be saved also with default columns set
-</span></span><span id="254" class="l"><a class="l" href="#254">254 </a><span class="php-comment">     * by constructor or &lt;var&gt;$only_columns&lt;/var&gt; argument.
+</span></span><span id="251" class="l"><a class="l" href="#251">251 </a><span class="php-comment">     * @param array $only_columns Array with column names to save to the database. If not set,
+</span></span><span id="252" class="l"><a class="l" href="#252">252 </a><span class="php-comment">     * column names set by the constructor are used.
+</span></span><span id="253" class="l"><a class="l" href="#253">253 </a><span class="php-comment">     * @param array $and_columns Array with column names to be saved together with default columns set
+</span></span><span id="254" class="l"><a class="l" href="#254">254 </a><span class="php-comment">     * by the constructor or &lt;var&gt;$only_columns&lt;/var&gt; argument.
 </span></span><span id="255" class="l"><a class="l" href="#255">255 </a><span class="php-comment">     * @throws Psa_Active_Record_Exception
 </span></span><span id="256" class="l"><a class="l" href="#256">256 </a><span class="php-comment">     * @return int Returns the value of the primary key column.
 </span></span><span id="257" class="l"><a class="l" href="#257">257 </a><span class="php-comment">     */</span>

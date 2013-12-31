@@ -108,15 +108,14 @@
 
 	<div class="description">
 	
-<p>Class for object that can be used for storing results from model methods.</p>
+<p>Class for an object that can be used for storing results from model
+methods.</p>
 
-<p>Object instanced from this class can be used to collect results from models.
-It's only purpose is to transfer results from model to view, but cleaner way to
-do that is to make model methods to return the value and pass it to the view
-method as argument in the controller action method. This class implements
-singleton pattern and beside that is without any properties or methods. In
-<i>models</i> and <i>views</i> you can access <kbd>Psa_Result</kbd> object
-through references in local scope. For example, you can add property to
+<p>The only purpose of <kbd>Psa_Result</kbd> object is to transfer results from
+model to view, but a nicer way to do that is to make model methods to return the
+value and pass it to the view method as argument in the controller action
+method. In <i>models</i> and <i>views</i> you can access <kbd>Psa_Result</kbd>
+object through references in local scope. For example, you can add property to
 <kbd>Psa_Result</kbd> object in your model by</p>
 
 <pre>
@@ -148,7 +147,7 @@ class="php-keyword1">extends</span> Psa_Model {
 class="php-keyword1">function</span> get_numbers(){
 
                 <span
-class="php-comment">// put some numbers in result object using reference in local scope</span>
+class="php-comment">// put some numbers in the result object using the reference in local scope</span>
                 <span
 class="php-var">$this</span>-&gt;psa_result-&gt;numbers = <span
 class="php-keyword1">array</span>(<span class="php-num">1</span>,<span
@@ -198,7 +197,7 @@ Psa_Singleton
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_Result.html#32-93" title="Go to source code">lib/Psa_Result.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Result.html#32-91" title="Go to source code">lib/Psa_Result.php</a><br />
 	</div>
 
 
@@ -216,7 +215,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_instance">#</a>
-			<code><strong><a href="source-class-Psa_Result.html#80-91" title="Go to source code">get_instance</a></strong>( <span>mixed <var>$classname</var> = __CLASS__</span> )</code>
+			<code><strong><a href="source-class-Psa_Result.html#78-89" title="Go to source code">get_instance</a></strong>( <span>mixed <var>$classname</var> = __CLASS__</span> )</code>
 
 			<div class="description short">
 				
@@ -284,10 +283,6 @@ from any scope in your application.</p>
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

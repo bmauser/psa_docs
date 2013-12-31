@@ -127,7 +127,7 @@
 </span></span><span id="33" class="l"><a class="l" href="#33">33 </a><span class="php-comment"> * Abstract class for &lt;i&gt;Psa_Hook_Before_Group_Create&lt;/i&gt; hooks.
 </span></span><span id="34" class="l"><a class="l" href="#34">34 </a><span class="php-comment"> *
 </span></span><span id="35" class="l"><a class="l" href="#35">35 </a><span class="php-comment"> * You can write &lt;i&gt;Psa_Hook_Before_Group_Create&lt;/i&gt; hooks by extending this class.
-</span></span><span id="36" class="l"><a class="l" href="#36">36 </a><span class="php-comment"> * You start a new group creation process by passing '&lt;kbd&gt;new&lt;/kbd&gt;' to {@link Psa_Group} class constructor. See
+</span></span><span id="36" class="l"><a class="l" href="#36">36 </a><span class="php-comment"> * You can create a new group by passing '&lt;kbd&gt;new&lt;/kbd&gt;' to {@link Psa_Group} class constructor. See
 </span></span><span id="37" class="l"><a class="l" href="#37">37 </a><span class="php-comment"> * {@link Psa_Group::__construct()} method of {@link Psa_Group} class.
 </span></span><span id="38" class="l"><a class="l" href="#38">38 </a><span class="php-comment"> *
 </span></span><span id="39" class="l"><a class="l" href="#39">39 </a><span class="php-comment"> * Before a new group is successfully created with {@link Psa_Group::save()} method,
@@ -148,15 +148,15 @@
 </span></span><span id="54" class="l"><a class="l" href="#54">54 </a><span class="php-comment"> * ?&gt;
 </span></span><span id="55" class="l"><a class="l" href="#55">55 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="56" class="l"><a class="l" href="#56">56 </a><span class="php-comment"> *
-</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * When this example hook is registered every new created group will have property called
+</span></span><span id="57" class="l"><a class="l" href="#57">57 </a><span class="php-comment"> * When this example hook is registered, every new created group will have a property called
 </span></span><span id="58" class="l"><a class="l" href="#58">58 </a><span class="php-comment"> * &lt;kbd&gt;good_students&lt;/kbd&gt; with value '&lt;kbd&gt;yes&lt;/kbd&gt;'.
 </span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment"> *
-</span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; this hook is called before a new group is created and saved to database. Because of that
-</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment"> * this hook will be called even if the group is not created due to some error like group with same name
-</span></span><span id="62" class="l"><a class="l" href="#62">62 </a><span class="php-comment"> * already exists in the database. If you set some property to the group like &lt;i&gt;good_students&lt;/i&gt; in
-</span></span><span id="63" class="l"><a class="l" href="#63">63 </a><span class="php-comment"> * example above and the group is successfully created this property will be saved to the database and you don't have to call
+</span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment"> * &lt;b&gt;Note:&lt;/b&gt; this hook is called before a new group is created and saved to the database. Because of that,
+</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment"> * this hook will be called even if the group is not created due to some error, ex. group with the same name
+</span></span><span id="62" class="l"><a class="l" href="#62">62 </a><span class="php-comment"> * already exists in the database. If you set some property to the group like &lt;i&gt;good_students&lt;/i&gt; in the
+</span></span><span id="63" class="l"><a class="l" href="#63">63 </a><span class="php-comment"> * example above and the group is successfully created, this property will be saved to the database and you don't have to call
 </span></span><span id="64" class="l"><a class="l" href="#64">64 </a><span class="php-comment"> * {@link Psa_Group::save()} method later to store it. That is unlike {@link Psa_Hook_After_Group_Create} hook.
-</span></span><span id="65" class="l"><a class="l" href="#65">65 </a><span class="php-comment"> * Also, a group ID is unknown when this hook is called and is is set after the group is created.
+</span></span><span id="65" class="l"><a class="l" href="#65">65 </a><span class="php-comment"> * Also, a group ID is unknown when this hook is called and it is set after the group is created.
 </span></span><span id="66" class="l"><a class="l" href="#66">66 </a><span class="php-comment"> *
 </span></span><span id="67" class="l"><a class="l" href="#67">67 </a><span class="php-comment"> * @see Psa_Group::save()
 </span></span><span id="68" class="l"><a class="l" href="#68">68 </a><span class="php-comment"> * @see Psa_Hook_Before_User_Create
@@ -164,7 +164,7 @@
 </span><span id="70" class="l"><a class="l" href="#70">70 </a><span class="php-keyword1">abstract</span> <span class="php-keyword1">class</span> <a id="Psa_Hook_Before_Group_Create" href="#Psa_Hook_Before_Group_Create">Psa_Hook_Before_Group_Create</a> <span class="php-keyword1">extends</span> Psa_Model{
 </span><span id="71" class="l"><a class="l" href="#71">71 </a>
 </span><span id="72" class="l"><a class="l" href="#72">72 </a>    <span class="php-comment">/**
-</span></span><span id="73" class="l"><a class="l" href="#73">73 </a><span class="php-comment">     * This method will be called after a new group is successfully
+</span></span><span id="73" class="l"><a class="l" href="#73">73 </a><span class="php-comment">     * This method will be called before a new group is 
 </span></span><span id="74" class="l"><a class="l" href="#74">74 </a><span class="php-comment">     * created with {@link Psa_Group::save()} method.
 </span></span><span id="75" class="l"><a class="l" href="#75">75 </a><span class="php-comment">     *
 </span></span><span id="76" class="l"><a class="l" href="#76">76 </a><span class="php-comment">     * @param Psa_Group $group_object Reference to the {@link Psa_Group} object whose {@link Psa_Group::save()} method is invoked.

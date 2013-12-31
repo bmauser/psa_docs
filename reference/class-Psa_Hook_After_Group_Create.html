@@ -98,9 +98,8 @@
 	
 <p>Abstract class for <i>Psa_Hook_After_Group_Create</i> hook.</p>
 
-<p>You make <i>Psa_Hook_After_Group_Create</i> hooks by extending this class.
-You can crate a new group by passing '<kbd>new</kbd>' to <code><a href="class-Psa_Group.html">Psa_Group</a></code> class
-constructor. See <code><a href="class-Psa_Group.html#___construct">Psa_Group::__construct()</a></code> method.</p>
+<p>You can make <i>Psa_Hook_After_Group_Create</i> hooks by extending this
+class. You can create a new group by passing '<kbd>new</kbd>' to <code><a href="class-Psa_Group.html">Psa_Group</a></code> class constructor. See <code><a href="class-Psa_Group.html#___construct">Psa_Group::__construct()</a></code> method.</p>
 
 <p>After a new group is successfully created with <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code>
 method, <kbd>psa_main()</kbd> method of the hook object that extends this class
@@ -130,11 +129,11 @@ class="php-quote">'yes'</span>;
 <span class="xlang">?&gt;</span>
 </pre>
 
-<p>When this example hook is registered every new created group will have
+<p>When this example hook is registered, every new created group will have a
 property called <kbd>students</kbd> with value '<kbd>yes</kbd>'.</p>
 
-<p><b>Note:</b> if you set some property to the group like <i>students</i> in
-the example above it will not be saved until you call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code>
+<p><b>Note:</b> if you set some property to the group, like <i>students</i> in
+the example above, it will not be saved until you call <code><a href="class-Psa_Group.html#_save">Psa_Group::save()</a></code>
 method again.</p>
 
 	</div>
@@ -270,10 +269,6 @@ is invoked.</dd>
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

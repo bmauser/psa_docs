@@ -108,7 +108,8 @@
 
 	<div class="description">
 	
-<p>Simple database connection class and database access wrapper class.</p>
+<p>It's a simple database connection class and database access wrapper
+class.</p>
 
 <p>Handles database connection and executes queries against the database. PSA
 uses <a href="http://www.php.net/pdo">PHP Data
@@ -119,8 +120,7 @@ for corresponding PDO methods.</p>
 same database connection that can be accessed through
 <var>$this-&gt;psa_database-&gt;pdo</var> which is PDO object.</p>
 
-<p>See in examples below how you can access Psa_PDO object or PDO connection
-object in model methods.</p>
+<p>See in examples how to interact with database in model methods.</p>
 
 <p><br />
 <b>Examples:</b></p>
@@ -158,7 +158,7 @@ class="php-quote">&quot;SELECT * FROM table&quot;</span>);
 
 
     <span
-class="php-comment">// returns one row from a table</span>
+class="php-comment">// returns one row from the table</span>
     <span
 class="php-keyword1">function</span> get_one_row(){
         <span
@@ -294,7 +294,7 @@ class="php-var">$this</span>-&gt;psa_database-&gt;pdo-&gt;commit();
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 				<b>See:</b>
 				config.php<br />
-		<b>Located at</b> <a href="source-class-Psa_PDO.html#34-445" title="Go to source code">lib/Psa_PDO.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_PDO.html#34-444" title="Go to source code">lib/Psa_PDO.php</a><br />
 	</div>
 
 
@@ -312,7 +312,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_query">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#178-210" title="Go to source code">query</a></strong>( <span>string <var>$sql</var></span> )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#177-209" title="Go to source code">query</a></strong>( <span>string <var>$sql</var></span> )</code>
 
 			<div class="description short">
 				
@@ -360,7 +360,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_affected_rows">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#213-224" title="Go to source code">affected_rows</a></strong>( )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#212-223" title="Go to source code">affected_rows</a></strong>( )</code>
 
 			<div class="description short">
 				
@@ -399,7 +399,7 @@ statement.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_last_insert_id">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#227-236" title="Go to source code">last_insert_id</a></strong>( <span>string <var>$sequence</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#226-235" title="Go to source code">last_insert_id</a></strong>( <span>string <var>$sequence</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -441,7 +441,7 @@ statement.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_connect">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#239-310" title="Go to source code">connect</a></strong>( <span>string <var>$dsn</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$username</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$password</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$driver_options</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$throw_PDOException</var> = <span class="php-num">0</span></span> )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#238-309" title="Go to source code">connect</a></strong>( <span>string <var>$dsn</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$username</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$password</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$driver_options</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$throw_PDOException</var> = <span class="php-num">0</span></span> )</code>
 
 			<div class="description short">
 				
@@ -453,11 +453,11 @@ statement.</p>
 				
 <p>Connects to the database.</p>
 
-<p>If called without arguments it first uses connection parameters from object
-properties (<code><a href="class-Psa_PDO.html#$dsn">Psa_PDO::<var>$dsn</var></a></code>, <code><a href="class-Psa_PDO.html#$username">Psa_PDO::<var>$username</var></a></code>, <code><a href="class-Psa_PDO.html#$password">Psa_PDO::<var>$password</var></a></code>, <code><a href="class-Psa_PDO.html#$driver_options">Psa_PDO::<var>$driver_options</var></a></code>) and if <code><a href="class-Psa_PDO.html#$dsn">Psa_PDO::<var>$dsn</var></a></code> value is not set takes connection
-parameters from <var>$PSA_CFG</var> config array from config.php. Throws
-a <code><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></code> if the attempt to connect to the requested database
-fails.</p>
+<p>If called without arguments, it first uses connection parameters from object
+properties (<code><a href="class-Psa_PDO.html#$dsn">Psa_PDO::<var>$dsn</var></a></code>, <code><a href="class-Psa_PDO.html#$username">Psa_PDO::<var>$username</var></a></code>, <code><a href="class-Psa_PDO.html#$password">Psa_PDO::<var>$password</var></a></code>, <code><a href="class-Psa_PDO.html#$driver_options">Psa_PDO::<var>$driver_options</var></a></code>) and if <code><a href="class-Psa_PDO.html#$dsn">Psa_PDO::<var>$dsn</var></a></code> value is not set, it takes connection
+parameters from <var>$PSA_CFG</var> config array (set in config.php or
+config_override.php). Throws a <code><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></code> if the attempt to
+connect to the requested database fails.</p>
 
 
 
@@ -505,7 +505,7 @@ fails.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_fetch_all">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#313-325" title="Go to source code">fetch_all</a></strong>( <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#312-324" title="Go to source code">fetch_all</a></strong>( <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -548,7 +548,7 @@ href="http://php.net/manual/en/pdostatement.fetchall.php">http://php.net/manual/
 
 			<td class="name"><div>
 			<a class="anchor" href="#_fetch_row">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#328-341" title="Go to source code">fetch_row</a></strong>( <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#327-340" title="Go to source code">fetch_row</a></strong>( <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -591,17 +591,17 @@ href="http://www.php.net/manual/en/pdostatement.fetch.php">http://www.php.net/ma
 
 			<td class="name"><div>
 			<a class="anchor" href="#_fetch_column">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#344-357" title="Go to source code">fetch_column</a></strong>( <span>integer <var>$column</var> = <span class="php-num">0</span></span>, <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#343-356" title="Go to source code">fetch_column</a></strong>( <span>integer <var>$column</var> = <span class="php-num">0</span></span>, <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
-<p>Returns only one column from a result as one dimensional array.</p>
+<p>Returns only one column from the result as one dimensional array.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Returns only one column from a result as one dimensional array.</p>
+<p>Returns only one column from the result as one dimensional array.</p>
 
 
 
@@ -636,7 +636,7 @@ href="http://www.php.net/manual/en/pdostatement.fetchall.php">http://www.php.net
 
 			<td class="name"><div>
 			<a class="anchor" href="#_escape">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#360-374" title="Go to source code">escape</a></strong>( <span>string <var>$value</var></span> )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#359-373" title="Go to source code">escape</a></strong>( <span>string <var>$value</var></span> )</code>
 
 			<div class="description short">
 				
@@ -678,7 +678,7 @@ href="http://www.php.net/manual/en/pdostatement.fetchall.php">http://www.php.net
 
 			<td class="name"><div>
 			<a class="anchor" href="#_prepare">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#377-394" title="Go to source code">prepare</a></strong>( <span>string <var>$sql</var></span> )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#376-393" title="Go to source code">prepare</a></strong>( <span>string <var>$sql</var></span> )</code>
 
 			<div class="description short">
 				
@@ -724,7 +724,7 @@ href="http://www.php.net/manual/en/pdostatement.fetchall.php">http://www.php.net
 
 			<td class="name"><div>
 			<a class="anchor" href="#_execute">#</a>
-			<code><strong><a href="source-class-Psa_PDO.html#397-444" title="Go to source code">execute</a></strong>( <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>string|PDOStatement <var>$statement</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$throw_PDOException</var> = <span class="php-num">0</span></span> )</code>
+			<code><strong><a href="source-class-Psa_PDO.html#396-443" title="Go to source code">execute</a></strong>( <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>string|PDOStatement <var>$statement</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$throw_PDOException</var> = <span class="php-num">0</span></span> )</code>
 
 			<div class="description short">
 				
@@ -787,7 +787,7 @@ SQL statement being executed.</dd>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_PDO.html#131-138" title="Go to source code"><var>$pdo</var></a>
+					<a href="source-class-Psa_PDO.html#130-137" title="Go to source code"><var>$pdo</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$pdo" class="anchor">#</a>
@@ -819,7 +819,7 @@ href="http://www.php.net/manual/en/book.pdo.php">http://www.php.net/manual/en/bo
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_PDO.html#141-150" title="Go to source code"><var>$result</var></a>
+					<a href="source-class-Psa_PDO.html#140-149" title="Go to source code"><var>$result</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$result" class="anchor">#</a>
@@ -852,7 +852,7 @@ href="http://www.php.net/manual/en/book.pdo.php">http://www.php.net/manual/en/bo
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_PDO.html#155-159" title="Go to source code"><var>$dsn</var></a>
+					<a href="source-class-Psa_PDO.html#154-158" title="Go to source code"><var>$dsn</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$dsn" class="anchor">#</a>
@@ -878,7 +878,7 @@ href="http://www.php.net/manual/en/book.pdo.php">http://www.php.net/manual/en/bo
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_PDO.html#160-164" title="Go to source code"><var>$username</var></a>
+					<a href="source-class-Psa_PDO.html#159-163" title="Go to source code"><var>$username</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$username" class="anchor">#</a>
@@ -904,7 +904,7 @@ href="http://www.php.net/manual/en/book.pdo.php">http://www.php.net/manual/en/bo
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_PDO.html#165-169" title="Go to source code"><var>$password</var></a>
+					<a href="source-class-Psa_PDO.html#164-168" title="Go to source code"><var>$password</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$password" class="anchor">#</a>
@@ -930,7 +930,7 @@ href="http://www.php.net/manual/en/book.pdo.php">http://www.php.net/manual/en/bo
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_PDO.html#170-174" title="Go to source code"><var>$driver_options</var></a>
+					<a href="source-class-Psa_PDO.html#169-173" title="Go to source code"><var>$driver_options</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$driver_options" class="anchor">#</a>
@@ -975,10 +975,6 @@ href="http://www.php.net/manual/en/book.pdo.php">http://www.php.net/manual/en/bo
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

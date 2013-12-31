@@ -177,7 +177,7 @@ class="php-quote">'email'</span>));
 }
 </pre>
 
-<p>Code in some model method:</p>
+<p>Code in a model method:</p>
 
 <pre>
 <span class="php-comment">// create a new user</span>
@@ -252,7 +252,7 @@ class="php-num">5</span>,<span class="php-num">7</span>));
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_User.html#32-665" title="Go to source code">lib/Psa_User.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_User.html#32-664" title="Go to source code">lib/Psa_User.php</a><br />
 	</div>
 
 
@@ -283,13 +283,14 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 <p>Constructor method.</p>
 
 <ul>
-	<li>If called with '<kbd>new</kbd>' as the first argument new user will be
+	<li>If called with '<kbd>new</kbd>' as the first argument, new user will be
 	created when <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method is called.</li>
 
 	<li>If called with user ID as the first argument, <code><a href="class-Psa_User.html#$id">Psa_User::<var>$id</var></a></code> value is set. In
-	this case first argument must be an integer value.</li>
+	this case, the first argument must be an integer value.</li>
 
-	<li>If first parameter is a string (different from '<kbd>new</kbd>'), the <code><a href="class-Psa_User.html#$username">Psa_User::<var>$username</var></a></code> value is set.</li>
+	<li>If the first parameter is a string (different from '<kbd>new</kbd>'), the
+	<code><a href="class-Psa_User.html#$username">Psa_User::<var>$username</var></a></code> value is set.</li>
 </ul>
 
 
@@ -297,10 +298,11 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$user_id_or_username</var></dt>
-												<dd><code>integer|string</code><br>'<kbd>new</kbd>' if new user should be created or ID or username of the user.</dd>
+												<dd><code>integer|string</code><br>'<kbd>new</kbd>' if new user should be created, or ID or username of the
+existing user.</dd>
 						<dt><var>$table_columns</var></dt>
 												<dd><code>array</code><br>Array with column names in <i>psa_user</i> database table. See example 3 above
-how to extend this class and add more columns to the database table.</dd>
+on how to extend this class and add more columns to the database table.</dd>
 					</dl></div>
 
 
@@ -331,21 +333,21 @@ how to extend this class and add more columns to the database table.</dd>
 
 			<div class="description short">
 				
-<p>Does the same as <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> method, but also writes log message, calls
-hooks and calls <code><a href="class-Psa_User.html#_session_save">Psa_User::session_save()</a></code> method.</p>
+<p>Does the same as <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> method, but also writes a log message,
+calls hooks and calls <code><a href="class-Psa_User.html#_session_save">Psa_User::session_save()</a></code> method.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Does the same as <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> method, but also writes log message, calls
-hooks and calls <code><a href="class-Psa_User.html#_session_save">Psa_User::session_save()</a></code> method.</p>
+<p>Does the same as <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> method, but also writes a log message,
+calls hooks and calls <code><a href="class-Psa_User.html#_session_save">Psa_User::session_save()</a></code> method.</p>
 
 <p>See examples in <code><a href="class-Psa_User.html">Psa_User</a></code> class description.</p>
 
 <p>This function calls <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> method with
-<kbd>'username_password'</kbd> as first argument, writes log message that user
-is authorized and runs <code><a href="class-Psa_Hook_After_User_Authorize.html">Psa_Hook_After_User_Authorize</a></code> hooks.</p>
+<kbd>'username_password'</kbd> as the first argument, writes a log message that
+user is authorized and runs <code><a href="class-Psa_Hook_After_User_Authorize.html">Psa_Hook_After_User_Authorize</a></code> hooks.</p>
 
 
 
@@ -354,11 +356,11 @@ is authorized and runs <code><a href="class-Psa_Hook_After_User_Authorize.html">
 						<dt><var>$password</var></dt>
 												<dd><code>string</code><br>User password.</dd>
 						<dt><var>$run_hooks</var></dt>
-												<dd><code>boolean</code><br>If false <code><a href="class-Psa_Hook_After_User_Authorize.html">Psa_Hook_After_User_Authorize</a></code> hooks will not be invoked.</dd>
+												<dd><code>boolean</code><br>If false, <code><a href="class-Psa_Hook_After_User_Authorize.html">Psa_Hook_After_User_Authorize</a></code> hooks will not be invoked.</dd>
 						<dt><var>$write_success_login_logs</var></dt>
-												<dd><code>boolean</code><br>If false log message about successful authorization will not be written.</dd>
+												<dd><code>boolean</code><br>If false, log message about successful authorization will not be written.</dd>
 						<dt><var>$save_to_session</var></dt>
-												<dd><code>boolean</code><br>If true <code><a href="class-Psa_User.html#_session_save">Psa_User::session_save()</a></code> will be called to write user ID and username to
+												<dd><code>boolean</code><br>If true, <code><a href="class-Psa_User.html#_session_save">Psa_User::session_save()</a></code> will be called to write user ID and username to
 the session if session is started before.</dd>
 					</dl></div>
 
@@ -405,11 +407,11 @@ the session if session is started before.</dd>
 <p>Restores member variables from the database previously saved with <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method.</p>
 
 <p>Reads values from the database and populates corresponding object member
-variables. For example if you have added to <i>psa_user</i> table column named
-<kbd>access_level</kbd> and you passed the name of the column to constructor
-with <var>$table_columns</var> parameter, then when this method is called member
-variable with name <kbd>access_level</kbd> will be populated with the value from
-the database.</p>
+variables. For example, if you have added to <i>psa_user</i> table column named
+<kbd>access_level</kbd> and you passed the name of the column to the constructor
+with <var>$table_columns</var> parameter, then when this method is called,
+member variable with name <kbd>access_level</kbd> will be populated with the
+value from the database.</p>
 
 
 
@@ -440,24 +442,23 @@ the database.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_save">#</a>
-			<code><strong><a href="source-class-Psa_User.html#253-300" title="Go to source code">save</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#253-299" title="Go to source code">save</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
-<p>Saves values from member variables to the database.</p>
+<p>Saves values from the member variables to the database.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Saves values from member variables to the database.</p>
+<p>Saves values from the member variables to the database.</p>
 
-<p>This method saves values from objet's member variables to the database. There
-must be column in the database named like the member variable. It works only for
-variables mentioned in <var>$table_columns</var> argument to constructor or by
-<var>$only_columns</var> argument to this method. All saved values will be
-restored when the <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code> or <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> methods are called.
-See examples in <code><a href="class-Psa_User.html">Psa_User</a></code> class description.</p>
+<p>There must be a column in the database named the same as the member variable.
+It works only for variables mentioned in <var>$table_columns</var> argument to
+the constructor or by <var>$only_columns</var> argument to this method. All
+saved values will be restored when the <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code> or <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code>
+methods are called. See examples in <code><a href="class-Psa_User.html">Psa_User</a></code> class description.</p>
 
 
 
@@ -465,7 +466,7 @@ See examples in <code><a href="class-Psa_User.html">Psa_User</a></code> class de
 					<div class="list"><dl>
 						<dt><var>$only_columns</var></dt>
 												<dd><code>array</code><br>Array with column names in <i>psa_user</i> database table to work with. If not
-set column names set by constructor are used.</dd>
+set, column names set by the constructor are used.</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -498,25 +499,26 @@ set column names set by constructor are used.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_add_group">#</a>
-			<code><strong><a href="source-class-Psa_User.html#303-328" title="Go to source code">add_group</a></strong>( <span>integer|array <var>$group_id</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#302-327" title="Go to source code">add_group</a></strong>( <span>integer|array <var>$group_id</var></span> )</code>
 
 			<div class="description short">
 				
-<p>Puts user in a group or more groups if the <var>$group_id</var> argument is
-an array.</p>
+<p>Puts the user in a group or more groups if the <var>$group_id</var> argument
+is an array.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Puts user in a group or more groups if the <var>$group_id</var> argument is
-an array.</p>
+<p>Puts the user in a group or more groups if the <var>$group_id</var> argument
+is an array.</p>
 
 <p>Group membership changes are immediately stored in the database and you don't
-have to call <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method after. If you creating a new user this method
-must be called after <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method. <code><a href="class-Psa_User.html#$id">Psa_User::<var>$id</var></a></code> member variable must be
-set before calling this method. If you pass username to constructor, call <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> or <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code> method before to get the user ID from the
-database. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
+have to call <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method after. If you are creating a new user, this
+method must be called after <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method. <code><a href="class-Psa_User.html#$id">Psa_User::<var>$id</var></a></code> member variable
+must be set before calling this method. If you pass username to the constructor,
+call <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> or <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code> method before to get the user ID
+from the database. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
 
 <p>Example:</p>
 
@@ -540,7 +542,7 @@ class="php-num">5</span>);
 					<h4>Returns</h4>
 					<div class="list">
 						<code>integer</code><br>1 for success, -1 user already was in the group (or more groups) or group does
-not exists.<br />
+not exist.<br />
 					</div>
 
 					<h4>Throws</h4>
@@ -568,24 +570,25 @@ not exists.<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_remove_group">#</a>
-			<code><strong><a href="source-class-Psa_User.html#331-357" title="Go to source code">remove_group</a></strong>( <span>integer|array|string <var>$group_id</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#330-356" title="Go to source code">remove_group</a></strong>( <span>integer|array|string <var>$group_id</var></span> )</code>
 
 			<div class="description short">
 				
-<p>Remove user from a group or more groups if $group_id argument is an
+<p>Remove the user from a group or more groups if $group_id argument is an
 array.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Remove user from a group or more groups if $group_id argument is an
+<p>Remove the user from a group or more groups if $group_id argument is an
 array.</p>
 
 <p>Group membership changes are immediately stored in the database and you don't
 have to call <code><a href="class-Psa_User.html#_save">Psa_User::save()</a></code> method after. <code><a href="class-Psa_User.html#$id">Psa_User::<var>$id</var></a></code> member variable must be
-set before calling this method. If you pass username to constructor, call <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> or <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code> method before to get the user ID from the
-database. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
+set before calling this method. If you pass username to the constructor, call
+<code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> or <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code> method before to get the user ID from
+the database. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
 
 <p>Example:</p>
 
@@ -605,13 +608,13 @@ class="php-num">4</span>);
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$group_id</var></dt>
-												<dd><code>integer|array|string</code><br>ID or array with group IDs. '<kbd>all</kbd>' for remove user from all groups.</dd>
+												<dd><code>integer|array|string</code><br>ID or array with group IDs. '<kbd>all</kbd>' to remove user from all groups.</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
 					<div class="list">
 						<code>integer</code><br>1 for success, -1 user was not in the group (or more groups). or group does not
-exists.<br />
+exist.<br />
 					</div>
 
 					<h4>Throws</h4>
@@ -639,7 +642,7 @@ exists.<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_password_change">#</a>
-			<code><strong><a href="source-class-Psa_User.html#436-481" title="Go to source code">password_change</a></strong>( <span>string <var>$new_password</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#435-480" title="Go to source code">password_change</a></strong>( <span>string <var>$new_password</var></span> )</code>
 
 			<div class="description short">
 				
@@ -652,8 +655,8 @@ exists.<br />
 <p>Changes user password.</p>
 
 <p>New password will be hashed with <code><a href="class-Psa_User.html#_password_hash">Psa_User::password_hash()</a></code> method and stored in
-the database. You need to call it only when you want to change password for
-existing user. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
+the database. You need to call this method only when you want to change the
+password for the existing user. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
 
 
 
@@ -693,7 +696,7 @@ existing user. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exc
 
 			<td class="name"><div>
 			<a class="anchor" href="#_password_verify">#</a>
-			<code><strong><a href="source-class-Psa_User.html#484-523" title="Go to source code">password_verify</a></strong>( <span>string <var>$password</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#483-522" title="Go to source code">password_verify</a></strong>( <span>string <var>$password</var></span> )</code>
 
 			<div class="description short">
 				
@@ -705,8 +708,8 @@ existing user. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exc
 				
 <p>Verifies user password.</p>
 
-<p>Checks if given string is user's password. This method can be used in process
-of changing user password to verify the old password.</p>
+<p>Checks if given string is the user's password. This method can be used in
+process of changing user password to verify the old password.</p>
 
 
 
@@ -747,7 +750,7 @@ of changing user password to verify the old password.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_password_hash">#</a>
-			<code><strong><a href="source-class-Psa_User.html#526-541" title="Go to source code">password_hash</a></strong>( <span>string <var>$password</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#525-540" title="Go to source code">password_hash</a></strong>( <span>string <var>$password</var></span> )</code>
 
 			<div class="description short">
 				
@@ -798,17 +801,17 @@ default is sha256.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_groups">#</a>
-			<code><strong><a href="source-class-Psa_User.html#573-614" title="Go to source code">get_groups</a></strong>( )</code>
+			<code><strong><a href="source-class-Psa_User.html#572-613" title="Go to source code">get_groups</a></strong>( )</code>
 
 			<div class="description short">
 				
-<p>Returns array with all groups user is in.</p>
+<p>Returns an array with all user's groups.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Returns array with all groups user is in.</p>
+<p>Returns an array with all user's groups.</p>
 
 <p>Example of returning array:</p>
 
@@ -822,7 +825,7 @@ Array
 </pre>
 
 <p><code><a href="class-Psa_User.html#$id">Psa_User::<var>$id</var></a></code> member variable must be set before calling this method. If you
-pass username to constructor, call <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> or <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code>
+pass username to the constructor, call <code><a href="class-Psa_User.html#_restore">Psa_User::restore()</a></code> or <code><a href="class-Psa_User.html#_authorize">Psa_User::authorize()</a></code>
 method before to get the user ID from the database.</p>
 
 
@@ -850,22 +853,23 @@ method before to get the user ID from the database.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_save_last_login_time">#</a>
-			<code><strong><a href="source-class-Psa_User.html#617-634" title="Go to source code">save_last_login_time</a></strong>( )</code>
+			<code><strong><a href="source-class-Psa_User.html#616-633" title="Go to source code">save_last_login_time</a></strong>( )</code>
 
 			<div class="description short">
 				
-<p>Saves current timestamp to the database into <kbd>last_login</kbd>
-column.</p>
+<p>Saves current timestamp to the database into the <kbd>last_login</kbd> column
+of the <kbd>psa_user</kbd> table.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Saves current timestamp to the database into <kbd>last_login</kbd>
-column.</p>
+<p>Saves current timestamp to the database into the <kbd>last_login</kbd> column
+of the <kbd>psa_user</kbd> table.</p>
 
-<p>You can call this method when you want to set last login time for the user.
-It will also set value of the <code><a href="class-Psa_User.html#$last_login">Psa_User::<var>$last_login</var></a></code> member variable. Throws <code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
+<p>You can call this method when you want to set the last login time for the
+user. It will also set value of the <code><a href="class-Psa_User.html#$last_login">Psa_User::<var>$last_login</var></a></code> member variable. Throws
+<code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code> on error.</p>
 
 
 
@@ -896,7 +900,7 @@ It will also set value of the <code><a href="class-Psa_User.html#$last_login">Ps
 
 			<td class="name"><div>
 			<a class="anchor" href="#_session_save">#</a>
-			<code><strong><a href="source-class-Psa_User.html#637-664" title="Go to source code">session_save</a></strong>( <span>boolean <var>$throw_exception</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#636-663" title="Go to source code">session_save</a></strong>( <span>boolean <var>$throw_exception</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -908,16 +912,16 @@ It will also set value of the <code><a href="class-Psa_User.html#$last_login">Ps
 				
 <p>Stores user ID and username into the session.</p>
 
-<p>It will store array named <kbd>psa_current_user_data</kbd> with user ID and
-username into session. All log messages will contain user ID and username from
-this session variable if not explicitly set otherwise. See <code><a href="class-Psa_Logger.html#_log">Psa_Logger::log()</a></code> method for details.</p>
+<p>It will store an array named <kbd>psa_current_user_data</kbd> with user ID
+and username into the session. All log messages will contain user ID and
+username from this session variable if not explicitly set otherwise. See <code><a href="class-Psa_Logger.html#_log">Psa_Logger::log()</a></code> method for details.</p>
 
 
 
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$throw_exception</var></dt>
-												<dd><code>boolean</code><br>If true Psa_User_Exception will be thrown if PHP session is not started.</dd>
+												<dd><code>boolean</code><br>If true, Psa_User_Exception will be thrown if PHP session is not started.</dd>
 					</dl></div>
 
 
@@ -1088,10 +1092,6 @@ this session variable if not explicitly set otherwise. See <code><a href="class-
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

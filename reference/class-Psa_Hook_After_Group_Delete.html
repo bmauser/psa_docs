@@ -127,16 +127,17 @@ class="php-var">$group</span>);
 <span class="xlang">?&gt;</span>
 </pre>
 
-<p>When this example hook is registered, after every group deletion with <code><a href="function-psa_delete_group.html">psa_delete_group()</a></code> function folder associated with group will be deleted.</p>
+<p>When this example hook is registered, after group deletion with <code><a href="function-psa_delete_group.html">psa_delete_group()</a></code> function, folder associated with the group will be
+deleted.</p>
 
-<p><b>Note:</b> the record about the group in the database will be deleted
-before calling <kbd>psa_main()</kbd> method. So you cannot read other
-information about the group from the database because database record doesn't
-exists any more and all information you have is group ID or name passed as
-argument to <kbd>psa_main()</kbd> method.</p>
+<p><b>Note:</b> the row in the database will be deleted before calling hook's
+<kbd>psa_main()</kbd> method. So, you cannot read other information about the
+group from the database because database record doesn't exist any more and all
+information you have is group ID or name passed as argument to
+<kbd>psa_main()</kbd> method.</p>
 
 <p><b>Note:</b> the argument passed to the <kbd>psa_main()</kbd> method can be
-integer (group ID) or string (group name) this depends on what you pass to
+integer (group ID) or string (group name). This depends on what you pass to
 <code><a href="function-psa_delete_group.html">psa_delete_group()</a></code> function.</p>
 
 	</div>
@@ -198,14 +199,14 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<div class="description short">
 				
-<p>This method will be called after the group is successfully deleted from
+<p>This method will be called after the group is successfully deleted from the
 database with <code><a href="function-psa_delete_group.html">psa_delete_group()</a></code> function.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>This method will be called after the group is successfully deleted from
+<p>This method will be called after the group is successfully deleted from the
 database with <code><a href="function-psa_delete_group.html">psa_delete_group()</a></code> function.</p>
 
 
@@ -213,7 +214,7 @@ database with <code><a href="function-psa_delete_group.html">psa_delete_group()<
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$group</var></dt>
-												<dd><code>integer|string</code><br>ID or name of the deleted group. Same as passed to <code><a href="function-psa_delete_group.html">psa_delete_group()</a></code>
+												<dd><code>integer|string</code><br>ID or name of the deleted group as passed to <code><a href="function-psa_delete_group.html">psa_delete_group()</a></code>
 function.</dd>
 					</dl></div>
 
@@ -276,10 +277,6 @@ function.</dd>
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-<noscript>
-	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 </body>
 </html>

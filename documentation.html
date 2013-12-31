@@ -34,7 +34,6 @@
 .insource {
 	font-family: "Courier New", Courier, monospace
 }
-
 /* tables */
 .table1 td {
 	border-right-width: 1px;
@@ -134,10 +133,7 @@ h3 {
 	color: #333;
 	border: 1px solid #666
 }
-
-
-
-.flowcontainer{
+.flowcontainer {
 	margin-top: 20px;
 	position: relative;
 	background-color: #E6E6E6;
@@ -149,8 +145,7 @@ h3 {
 	color: #000;
 	border: 2px solid #36C;
 }
-
-.flowcontainer_arrow:after{
+.flowcontainer_arrow:after {
 	content: '';
 	position: absolute;
 	top: 100%;
@@ -175,21 +170,19 @@ h3 {
 	top: 100%;
 	left: 50%;
 	margin-left: -21px;
-	width: 0; height: 0;
+	width: 0;
+	height: 0;
 	border-top: 22px solid #36C;
 	border-right: 22px solid transparent;
 	border-left: 22px solid transparent;
 }
-
 .blists {
 	list-style-type: square;
 }
-.blists li{
-	margin-bottom: 10px;
+.blists li {
+	margin-top: 10px;
 }
-
 </style>
-
 </head>
 
 <body>
@@ -197,11 +190,9 @@ h3 {
 	<h1>PhpStartApp</h1>
 	<span style="font-size: 12pt;">How to start a PHP application</div>
 </div>
-<div class="main_content">
+<div class="main_content"> 
 	
-	
-
-<!-- section -->
+	<!-- section -->
 	<div class="content">
 		<h3>Contents of this document:</h3>
 		<ul>
@@ -213,13 +204,13 @@ h3 {
 			<li><a href="#database">Database</a></li>
 		</ul>
 	</div>
-	
 	<h1>What is PhpStartApp (PSA)?<a name="whatis" id="whatis"></a></h1>
 	<div class="content">
 		<p>PhpStartApp is a simple PHP  application which is intended to be the base or the starting point for  a PHP application. It is  an application based on the small  framework called PSA in which I included only those features that I've been using  in almost all  applications I've been working on in a past few years.</p>
-		<p>The  idea	was	to make a simple starting point for a PHP application without a lot of conventions,  abstraction layers  or wrappers that you have to learn. I've been dealing with PHP since  the time when there was not so many  frameworks around and I developed some classes and functions that I used in applications that I worked on. So, it seemed logical to group them together in sort of a small framework and document them. What I really needed was a relatively simple  base for my new application  as I was not quite satisfied with the existing frameworks I tried back then. It seemed to me that they  were  overkill for my needs. Recently, I decided to polish things up a little bit and to publish  this project.</p>
-		<p>This project is not aimed for absolute beginners in PHP, because the documentation is short, there is only this page  and a <strong><a href="sdfsdf">reference manual</a></strong>. But if you have any experience with PHP and some basic design patterns it should be very easy for you to start using PSA. </p>
-		<p><strong>Main features:</strong></p>
+		<p>The  idea	was	to make a simple starting point for a PHP application without a lot of conventions,  abstraction layers  or wrappers  to learn. Once I  needed  a relatively simple  base for my new application and started this project for myself  and then decided to publish it. </p>
+		<p>&nbsp;</p>
+		<p>Documentation is short, there is only this page  and a <strong><a href="sdfsdf">reference manual</a></strong>. But if you have any experience with PHP  it should be very easy for you to try PSA.</p>
+<p><strong>Main features:</strong></p>
 		<ul>
 			<li>classes for basic actions with users and groups</li>
 			<li>model-view-controller design pattern </li>
@@ -246,42 +237,37 @@ h3 {
 			<input name="submit" type="image" src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_US/i/btn/btn_donate_LG.gif" alt="Donate via PayPal" title="Donate via PayPal" align="middle" border="0" />
 		</form>
 	</div>
-<!-- section -->
+	<!-- section -->
 	<h1>How to start? (skeleton application install)<a name="install" id="install"></a></h1>
 	<div class="content">
-		<p>You should use the skeleton application as a base for your new  application. Skeleton application is a small example application  which is meant to be used as a starting point for your new  application. </p>
-<p>To install skeleton application download  archive from <a href="http://code.google.com/p/phpstartapp/downloads/list">download page</a>. Extract archive   and follow instructions in <a href="sdsd">INSTALL.txt</a> file. These are more or less standard steps to install any PHP application, except running shell helper script to register files for autoloader.</p>
-<p>When you're done you should be able to login into the installed application. See the skeleton application <a href="yxcyxc">here</a> (username and password: psa).</p>
+		<p>Use the skeleton application as a base for your new  application. Skeleton application is a small example application  which is meant to be used as a starting point for your new  application. </p>
+		<p>To install skeleton application download  archive from <a href="http://code.google.com/p/phpstartapp/downloads/list">download page</a>. Extract archive   and follow instructions in <a href="sdsd">INSTALL.txt</a> file. These are more or less standard steps to install  PHP application, except running shell helper script to register files for autoloader.</p>
+		<p>When you're done you should be able to login into the installed application. See the skeleton application <a href="yxcyxc">here</a> (username and password: psa).</p>
 	</div>
 	
-	
-<!-- section -->
+	<!-- section -->
 	<h1>How  it works?<a name="howitworks" id="howitworks"></a></h1>
 	<div class="content">
-		<p>Here is  a schema of how   the skeleton application works. The idea is not to use many words  explaining how it works,  but to show  it with an example. Therefore, look at the code of the installed skeleton application, see comments there and here is only the workflow of what is happening. Start with <em>index.php</em> file.</p>
-<div class="flowcontainer flowcontainer_arrow">Open a  page of your application in the web browser. 
-	For example, this can be login page on URL: http://localhost/mytestapp/default/login</div>
-		
-		<div class="flowcontainer flowcontainer_arrow"><em><strong>index.php</strong></em> file is loaded and it only includes <em>front_controller.php</em> file in the <em>app/psa/</em> directory</div>
+		<p>Here is  a workflow  how   the skeleton application works, what is happening on a HTTP request. Look at the code of the installed skeleton application and see also comments there.</p>
+		<div class="flowcontainer flowcontainer_arrow"> When you open a  page of your application in the web browser, for example  http://localhost/mytestapp/default/login, <em><strong>index.php</strong></em> file is loaded and it only includes <em>front_controller.php</em> file in the <em>app/psa/</em> directory</div>
 		<div class="flowcontainer flowcontainer_arrow"><em>front_controller.php</em> includes some necessary  files of the PSA framework and 
-sets some values like base directory and base URL. Then it 
-includes<strong> <em>app/Main.php</em></strong> file and calls <strong>Main::psa_main()</strong> method.</div>
+			sets some values like base directory and base URL. Then it 
+			includes<strong> <em>app/Main.php</em></strong> file and calls <strong>Main::psa_main()</strong> method.</div>
 		<div class="flowcontainer flowcontainer_arrow">
 			<p><em>Main.php</em> is the bootstrap file (first loaded php file) of your application. Here comes your application code.</p>
 			<p><strong>Main::psa_main()</strong> method will be called first by <em>front_controller.php</em>.<br />
 				Here is the place for you to include some .php files if you need, set some constants or similar. 
-				Here you also need to decide which actions to make for a given URL because all URLs will be rewritten to <em>index.php</em> file. That is behavior of web server set by <em>.htaccess</em> file in application root folder. So every request (if the requested file doesn't exist) will go through <em>Main.php</em> and your application needs to decide what to do (which action to make) for a given URL. That is called routing.</p>
-			<p>				By default first part of URL is the name of the controller ('default') and second part ('login') is the name of the action to call. Controller is a class and action is a method in that class. So your application instances controller  class and calls  method (action) in that object. That is the default action of the <strong>Psa_Router::dispatch()</strong> method.</p>
+				Here you also need to decide which actions to make for a given URL because all URLs will be rewritten to <em>index.php</em> file. That is behavior of web server set by <em>.htaccess</em> file (for Apache) in application root folder. So every request (if the requested file doesn't exist) will go through <em>Main.php</em> and your application needs to decide what to do (which action to make) for a given URL.</p>
+			<p> By default first part of URL after application root folder is the name of the controller ('default') and second part ('login') is the name of the action to call. Controller is a class and action is a method in that class. So your application instances controller  class and calls  method (action) in controller object. That is the default action of the <strong>Psa_Router::dispatch()</strong> method.</p>
 		</div>
 		<div class="flowcontainer">Action method from controller object is called and  that method calls <strong>model</strong> and <strong>view</strong> methods. Model methods should contain the business logic (calculations, database interaction) of your application and view methods are places for the logic that is  needed only for displaying HTML page, for example assigning some values to the templates.</div>
 		<p>&nbsp;</p>
 	</div>
 	
-	
-<!-- section -->
+	<!-- section -->
 	<h1>Important values<a name="importantvalues" id="importantvalues"></a></h1>
 	<div class="content">
-		<p>Here are some important values  to point out:</p>
+		<p>Some important values:</p>
 		<ul class="blists">
 			<li><strong>$this-&gt;psa_database</strong> (in models) - <a href="vv">Psa_PDO</a> object</li>
 			<li><strong>$this-&gt;psa_registry</strong> (in models and views) - global registry object
@@ -291,7 +277,7 @@ includes<strong> <em>app/Main.php</em></strong> file and calls <strong>Main::psa
 					<li><strong>$this-&gt;psa_registry-&gt;basedir_web</strong> - application folder from web root (automatically set by <em>app/psa/front_controller.php</em> or manually by $PSA_CFG['folders']['basedir_web'] config value)<br />
 						Example: '/test/mytestapp'</li>
 					<li><strong>$this-&gt;psa_registry-&gt;base_url</strong> - application home URL (set by <em>app/psa/front_controller.php</em>)<br />
-					Example: 'https://localhost/test/mytestapp'</li>
+						Example: 'https://localhost/test/mytestapp'</li>
 				</ul>
 			</li>
 			<li><strong>$this-&gt;psa_result</strong> (in models and views) - global result object</li>
@@ -299,8 +285,8 @@ includes<strong> <em>app/Main.php</em></strong> file and calls <strong>Main::psa
 			<li><strong>APP_BASE_DIR</strong> constant with file system path to application home directory</li>
 		</ul>
 	</div>
-
-<!-- section -->
+	
+	<!-- section -->
 	<h1>Conventions<a name="conventions" id="conventions"></a></h1>
 	<div class="content">
 		<ul class="blists">
@@ -308,18 +294,16 @@ includes<strong> <em>app/Main.php</em></strong> file and calls <strong>Main::psa
 			<li>By default action methods inside controller class should be called like <strong>name_action</strong></li>
 			<li>Bootstrap file is called <strong>Main.php</strong></li>
 			<li>For autoloading classes put one class per .php file and give the file the same name as the class. For example <strong>class Example put in the file named Example.php</strong></li>
-			<li>Also, for  <strong>autoloading</strong>  you need to register all classes that can be autoloaded. There is a helper command line script <strong><em>app/psa/register_files.php</em></strong> for that. Just call it in shell with command: <span class="insource"><strong>php register_files.php
-			</strong></span><br />
-				It will generate one .php file (path is set by <span class="insource">$PSA_CFG['autoload_data_file']</span>) containing array with all classes and their paths. If you add a new file to your project you need to register files again. If develop mode is on (<span class="insource">$PSA_CFG['develop_mode']</span>) and <span class="insource">$PSA_CFG['develop_mode_register_files']</span> is true, file registration will be invoked automatically on every request. Only files in folders set by <span class="insource">$PSA_CFG['folders']['autoload'][]</span> and 
-			<span class="insource">$PSA_CFG['folders']['hook_autoload'][]</span> arrays will be registered.</li>
+			<li>Also, for <strong>autoloading</strong> you need to register all classes that can be autoloaded. There is a helper command line script <strong><em>app/psa/register_files.php</em></strong> for that. Just call it in shell with command: <span class="insource"><strong>php register_files.php </strong></span><br />
+				It will generate one .php file (path is set by <span class="insource">$PSA_CFG['autoload_data_file']</span>) containing array with all classes and their paths. If you add a new file to your project you need to register files again. If develop mode is on (<span class="insource">$PSA_CFG['develop_mode']</span>) and <span class="insource">$PSA_CFG['develop_mode_register_files']</span> is true, file registration will be invoked automatically on every request. Only files in folders set by <span class="insource">$PSA_CFG['folders']['autoload'][]</span> and <span class="insource">$PSA_CFG['folders']['hook_autoload'][]</span> arrays will be registered.</li>
 		</ul>
-	</div>	
-
-<!-- section -->
+	</div>
+	
+	<!-- section -->
 	<h1>Database<a name="database" id="database"></a></h1>
 	<div class="content">
-		<p>Skeleton application uses a simple database. Database is used for storing users and groups and logs by default.  You can extend the database schema and add columns and tables. There are two .sql files with the initial database table definitions inside <em>install</em> directory if you downloaded PSA archive, or you can get them from <a href="http://karmela.fsb.hr/%7Ebmauser/phpstartapp/install/">here</a>. <em><a href="http://phpstartapp.googlecode.com/svn/trunk/install/db_mysql.sql">db_mysql.sql</a></em> is for MySQL database and <em><a href="http://phpstartapp.googlecode.com/svn/trunk/install/db_pgsql.sql">db_pgsql.sql</a></em> is for PostgreSQL database.<br />
-		PSA uses <a href="http://www.php.net/pdo">PHP Data Objects (PDO)</a> extension for database access. See <a href="http://karmela.fsb.hr/%7Ebmauser/phpstartapp/documentation/psa/Psa_Pdo.html">Psa_PDO</a> class for more details.</p>
+		<p>Skeleton application uses a simple database. Database is used for storing users and groups and logs by default.  You can extend the database schema and add columns and tables. There are two .sql files with the initial database table definitions inside <em>_INSTALL</em> directory if you downloaded PSA archive. <em><a href="http://phpstartapp.googlecode.com/svn/trunk/install/db_mysql.sql">db_mysql.sql</a></em> is for MySQL database and <em><a href="http://phpstartapp.googlecode.com/svn/trunk/install/db_pgsql.sql">db_pgsql.sql</a></em> is for PostgreSQL database.<br />
+			PSA uses <a href="http://www.php.net/pdo">PHP Data Objects (PDO)</a> extension for database access. See <a href="http://karmela.fsb.hr/%7Ebmauser/phpstartapp/documentation/psa/Psa_Pdo.html">Psa_PDO</a> class for more details.</p>
 		<p>Table description:</p>
 		<ul>
 			<li><strong>psa_user</strong> - holds data about users </li>
@@ -328,15 +312,9 @@ includes<strong> <em>app/Main.php</em></strong> file and calls <strong>Main::psa
 			<li><strong>psa_log</strong> - table for logs if logging to database is enabled </li>
 			<li><strong>psa_profile_log</strong> - table for simple profile logs if profiling is enabled</li>
 		</ul>
-	</div>	
-
-
-<!-- main div -->
+	</div>
+	
+	<!-- main div --> 
 </div>
-
-
-
-
-
 </body>
 </html>

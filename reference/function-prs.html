@@ -7,7 +7,7 @@
 	<title>Function prs | PSA Reference</title>
 
 	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
-	<script type="text/javascript" src="elementlist.js?701754439"></script>
+	<script type="text/javascript" src="elementlist.js?2199292422"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -103,7 +103,10 @@
 	<div class="description">
 	
 <p>You can use this function instead of <kbd>echo</kbd> or <kbd>print_r</kbd>
-functions.</p>
+functions during development for debug output.</p>
+
+<p>It will just return if <var>PSA_CFG['develop_mode']</var> is FALSE. This
+function is wrapper for <kbd>print_r</kbd> function.</p>
 
 <p><b>Example:</b></p>
 
@@ -121,7 +124,7 @@ class="php-var">$array</span>);
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-function-prs.html#345-366" title="Go to source code">lib/functions.php</a><br />
+		<b>Located at</b> <a href="source-function-prs.html#345-375" title="Go to source code">lib/functions.php</a><br />
 	</div>
 
 
@@ -138,7 +141,8 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 		<td class="name"><code>boolean</code></td>
 		<td class="value"><code><var>$return_only</var> = <span class="php-keyword1">false</span></code></td>
 		<td>
-			
+			 When this parameter is set to TRUE, function will return the information rather
+than print it just like print_r() function.
 		</td>
 	</tr>
 	</table>

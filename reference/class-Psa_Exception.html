@@ -7,7 +7,7 @@
 	<title>Class Psa_Exception | PSA Reference</title>
 
 	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
-	<script type="text/javascript" src="elementlist.js?701754439"></script>
+	<script type="text/javascript" src="elementlist.js?2199292422"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -67,9 +67,9 @@
 				<li><a href="class-Psa_Active_Record_Exception.html">Psa_Active_Record_Exception</a></li>
 				<li><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></li>
 				<li class="active"><a href="class-Psa_Exception.html">Psa_Exception</a></li>
-				<li><a href="class-Psa_Fatal_Error_Exception.html">Psa_Fatal_Error_Exception</a></li>
 				<li><a href="class-Psa_File_Exception.html">Psa_File_Exception</a></li>
 				<li><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></li>
+				<li><a href="class-Psa_Logger_Exception.html">Psa_Logger_Exception</a></li>
 				<li><a href="class-Psa_Router_Exception.html">Psa_Router_Exception</a></li>
 				<li><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></li>
 				<li><a href="class-Psa_Validation_Exception.html">Psa_Validation_Exception</a></li>
@@ -90,10 +90,11 @@
 
 	<div class="description">
 	
-<p>This class extends PHP Exception and adds <code><a href="class-Psa_Exception.html#_log">Psa_Exception::log()</a></code> method for logging.
-Other PSA exception classes extend this class. You can also extend this class
-for your custom exceptions. If logs are enabled in config.php file every
-exception message will be logged.</p>
+<p>This class extends PHP Exception and adds method for logging.</p>
+
+<p>Other PSA exception classes extend this class. You can also extend this class
+for your custom exceptions. If logs are enabled in config.php file
+exception messages will be logged.</p>
 
 	</div>
 
@@ -117,9 +118,9 @@ Exception
 		<p class="elementList">
 			<code><a href="class-Psa_Active_Record_Exception.html">Psa_Active_Record_Exception</a></code>, 
 			<code><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></code>, 
-			<code><a href="class-Psa_Fatal_Error_Exception.html">Psa_Fatal_Error_Exception</a></code>, 
 			<code><a href="class-Psa_File_Exception.html">Psa_File_Exception</a></code>, 
 			<code><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></code>, 
+			<code><a href="class-Psa_Logger_Exception.html">Psa_Logger_Exception</a></code>, 
 			<code><a href="class-Psa_Router_Exception.html">Psa_Router_Exception</a></code>, 
 			<code><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></code>, 
 			<code><a href="class-Psa_Validation_Exception.html">Psa_Validation_Exception</a></code>
@@ -140,7 +141,7 @@ Exception
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_Exception.html#32-104" title="Go to source code">exceptions/Psa_Exception.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Exception.html#32-105" title="Go to source code">exceptions/Psa_Exception.php</a><br />
 	</div>
 
 
@@ -158,7 +159,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><strong><a href="source-class-Psa_Exception.html#41-64" title="Go to source code">__construct</a></strong>( <span>string|array <var>$message</var> = <span class="php-quote">''</span></span>, <span>string <var>$code</var> = <span class="php-num">0</span></span>, <span>boolean <var>$write_log</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><strong><a href="source-class-Psa_Exception.html#42-65" title="Go to source code">__construct</a></strong>( <span>string|array <var>$message</var> = <span class="php-quote">''</span></span>, <span>string <var>$code</var> = <span class="php-num">0</span></span>, <span>boolean <var>$write_log</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -204,7 +205,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_log">#</a>
-			<code><strong><a href="source-class-Psa_Exception.html#67-103" title="Go to source code">log</a></strong>( <span>string|array <var>$log_message</var></span> )</code>
+			<code><strong><a href="source-class-Psa_Exception.html#68-104" title="Go to source code">log</a></strong>( <span>string|array <var>$log_message</var></span> )</code>
 
 			<div class="description short">
 				

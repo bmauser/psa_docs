@@ -4,10 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class Psa_Fatal_Error_Exception | PSA Reference</title>
+	<title>Class Psa_Logger_Exception | PSA Reference</title>
 
 	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
-	<script type="text/javascript" src="elementlist.js?701754439"></script>
+	<script type="text/javascript" src="elementlist.js?2199292422"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -67,9 +67,9 @@
 				<li><a href="class-Psa_Active_Record_Exception.html">Psa_Active_Record_Exception</a></li>
 				<li><a href="class-Psa_Db_Exception.html">Psa_Db_Exception</a></li>
 				<li><a href="class-Psa_Exception.html">Psa_Exception</a></li>
-				<li class="active"><a href="class-Psa_Fatal_Error_Exception.html">Psa_Fatal_Error_Exception</a></li>
 				<li><a href="class-Psa_File_Exception.html">Psa_File_Exception</a></li>
 				<li><a href="class-Psa_Group_Exception.html">Psa_Group_Exception</a></li>
+				<li class="active"><a href="class-Psa_Logger_Exception.html">Psa_Logger_Exception</a></li>
 				<li><a href="class-Psa_Router_Exception.html">Psa_Router_Exception</a></li>
 				<li><a href="class-Psa_User_Exception.html">Psa_User_Exception</a></li>
 				<li><a href="class-Psa_Validation_Exception.html">Psa_Validation_Exception</a></li>
@@ -85,38 +85,13 @@
 <div id="right">
 	<div id="rightInner">
 <div id="content" class="class">
-	<h1>Class Psa_Fatal_Error_Exception</h1>
+	<h1>Class Psa_Logger_Exception</h1>
 
 
 	<div class="description">
 	
-<p>If you raise <kbd>Psa_Fatal_Error_Exception</kbd> exception anywhere in your
-application, execution of the script will be terminated.</p>
-
-<p><b>Example:</b></p>
-
-<pre>
-<span class="php-keyword1">class</span> example_model <span
-class="php-keyword1">extends</span> Psa_Model {
-
-    <span
-class="php-keyword1">function</span> example_method(){
-
-        <span
-class="php-comment">// some code here</span>
-
-        <span
-class="php-comment">// die and write message to log</span>
-        <span
-class="php-keyword1">if</span>(<span
-class="php-var">$fatal_error</span>)
-            <span
-class="php-keyword1">throw</span> <span
-class="php-keyword1">new</span> Psa_Fatal_Error_Exception(<span
-class="php-quote">'This message will be in logs'</span>);
-        }
-}
-</pre>
+<p>This exception will be raised by some methods from the <code><a href="class-Psa_Logger.html">Psa_Logger</a></code>
+class.</p>
 
 	</div>
 
@@ -135,7 +110,7 @@ Exception
 		</dd>
 		<dd style="padding-left:60px">
 			<img src="resources/inherit.png" alt="Extended by" />
-<b><span>Psa_Fatal_Error_Exception</span></b>			
+<b><span>Psa_Logger_Exception</span></b>			
 			
 			
 		</dd>
@@ -157,63 +132,16 @@ Exception
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_Fatal_Error_Exception.html#35-71" title="Go to source code">exceptions/Psa_Fatal_Error_Exception.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Logger_Exception.html#35-40" title="Go to source code">exceptions/Psa_Logger_Exception.php</a><br />
 	</div>
 
 
 
 		<h2>Methods summary</h2>
-		<table class="summary table table-bordered table-striped" id="methods">
-		<tr data-order="__construct" id="___construct">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#___construct">#</a>
-			<code><strong><a href="source-class-Psa_Fatal_Error_Exception.html#56-70" title="Go to source code">__construct</a></strong>( <span>string <var>$log_message</var></span>, <span>string <var>$echo_message</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$code</var> = <span class="php-num">0</span></span>, <span>boolean <var>$write_log</var> = <span class="php-keyword1">true</span></span> )</code>
-
-			<div class="description short">
-				
-<p>Constructor</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Constructor</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$log_message</var></dt>
-												<dd><code>string</code><br>message to be logged</dd>
-						<dt><var>$echo_message</var></dt>
-												<dd><code>string</code><br>message to be sent to the output</dd>
-						<dt><var>$code</var></dt>
-												<dd><code>string</code><br>user defined exception code</dd>
-						<dt><var>$write_log</var></dt>
-												<dd><code>boolean</code><br>set to false if you don't want to log the exception</dd>
-					</dl></div>
-
-
-
-
-					<h4>Overrides</h4>
-					<div class="list"><code><a href="class-Psa_Exception.html#___construct">Psa_Exception::__construct</a></code></div>
-
-			</div>
-			</div></td>
-		</tr>
-		</table>
 
 		<h3>Methods inherited from <a href="class-Psa_Exception.html#methods">Psa_Exception</a></h3>
 		<p class="elementList">
+			<code><a href="class-Psa_Exception.html#___construct">__construct()</a></code>, 
 			<code><a href="class-Psa_Exception.html#_log">log()</a></code>
 		</p>
 		<h3>Methods inherited from Exception</h3>
@@ -260,7 +188,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 <script type="text/javascript">
 	var disqus_shortname = 'phpstartapp';
-	var disqus_identifier = 'class-Psa_Fatal_Error_Exception';
+	var disqus_identifier = 'class-Psa_Logger_Exception';
 	// var disqus_title = '';
 	// var disqus_url = '';
 

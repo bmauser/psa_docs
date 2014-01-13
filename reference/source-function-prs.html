@@ -28,11 +28,7 @@
 							<a href="function-prs.html" title="Summary of prs"><span>Function</span></a>
 						</li>
 
-						<li class="divider-vertical"></li>
 
-						<li>
-							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-						</li>
 
 
 					</ul>
@@ -333,16 +329,16 @@
 </span></span><span id="229" class="l"><a class="l" href="#229">229 </a><span class="php-comment"> * ?&gt;
 </span></span><span id="230" class="l"><a class="l" href="#230">230 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="231" class="l"><a class="l" href="#231">231 </a><span class="php-comment"> *
-</span></span><span id="232" class="l"><a class="l" href="#232">232 </a><span class="php-comment"> * &lt;b&gt;3)&lt;/b&gt; Put call to &lt;kbd&gt;psa_run_hooks()&lt;/kbd&gt; function somewhere in your code where is needed.
+</span></span><span id="232" class="l"><a class="l" href="#232">232 </a><span class="php-comment"> * &lt;b&gt;3)&lt;/b&gt; Put call to &lt;kbd&gt;psa_run_hooks()&lt;/kbd&gt; function in your code where is needed.
 </span></span><span id="233" class="l"><a class="l" href="#233">233 </a><span class="php-comment"> * &lt;code&gt;
 </span></span><span id="234" class="l"><a class="l" href="#234">234 </a><span class="php-comment"> * // invoke main() methods in all hooks that extend After_User_Delete class
 </span></span><span id="235" class="l"><a class="l" href="#235">235 </a><span class="php-comment"> * psa_run_hooks(array('After_User_Delete' =&gt; array('main' =&gt; array($user_id))));
 </span></span><span id="236" class="l"><a class="l" href="#236">236 </a><span class="php-comment"> *
 </span></span><span id="237" class="l"><a class="l" href="#237">237 </a><span class="php-comment"> * &lt;/code&gt;
 </span></span><span id="238" class="l"><a class="l" href="#238">238 </a><span class="php-comment"> *
-</span></span><span id="239" class="l"><a class="l" href="#239">239 </a><span class="php-comment"> * &lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; Hooks are called in no special order if there are more hooks of the same type.
+</span></span><span id="239" class="l"><a class="l" href="#239">239 </a><span class="php-comment"> * &lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; If there are more hooks of the same type, they are called in no special order. 
 </span></span><span id="240" class="l"><a class="l" href="#240">240 </a><span class="php-comment"> *
-</span></span><span id="241" class="l"><a class="l" href="#241">241 </a><span class="php-comment"> * &lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; You have to register files when a new hook or a hook definition class i added.
+</span></span><span id="241" class="l"><a class="l" href="#241">241 </a><span class="php-comment"> * &lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; When a new hook or a hook definition class is added, you have to register files for autoloading.
 </span></span><span id="242" class="l"><a class="l" href="#242">242 </a><span class="php-comment"> *
 </span></span><span id="243" class="l"><a class="l" href="#243">243 </a><span class="php-comment"> * @param array $run_data Array with data what to run.
 </span></span><span id="244" class="l"><a class="l" href="#244">244 </a><span class="php-comment"> * @param bool $disable_unregistered_exception if true, exception that hook is not registered (

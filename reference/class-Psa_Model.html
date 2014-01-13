@@ -102,21 +102,17 @@
 
 	<div class="description">
 	
-<p>Models are the place for all business logic of your application.</p>
+<p>Models are the place for calculations, database interaction, data
+manipulation and other business logic.</p>
 
-<p>You can put all your calculations, database interaction and all other
-business logic in the model methods.</p>
+<p>Model classes contain methods that are called from the controller.</p>
 
-<p>Your model classes will contain methods that are called from the
-controller.</p>
+<p>Model method should return a value which is passed to the view method in the
+controller. You can also pass results from the model to the view method with
+<code><a href="class-Psa_Result.html">Psa_Result</a></code> object because it is accessible from templates and view
+objects (see <code><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></code> or <code><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></code>).</p>
 
-<p>You can put results from the model into the <code><a href="class-Psa_Result.html">Psa_Result</a></code> object because
-it is accessible from templates and view objects (see <code><a href="class-Psa_Dully_View.html">Psa_Dully_View</a></code> or
-<code><a href="class-Psa_Smarty_View.html">Psa_Smarty_View</a></code>). But, it is better and cleaner to make all your model
-methods to return values and then, in the controller action method you can pass
-results from the model to the view method as arguments.</p>
-
-<p>You can write your models by extending this class. Here is an example:</p>
+<p>Example:</p>
 
 <pre>
 <span class="xlang">&lt;?php</span>
@@ -138,45 +134,7 @@ class="xlang">?&gt;</span>
 <p><br />
 By extending <i>Psa_Model</i> class only <code><a href="class-Psa_Model.html#$psa_result">Psa_Model::<var>$psa_result</var></a></code>, <code><a href="class-Psa_Model.html#$psa_registry">Psa_Model::<var>$psa_registry</var></a></code> and <code><a href="class-Psa_Model.html#$psa_database">Psa_Model::<var>$psa_database</var></a></code> properties are set. So, if you do not
 need any of them in your model methods, your model class doesn't need to extend
-<i>Psa_Model</i>. For example, this is also a valid model class:</p>
-
-<pre>
-<span class="xlang">&lt;?php</span>
-<span
-class="php-keyword1">class</span> my_model{
-
-    <span
-class="php-comment">// Maximum number in result from functions below</span>
-    <span
-class="php-keyword1">var</span> <span class="php-var">$max_number</span> = <span
-class="php-num">150</span>;
-
-    <span
-class="php-comment">// Puts even numbers till $to_number in $psa_result object.</span>
-    <span
-class="php-keyword1">function</span> even_numbers(<span
-class="php-var">$to_number</span>){
-
-         <span
-class="php-keyword1">for</span>(<span class="php-var">$i</span>=<span
-class="php-num">0</span>; <span class="php-var">$i</span> &lt;= <span
-class="php-var">$this</span>-&gt;max_number; <span
-class="php-var">$i</span>++){
-              <span
-class="php-keyword1">if</span>(<span class="php-var">$i</span> % <span
-class="php-num">2</span> == <span class="php-num">0</span>)
-              <span
-class="php-var">$return</span>[] = <span
-class="php-var">$i</span>;
-         }
-
-         <span
-class="php-keyword1">return</span> <span
-class="php-var">$return</span>;
-    }
-}
-<span class="xlang">?&gt;</span>
-</pre>
+<i>Psa_Model</i>.</p>
 
 	</div>
 
@@ -203,7 +161,7 @@ class="php-var">$return</span>;
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_Model.html#32-121" title="Go to source code">lib/Psa_Model.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Model.html#32-96" title="Go to source code">lib/Psa_Model.php</a><br />
 	</div>
 
 
@@ -221,7 +179,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><strong><a href="source-class-Psa_Model.html#107-120" title="Go to source code">__construct</a></strong>( )</code>
+			<code><strong><a href="source-class-Psa_Model.html#82-95" title="Go to source code">__construct</a></strong>( )</code>
 
 			<div class="description short">
 				
@@ -264,7 +222,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_Model.html#86-90" title="Go to source code"><var>$psa_result</var></a>
+					<a href="source-class-Psa_Model.html#61-65" title="Go to source code"><var>$psa_result</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$psa_result" class="anchor">#</a>
@@ -290,7 +248,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_Model.html#93-97" title="Go to source code"><var>$psa_registry</var></a>
+					<a href="source-class-Psa_Model.html#68-72" title="Go to source code"><var>$psa_registry</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$psa_registry" class="anchor">#</a>
@@ -316,7 +274,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_Model.html#100-104" title="Go to source code"><var>$psa_database</var></a>
+					<a href="source-class-Psa_Model.html#75-79" title="Go to source code"><var>$psa_database</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$psa_database" class="anchor">#</a>

@@ -104,9 +104,8 @@
 	
 <p>Class for input data validation.</p>
 
-<p>You should validate all input data from users. Validation should occur in the
-model method, not in the controller (in some action method). That makes your
-models more independent and more reusable and testing is easier.</p>
+<p>You should validate all input data from users. Make each model or view method
+to validate its parameters if they are input from a user.</p>
 
 <p><br />
 <b>Usage example</b></p>
@@ -434,7 +433,7 @@ class="php-keyword1">false</span>;
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_Validator.html#32-1006" title="Go to source code">lib/Psa_Validator.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Validator.html#32-1005" title="Go to source code">lib/Psa_Validator.php</a><br />
 	</div>
 
 
@@ -452,7 +451,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_required">#</a>
-			<code><strong><a href="source-class-Psa_Validator.html#330-354" title="Go to source code">required</a></strong>( <span>mixed <var>$value</var></span>, <span>string <var>$type</var></span>, <span>mixed <var>$p</var>,…</span> )</code>
+			<code><strong><a href="source-class-Psa_Validator.html#329-353" title="Go to source code">required</a></strong>( <span>mixed <var>$value</var></span>, <span>string <var>$type</var></span>, <span>mixed <var>$p</var>,…</span> )</code>
 
 			<div class="description short">
 				
@@ -519,7 +518,7 @@ second, third,... parameter to <i>check_</i> methods.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_optional">#</a>
-			<code><strong><a href="source-class-Psa_Validator.html#357-376" title="Go to source code">optional</a></strong>( <span>mixed <var>$value</var></span>, <span>string <var>$type</var></span>, <span>mixed <var>$p</var>,…</span> )</code>
+			<code><strong><a href="source-class-Psa_Validator.html#356-375" title="Go to source code">optional</a></strong>( <span>mixed <var>$value</var></span>, <span>string <var>$type</var></span>, <span>mixed <var>$p</var>,…</span> )</code>
 
 			<div class="description short">
 				
@@ -577,7 +576,7 @@ useful for values from optional HTML form elements. See example in Psa_Validator
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_errors">#</a>
-			<code><strong><a href="source-class-Psa_Validator.html#379-391" title="Go to source code">get_errors</a></strong>( )</code>
+			<code><strong><a href="source-class-Psa_Validator.html#378-390" title="Go to source code">get_errors</a></strong>( )</code>
 
 			<div class="description short">
 				
@@ -619,7 +618,7 @@ useful for values from optional HTML form elements. See example in Psa_Validator
 
 			<td class="name"><div>
 			<a class="anchor" href="#_clean_errors">#</a>
-			<code><strong><a href="source-class-Psa_Validator.html#394-399" title="Go to source code">clean_errors</a></strong>( )</code>
+			<code><strong><a href="source-class-Psa_Validator.html#393-398" title="Go to source code">clean_errors</a></strong>( )</code>
 
 			<div class="description short">
 				
@@ -652,7 +651,7 @@ useful for values from optional HTML form elements. See example in Psa_Validator
 
 			<td class="name"><div>
 			<a class="anchor" href="#_fail">#</a>
-			<code><strong><a href="source-class-Psa_Validator.html#402-421" title="Go to source code">fail</a></strong>( <span>string <var>$message</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">610</span></span> )</code>
+			<code><strong><a href="source-class-Psa_Validator.html#401-420" title="Go to source code">fail</a></strong>( <span>string <var>$message</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">610</span></span> )</code>
 
 			<div class="description short">
 				

@@ -104,10 +104,8 @@
 	
 <p>User object class.</p>
 
-<p>Here are some examples of using <kbd>Psa_User</kbd> object.</p>
-
 <p><br />
-<b>Usage examples:</b></p>
+<b>Examples:</b></p>
 
 <p><br />
 <b>1)</b> Create a new user:</p>
@@ -246,7 +244,7 @@ class="php-num">5</span>,<span class="php-num">7</span>));
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_User.html#32-653" title="Go to source code">lib/Psa_User.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_User.html#32-651" title="Go to source code">lib/Psa_User.php</a><br />
 	</div>
 
 
@@ -264,7 +262,7 @@ href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><strong><a href="source-class-Psa_User.html#133-173" title="Go to source code">__construct</a></strong>( <span>integer|string <var>$user_id_or_username</var></span>, <span>array <var>$table_columns</var> = <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'username'</span>)</span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#131-171" title="Go to source code">__construct</a></strong>( <span>integer|string <var>$user_id_or_username</var></span>, <span>array <var>$table_columns</var> = <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'username'</span>)</span> )</code>
 
 			<div class="description short">
 				
@@ -323,7 +321,7 @@ on how to extend this class and add more columns to the database table.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_authorize">#</a>
-			<code><strong><a href="source-class-Psa_User.html#176-211" title="Go to source code">authorize</a></strong>( <span>string <var>$password</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$write_success_login_logs</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$save_to_session</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#174-209" title="Go to source code">authorize</a></strong>( <span>string <var>$password</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$write_success_login_logs</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$save_to_session</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -386,7 +384,7 @@ the session if session is started before.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_restore">#</a>
-			<code><strong><a href="source-class-Psa_User.html#214-245" title="Go to source code">restore</a></strong>( <span>mixed <var>$restore_by</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#212-243" title="Go to source code">restore</a></strong>( <span>mixed <var>$restore_by</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -434,7 +432,7 @@ value from the database.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_save">#</a>
-			<code><strong><a href="source-class-Psa_User.html#248-288" title="Go to source code">save</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#246-286" title="Go to source code">save</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -491,7 +489,7 @@ set, column names set by the constructor are used.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_add_group">#</a>
-			<code><strong><a href="source-class-Psa_User.html#291-316" title="Go to source code">add_group</a></strong>( <span>integer|array <var>$group_id</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#289-314" title="Go to source code">add_group</a></strong>( <span>integer|array <var>$group_id</var></span> )</code>
 
 			<div class="description short">
 				
@@ -562,7 +560,7 @@ not exist.<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_remove_group">#</a>
-			<code><strong><a href="source-class-Psa_User.html#319-345" title="Go to source code">remove_group</a></strong>( <span>integer|array|string <var>$group_id</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#317-343" title="Go to source code">remove_group</a></strong>( <span>integer|array|string <var>$group_id</var></span> )</code>
 
 			<div class="description short">
 				
@@ -634,7 +632,7 @@ exist.<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_password_change">#</a>
-			<code><strong><a href="source-class-Psa_User.html#424-469" title="Go to source code">password_change</a></strong>( <span>string <var>$new_password</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#422-467" title="Go to source code">password_change</a></strong>( <span>string <var>$new_password</var></span> )</code>
 
 			<div class="description short">
 				
@@ -688,7 +686,7 @@ password for the existing user. Throws <code><a href="class-Psa_User_Exception.h
 
 			<td class="name"><div>
 			<a class="anchor" href="#_password_verify">#</a>
-			<code><strong><a href="source-class-Psa_User.html#472-511" title="Go to source code">password_verify</a></strong>( <span>string <var>$password</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#470-509" title="Go to source code">password_verify</a></strong>( <span>string <var>$password</var></span> )</code>
 
 			<div class="description short">
 				
@@ -742,7 +740,7 @@ process of changing user password to verify the old password.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_password_hash">#</a>
-			<code><strong><a href="source-class-Psa_User.html#514-529" title="Go to source code">password_hash</a></strong>( <span>string <var>$password</var></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#512-527" title="Go to source code">password_hash</a></strong>( <span>string <var>$password</var></span> )</code>
 
 			<div class="description short">
 				
@@ -793,7 +791,7 @@ default is sha256.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_groups">#</a>
-			<code><strong><a href="source-class-Psa_User.html#561-602" title="Go to source code">get_groups</a></strong>( )</code>
+			<code><strong><a href="source-class-Psa_User.html#559-600" title="Go to source code">get_groups</a></strong>( )</code>
 
 			<div class="description short">
 				
@@ -845,7 +843,7 @@ method before to get the user ID from the database.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_save_last_login_time">#</a>
-			<code><strong><a href="source-class-Psa_User.html#605-622" title="Go to source code">save_last_login_time</a></strong>( )</code>
+			<code><strong><a href="source-class-Psa_User.html#603-620" title="Go to source code">save_last_login_time</a></strong>( )</code>
 
 			<div class="description short">
 				
@@ -892,7 +890,7 @@ user. It will also set value of the <code><a href="class-Psa_User.html#$last_log
 
 			<td class="name"><div>
 			<a class="anchor" href="#_session_save">#</a>
-			<code><strong><a href="source-class-Psa_User.html#625-652" title="Go to source code">session_save</a></strong>( <span>boolean <var>$throw_exception</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><strong><a href="source-class-Psa_User.html#623-650" title="Go to source code">session_save</a></strong>( <span>boolean <var>$throw_exception</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -953,7 +951,7 @@ username from this session variable if not explicitly set otherwise. See <code><
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_User.html#94-101" title="Go to source code"><var>$id</var></a>
+					<a href="source-class-Psa_User.html#92-99" title="Go to source code"><var>$id</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$id" class="anchor">#</a>
@@ -981,7 +979,7 @@ username from this session variable if not explicitly set otherwise. See <code><
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_User.html#104-109" title="Go to source code"><var>$username</var></a>
+					<a href="source-class-Psa_User.html#102-107" title="Go to source code"><var>$username</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$username" class="anchor">#</a>
@@ -1007,7 +1005,7 @@ username from this session variable if not explicitly set otherwise. See <code><
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_User.html#112-119" title="Go to source code"><var>$password</var></a>
+					<a href="source-class-Psa_User.html#110-117" title="Go to source code"><var>$password</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$password" class="anchor">#</a>
@@ -1035,7 +1033,7 @@ username from this session variable if not explicitly set otherwise. See <code><
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Psa_User.html#122-128" title="Go to source code"><var>$last_login</var></a>
+					<a href="source-class-Psa_User.html#120-126" title="Go to source code"><var>$last_login</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$last_login" class="anchor">#</a>

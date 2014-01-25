@@ -164,7 +164,7 @@
 </span></span><span id="64" class="l"><a class="l" href="#64">  64 </a><span class="php-comment"> *
 </span></span><span id="65" class="l"><a class="l" href="#65">  65 </a><span class="php-comment"> * Two main methods in this class are {@link required()} and {@link optional()}. They behave the same way except that
 </span></span><span id="66" class="l"><a class="l" href="#66">  66 </a><span class="php-comment"> * {@link optional()} will not raise exception if value is empty or &lt;kbd&gt;null&lt;/kbd&gt;.
-</span></span><span id="67" class="l"><a class="l" href="#67">  67 </a><span class="php-comment"> * Like in the example above, first argument is the value that should be validated and second is the name of the 
+</span></span><span id="67" class="l"><a class="l" href="#67">  67 </a><span class="php-comment"> * Like in the example above, first argument is the value that should be validated and second is the name of the
 </span></span><span id="68" class="l"><a class="l" href="#68">  68 </a><span class="php-comment"> * validation action. See {@link required()} method documentation for all action names.
 </span></span><span id="69" class="l"><a class="l" href="#69">  69 </a><span class="php-comment"> * Some validation actions require more parameters. Examples:
 </span></span><span id="70" class="l"><a class="l" href="#70">  70 </a><span class="php-comment"> *
@@ -897,7 +897,7 @@
 </span></span><span id="797" class="l"><a class="l" href="#797"> 797 </a><span class="php-comment">     */</span>
 </span><span id="798" class="l"><a class="l" href="#798"> 798 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_check_string" href="#_check_string">check_string</a>(<span class="php-var">$value</span>){
 </span><span id="799" class="l"><a class="l" href="#799"> 799 </a>
-</span><span id="800" class="l"><a class="l" href="#800"> 800 </a>        <span class="php-keyword1">if</span>(<span class="php-keyword2">is_array</span>(<span class="php-var">$value</span>) <span class="php-keyword1">or</span> <span class="php-keyword2">is_object</span>(<span class="php-var">$value</span>) <span class="php-keyword1">or</span> <span class="php-var">$value</span> === <span class="php-quote">''</span>)
+</span><span id="800" class="l"><a class="l" href="#800"> 800 </a>        <span class="php-keyword1">if</span>(<span class="php-keyword2">is_array</span>(<span class="php-var">$value</span>) <span class="php-keyword1">or</span> <span class="php-keyword2">is_object</span>(<span class="php-var">$value</span>))
 </span><span id="801" class="l"><a class="l" href="#801"> 801 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
 </span><span id="802" class="l"><a class="l" href="#802"> 802 </a>
 </span><span id="803" class="l"><a class="l" href="#803"> 803 </a>        <span class="php-keyword1">if</span>(<span class="php-keyword2">strval</span>(<span class="php-var">$value</span>) == <span class="php-var">$value</span>){

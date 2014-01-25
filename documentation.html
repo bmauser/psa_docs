@@ -266,7 +266,7 @@ h3 {
 	<div class="content">
 		<ul class="blists">
 			<li><strong>$this-&gt;psa_database</strong> (in models) - <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_PDO.html">Psa_PDO</a> object</li>
-			<li><strong>$this-&gt;psa_registry</strong> (in models and views) - global <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_Registry.html">registry</a> object
+			<li><strong>$this-&gt;psa_registry</strong> (in models and views) -  <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_Registry.html">registry</a> object
 <ul>
 					<li><strong>$this-&gt;psa_registry-&gt;CFG</strong> - your application config array (defined in <em><a href="https://github.com/bmauser/psa_skeleton_app/blob/master/app/config.php">app/config.php</a></em>)</li>
 					<li><strong>$this-&gt;psa_registry-&gt;PSA_CFG</strong> - PSA config array (defined in<em> <a href="https://github.com/bmauser/psa/blob/master/config.php">app/psa/config.php</a></em> or <em>app/psa/config_override.php</em>)</li>
@@ -274,9 +274,10 @@ h3 {
 						Example: '/test/mytestapp'</li>
 					<li><strong>$this-&gt;psa_registry-&gt;base_url</strong> - application home URL (set by <em>app/psa/front_controller.php</em>)<br />
 						Example: 'https://localhost/test/mytestapp'</li>
+					<li><strong>$this-&gt;psa_registry-&gt;user</strong> - user object</li>
 				</ul>
 			</li>
-			<li><strong>$this-&gt;psa_result</strong> (in models and views) - global <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_Result.html">result</a> object</li>
+			<li><strong>$this-&gt;psa_result</strong> (in models and views) -  <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_Result.html">result</a> object</li>
 			<li><strong>PSA_BASE_DIR</strong> constant with file system path to <em>app/psa</em> directory</li>
 			<li><strong>APP_BASE_DIR</strong> constant with file system path to  <em>app</em> directory</li>
 		</ul>

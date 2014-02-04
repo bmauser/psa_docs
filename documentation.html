@@ -206,8 +206,7 @@ h3 {
 	</div>
 	<h1>What is PhpStartApp (PSA)?<a name="whatis" id="whatis"></a></h1>
 	<div class="content">
-		<p>PhpStartApp is a simple PHP  application which is intended to be the base or the starting point for  a PHP application. It is  an application based on the small  framework called PSA in which I included only those features that I've been using  in almost all  applications I've been working on. Once I  needed  a relatively simple  base for my new application and started this project.</p>
-		<p>Documentation is short, there is only this page  and the <strong><a href="http://bojanmauser.from.hr/phpstartapp/reference">reference</a></strong>, but if you  want to try PSA and have any experience with PHP it should be  easy for you.</p>
+		<p>PhpStartApp is a simple PHP  application which is intended to be the base or the starting point for  a PHP application. It is  an application based on the small  framework I called PSA.</p>
 		<p><strong>Main features:</strong></p>
 		<ul>
 			<li>classes for basic actions with users and groups</li>
@@ -216,7 +215,9 @@ h3 {
 			<li>templating engine (<a href="http://www.smarty.net/" target="_blank">Smarty</a>, php templates)</li>
 			<li>user input validation</li>
 		</ul>
-		<p><strong>Home page:</strong> <a href="http://code.google.com/p/phpstartapp">http://code.google.com/p/phpstartapp</a> </p>
+		<p><strong>Home page:</strong> <a href="http://code.google.com/p/phpstartapp">http://code.google.com/p/phpstartapp</a></p>
+		<p><strong>NOTE:</strong> Once I  needed  a relatively simple  base for my new application and started this project in which I included only those features that I've been using  in almost all  applications I've been working on. You can use this project to start a  PHP application, but if you searching for your new framework there are many popular and much advanced PHP frameworks around that you should look at first. <br />
+		Documentation is short, only this page  and the <strong><a href="http://bojanmauser.from.hr/phpstartapp/reference">reference</a></strong>, but if you  want to try PSA and have some experience with PHP it should be  easy for you to start build a simple application.</p>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="donate_form" style="text-align:center">
 			<input type="hidden" name="cmd" value="_s-xclick" />
 			<input type="hidden" name="hosted_button_id" value="WXSFX7BSN22SL" />
@@ -266,7 +267,7 @@ h3 {
 	<div class="content">
 		<ul class="blists">
 			<li><strong>$this-&gt;psa_database</strong> (in models) - <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_PDO.html">Psa_PDO</a> object</li>
-			<li><strong>$this-&gt;psa_registry</strong> (in models and views) - global <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_Registry.html">registry</a> object
+			<li><strong>$this-&gt;psa_registry</strong> (in models and views) -  <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_Registry.html">registry</a> object
 <ul>
 					<li><strong>$this-&gt;psa_registry-&gt;CFG</strong> - your application config array (defined in <em><a href="https://github.com/bmauser/psa_skeleton_app/blob/master/app/config.php">app/config.php</a></em>)</li>
 					<li><strong>$this-&gt;psa_registry-&gt;PSA_CFG</strong> - PSA config array (defined in<em> <a href="https://github.com/bmauser/psa/blob/master/config.php">app/psa/config.php</a></em> or <em>app/psa/config_override.php</em>)</li>
@@ -274,9 +275,10 @@ h3 {
 						Example: '/test/mytestapp'</li>
 					<li><strong>$this-&gt;psa_registry-&gt;base_url</strong> - application home URL (set by <em>app/psa/front_controller.php</em>)<br />
 						Example: 'https://localhost/test/mytestapp'</li>
+					<li><strong>$this-&gt;psa_registry-&gt;user</strong> - user object</li>
 				</ul>
 			</li>
-			<li><strong>$this-&gt;psa_result</strong> (in models and views) - global <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_Result.html">result</a> object</li>
+			<li><strong>$this-&gt;psa_result</strong> (in models and views) -  <a href="http://bojanmauser.from.hr/phpstartapp/reference/class-Psa_Result.html">result</a> object</li>
 			<li><strong>PSA_BASE_DIR</strong> constant with file system path to <em>app/psa</em> directory</li>
 			<li><strong>APP_BASE_DIR</strong> constant with file system path to  <em>app</em> directory</li>
 		</ul>

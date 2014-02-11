@@ -7,7 +7,7 @@
 	<title>Class Psa_Active_Record | PSA Reference</title>
 
 	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
-	<script type="text/javascript" src="elementlist.js?2199292422"></script>
+	<script type="text/javascript" src="elementlist.js?346668882"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -174,7 +174,7 @@ For example of usage, check source code of <code><a href="class-Psa_Group.html">
 				<b>Author:</b>
 				Bojan Mauser &lt;<a
 href="mailto:bmauser&#64;gmail.com">bmauser&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Psa_Active_Record.html#32-318" title="Go to source code">lib/Psa_Active_Record.php</a><br />
+		<b>Located at</b> <a href="source-class-Psa_Active_Record.html#32-406" title="Go to source code">lib/Psa_Active_Record.php</a><br />
 	</div>
 
 
@@ -245,7 +245,7 @@ setting this argument.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_restore_from_database">#</a>
-			<code><strong><a href="source-class-Psa_Active_Record.html#181-228" title="Go to source code">restore_from_database</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$custom_query</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$custom_query_params</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><strong><a href="source-class-Psa_Active_Record.html#181-226" title="Go to source code">restore_from_database</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$custom_query</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$custom_query_params</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -299,7 +299,7 @@ replaced with comma delimited column names.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_save_to_database">#</a>
-			<code><strong><a href="source-class-Psa_Active_Record.html#248-317" title="Go to source code">save_to_database</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span>, <span>array <var>$and_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><strong><a href="source-class-Psa_Active_Record.html#246-294" title="Go to source code">save_to_database</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span>, <span>array <var>$and_columns</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -337,6 +337,117 @@ constructor or <var>$only_columns</var> argument.</dd>
 						<code><code><a href="class-Psa_Active_Record_Exception.html">Psa_Active_Record_Exception</a></code></code><br />
 					</div>
 
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="save_to_session" id="_save_to_session">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_save_to_session">#</a>
+			<code><strong><a href="source-class-Psa_Active_Record.html#297-326" title="Go to source code">save_to_session</a></strong>( <span>array <var>$only_columns</var> = <span class="php-keyword1">array</span>()</span>, <span>array <var>$and_columns</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$save_key</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Saves values from the object's member variables to the session.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Saves values from the object's member variables to the session.</p>
+
+<p>This method will save values from object's member variables mentioned in
+<var>$column_names</var> parameter in the constructor method to the session.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$only_columns</var></dt>
+												<dd><code>array</code><br>Array with column names to save to the database. If not set, column names set by
+the constructor are used.</dd>
+						<dt><var>$and_columns</var></dt>
+												<dd><code>array</code><br>Array with column names to be saved together with default columns set by the
+constructor or <var>$only_columns</var> argument.</dd>
+						<dt><var>$save_key</var></dt>
+												<dd><code>string</code><br>Database table name will be used by default.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Active_Record_Exception.html">Psa_Active_Record_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Active_Record.html#_restore_from_session">Psa_Active_Record::restore_from_session()</a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="restore_from_session" id="_restore_from_session">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_restore_from_session">#</a>
+			<code><strong><a href="source-class-Psa_Active_Record.html#329-366" title="Go to source code">restore_from_session</a></strong>( <span>string <var>$save_key</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Restores data from the session saved with the <code><a href="class-Psa_Active_Record.html#_save_to_session">Psa_Active_Record::save_to_session()</a></code>
+method and populates objects member variables.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Restores data from the session saved with the <code><a href="class-Psa_Active_Record.html#_save_to_session">Psa_Active_Record::save_to_session()</a></code>
+method and populates objects member variables.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$save_key</var></dt>
+												<dd><code>string</code><br>Database table name will be used by default.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Psa_Active_Record_Exception.html">Psa_Active_Record_Exception</a></code></code><br />
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Psa_Active_Record.html#_restore_from_session">Psa_Active_Record::restore_from_session()</a></code></code><br />
+					</div>
 
 
 			</div>

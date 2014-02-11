@@ -8,7 +8,7 @@
 	<title>File lib/Psa_Validator.php | PSA Reference</title>
 
 	<script type="text/javascript" src="resources/combined.js?3555732264"></script>
-	<script type="text/javascript" src="elementlist.js?2199292422"></script>
+	<script type="text/javascript" src="elementlist.js?346668882"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -389,7 +389,7 @@
 </span><span id="289" class="l"><a class="l" href="#289"> 289 </a>    <span class="php-comment">/**
 </span></span><span id="290" class="l"><a class="l" href="#290"> 290 </a><span class="php-comment">     * @ignore
 </span></span><span id="291" class="l"><a class="l" href="#291"> 291 </a><span class="php-comment">     */</span>
-</span><span id="292" class="l"><a class="l" href="#292"> 292 </a>    <span class="php-keyword1">protected</span> <span class="php-var"><a id="$msg_check_identical" href="#$msg_check_identical">$msg_check_identical</a></span>  = <span class="php-quote">&quot;%v is not identical(===) %p1&quot;</span>;
+</span><span id="292" class="l"><a class="l" href="#292"> 292 </a>    <span class="php-keyword1">protected</span> <span class="php-var"><a id="$msg_check_identical" href="#$msg_check_identical">$msg_check_identical</a></span>  = <span class="php-quote">&quot;%v is not identical (===) %p1&quot;</span>;
 </span><span id="293" class="l"><a class="l" href="#293"> 293 </a>    <span class="php-comment">/**
 </span></span><span id="294" class="l"><a class="l" href="#294"> 294 </a><span class="php-comment">     * @ignore
 </span></span><span id="295" class="l"><a class="l" href="#295"> 295 </a><span class="php-comment">     */</span>
@@ -897,7 +897,7 @@
 </span></span><span id="797" class="l"><a class="l" href="#797"> 797 </a><span class="php-comment">     */</span>
 </span><span id="798" class="l"><a class="l" href="#798"> 798 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_check_string" href="#_check_string">check_string</a>(<span class="php-var">$value</span>){
 </span><span id="799" class="l"><a class="l" href="#799"> 799 </a>
-</span><span id="800" class="l"><a class="l" href="#800"> 800 </a>        <span class="php-keyword1">if</span>(<span class="php-keyword2">is_array</span>(<span class="php-var">$value</span>) <span class="php-keyword1">or</span> <span class="php-keyword2">is_object</span>(<span class="php-var">$value</span>))
+</span><span id="800" class="l"><a class="l" href="#800"> 800 </a>        <span class="php-keyword1">if</span>(<span class="php-keyword2">is_array</span>(<span class="php-var">$value</span>) <span class="php-keyword1">or</span> <span class="php-keyword2">is_object</span>(<span class="php-var">$value</span>) <span class="php-keyword1">or</span> <span class="php-var">$value</span> === <span class="php-quote">''</span>)
 </span><span id="801" class="l"><a class="l" href="#801"> 801 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
 </span><span id="802" class="l"><a class="l" href="#802"> 802 </a>
 </span><span id="803" class="l"><a class="l" href="#803"> 803 </a>        <span class="php-keyword1">if</span>(<span class="php-keyword2">strval</span>(<span class="php-var">$value</span>) == <span class="php-var">$value</span>){
